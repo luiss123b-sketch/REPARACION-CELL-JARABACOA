@@ -41,7 +41,7 @@ footer{position:relative;padding:70px 18px 110px;text-align:center;color:#f4f4f5
 <body>
   <header>
     <div class="nav-container">
-      <a href="#" class="brand"><img src="img/logo.png" alt="Web Reparación Cell" class="brand-logo"><div class="brand-text"><h1>WEB REPARACIÓN CELL</h1><span>Jarabacoa · Medina y Pinar Quemado</span></div></a>
+      <a href="#" class="brand"><img onerror="if(!this.dataset.t){this.dataset.t=1;this.src='logo.png';}else if(this.dataset.t==1){this.dataset.t=2;this.src='logo.JPG';}else if(this.dataset.t==2){this.dataset.t=3;this.src='logo.PNG';}else if(this.dataset.t==3){this.dataset.t=4;this.src='img/logo.JPG';}" src="img/logo.png" alt="Web Reparación Cell" class="brand-logo"><div class="brand-text"><h1>WEB REPARACIÓN CELL</h1><span>Jarabacoa · Medina y Pinar Quemado</span></div></a>
       <nav><a href="#buscador">Precios y Pagos</a><a href="#sucursales">Medina & Pinar Quemado</a><a href="#galeria">Galería</a><a href="#resenas">Reseñas</a></nav>
       <div class="header-btns"><button onclick="abrirModalPago('Pago General / Abono', 'Monto acordado')" class="btn-gold">💳 Pagar</button><button onclick="abrirAdmin()" id="btnHeaderAdmin" class="btn-outline">🔒 Iniciar Sesión</button></div>
     </div>
@@ -121,76 +121,19 @@ footer{position:relative;padding:70px 18px 110px;text-align:center;color:#f4f4f5
   <button onclick="cerrarAdmin()" style="background:#dc2626;color:#fff;border:none;padding:9px 16px;border-radius:10px;font-weight:700;cursor:pointer;margin:4px;">Salir Admin</button>
 </div>
 <div class="gallery-grid" id="gridGaleria">
-<div class="gallery-item" data-idx="0">
-  <img src="img/hero_taller.jpg" alt="Trabajo Reparación Cell">
-  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
-  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
-</div>
-<div class="gallery-item" data-idx="1">
-  <img src="img/trabajo_01.jpg" alt="Trabajo Reparación Cell">
-  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
-  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
-</div>
-<div class="gallery-item" data-idx="2">
-  <img src="img/trabajo_03.jpg" alt="Trabajo Reparación Cell">
-  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
-  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
-</div>
-<div class="gallery-item" data-idx="3">
-  <img src="img/trabajo_04.jpg" alt="Trabajo Reparación Cell">
-  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
-  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
-</div>
-<div class="gallery-item" data-idx="4">
-  <img src="img/trabajo_05.jpg" alt="Trabajo Reparación Cell">
-  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
-  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
-</div>
-<div class="gallery-item" data-idx="5">
-  <img src="img/trabajo_06.jpg" alt="Trabajo Reparación Cell">
-  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
-  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
-</div>
-<div class="gallery-item" data-idx="6">
-  <img src="img/trabajo_07.jpg" alt="Trabajo Reparación Cell">
-  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
-  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
-</div>
-<div class="gallery-item" data-idx="7">
-  <img src="img/trabajo_08.jpg" alt="Trabajo Reparación Cell">
-  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
-  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
-</div>
-<div class="gallery-item" data-idx="8">
-  <img src="img/trabajo_09.jpg" alt="Trabajo Reparación Cell">
-  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
-  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
-</div>
-<div class="gallery-item" data-idx="9">
-  <img src="img/trabajo_10.jpg" alt="Trabajo Reparación Cell">
-  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
-  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
-</div>
-<div class="gallery-item" data-idx="10">
-  <img src="img/trabajo_11.jpg" alt="Trabajo Reparación Cell">
-  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
-  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
-</div>
-<div class="gallery-item" data-idx="11">
-  <img src="img/trabajo_12.jpg" alt="Trabajo Reparación Cell">
-  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
-  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
-</div>
-<div class="gallery-item" data-idx="12">
-  <img src="img/trabajo_13.jpg" alt="Trabajo Reparación Cell">
-  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
-  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
-</div>
-<div class="gallery-item" data-idx="13">
-  <img src="img/trabajo_14.jpg" alt="Trabajo Reparación Cell">
-  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
-  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
-</div>
+<div class="gallery-item"><img src="img/.DS_Store" alt="Trabajo Reparación Cell"><button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button><button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button></div>
+<div class="gallery-item"><img src="img/trabajo_03.jpg" alt="Trabajo Reparación Cell"><button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button><button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button></div>
+<div class="gallery-item"><img src="img/trabajo_04.jpg" alt="Trabajo Reparación Cell"><button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button><button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button></div>
+<div class="gallery-item"><img src="img/trabajo_05.jpg" alt="Trabajo Reparación Cell"><button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button><button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button></div>
+<div class="gallery-item"><img src="img/trabajo_06.jpg" alt="Trabajo Reparación Cell"><button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button><button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button></div>
+<div class="gallery-item"><img src="img/trabajo_07.jpg" alt="Trabajo Reparación Cell"><button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button><button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button></div>
+<div class="gallery-item"><img src="img/trabajo_08.jpg" alt="Trabajo Reparación Cell"><button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button><button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button></div>
+<div class="gallery-item"><img src="img/trabajo_09.jpg" alt="Trabajo Reparación Cell"><button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button><button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button></div>
+<div class="gallery-item"><img src="img/trabajo_10.jpg" alt="Trabajo Reparación Cell"><button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button><button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button></div>
+<div class="gallery-item"><img src="img/trabajo_11.jpg" alt="Trabajo Reparación Cell"><button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button><button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button></div>
+<div class="gallery-item"><img src="img/trabajo_12.jpg" alt="Trabajo Reparación Cell"><button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button><button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button></div>
+<div class="gallery-item"><img src="img/trabajo_13.jpg" alt="Trabajo Reparación Cell"><button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button><button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button></div>
+<div class="gallery-item"><img src="img/trabajo_14.jpg" alt="Trabajo Reparación Cell"><button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button><button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button></div>
 </div></section>
   <div class="workshop-bg-section" id="resenas"><div class="workshop-inner"><div class="sec-head"><h3>Lo Que Dicen Nuestros Clientes en Google</h3><p>Calidad comprobada en Medina y Pinar Quemado.</p></div><div class="reviews-grid"><div class="rev-card"><div style="color:var(--gold);margin-bottom:8px;">★★★★★</div><p style="color:#e4e4e7;margin-bottom:10px;">"Tuve un problema con mi móvil mientras visitaba Jarabacoa y encontré esta increíble tienda. En menos de una hora mi teléfono estaba como nuevo."</p><strong style="color:var(--gold-light);">— Edison Puma · Google</strong></div><div class="rev-card"><div style="color:var(--gold);margin-bottom:8px;">★★★★★</div><p style="color:#e4e4e7;margin-bottom:10px;">"Excelente atención para reparar mi teléfono y además encontré el cover ideal para cuidarlo. Muy recomendados en Jarabacoa."</p><strong style="color:var(--gold-light);">— Stayce De La Rosa · Google</strong></div><div class="rev-card"><div style="color:var(--gold);margin-bottom:8px;">★★★★★</div><p style="color:#e4e4e7;margin-bottom:10px;">"Los mejores en iPhone en Jarabacoa. Me salvaron un teléfono mojado que en otros sitios daban por perdido y con garantía."</p><strong style="color:var(--gold-light);">— Carlos M. · Google</strong></div><div class="rev-card"><div style="color:var(--gold);margin-bottom:8px;">★★★★★</div><p style="color:#e4e4e7;margin-bottom:10px;">"Llevé mi PlayStation y dos mandos con drift en las palancas; quedaron como de fábrica el mismo día. Servicio 10/10."</p><strong style="color:var(--gold-light);">— José Luis R. · Google</strong></div></div><div style="text-align:center;margin-top:26px;"><a href="https://g.page" target="_blank" class="btn-gold">⭐ Ver Todas las Reseñas o Dejar la Tuya en Google</a></div></div></div>
   
@@ -210,7 +153,7 @@ footer{position:relative;padding:70px 18px 110px;text-align:center;color:#f4f4f5
 </div>
 <!-- MAPAS_JARABACOA_END -->
 
-<footer><img src="img/logo.png" alt="Web Reparación Cell" style="width:68px;height:68px;border-radius:16px;border:1.5px solid var(--gold);margin-bottom:10px;object-fit:cover"><br><strong style="color:#fff;font-size:1.15rem;">WEB REPARACIÓN CELL · JARABACOA</strong><p style="margin-top:6px;">Medina & Pinar Quemado · Jarabacoa, La Vega · Tel: +1 (809) 975-7231</p>
+<footer><img onerror="if(!this.dataset.t){this.dataset.t=1;this.src='logo.png';}else if(this.dataset.t==1){this.dataset.t=2;this.src='logo.JPG';}else if(this.dataset.t==2){this.dataset.t=3;this.src='logo.PNG';}else if(this.dataset.t==3){this.dataset.t=4;this.src='img/logo.JPG';}" src="img/logo.png" alt="Web Reparación Cell" style="width:68px;height:68px;border-radius:16px;border:1.5px solid var(--gold);margin-bottom:10px;object-fit:cover"><br><strong style="color:#fff;font-size:1.15rem;">WEB REPARACIÓN CELL · JARABACOA</strong><p style="margin-top:6px;">Medina & Pinar Quemado · Jarabacoa, La Vega · Tel: +1 (809) 975-7231</p>
 <div class="socials" style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:16px 0;">
   <a href="https://www.instagram.com/reparacion_cell1/" target="_blank" style="background:#E1306C;color:#fff;padding:9px 16px;border-radius:99px;font-weight:700;text-decoration:none;font-size:0.88rem;">📸 @reparacion_cell1</a>
   <a href="https://www.instagram.com/rep_aracioncell/" target="_blank" style="background:#C13584;color:#fff;padding:9px 16px;border-radius:99px;font-weight:700;text-decoration:none;font-size:0.88rem;">📸 @rep_aracioncell</a>
@@ -258,7 +201,7 @@ footer{position:relative;padding:70px 18px 110px;text-align:center;color:#f4f4f5
     let categoriaActual = "", adminLogueado = false;
     async function cargarGaleriaInicial() { if (!GALERIA) { try { const r = await fetch("galeria.json"); GALERIA = await r.json(); } catch(e) { GALERIA = []; } } renderGaleria(); }
     function guardarTodo() { localStorage.setItem("rc_catalogo_v2", JSON.stringify(CATALOGO)); localStorage.setItem("rc_galeria_v2", JSON.stringify(GALERIA)); }
-    function renderGaleria() { document.getElementById("gridGaleria").innerHTML = (GALERIA || []).map((src, idx) => `<div class="gallery-item"><img src="${src}" alt="Reparación Cell" loading="lazy" onerror="this.parentElement.remove()">${adminLogueado ? `<button class="del-gal-btn" onclick="eliminarFotoGaleria(${idx})">✕ Quitar</button>` : ""}</div>`).join(""); }
+    function renderGaleria() { document.getElementById("gridGaleria").innerHTML = (GALERIA || []).map((src, idx) => `<div class="gallery-item"><img onerror="if(!this.dataset.t){this.dataset.t=1;this.src='${src}';}else if(this.dataset.t==1){this.dataset.t=2;this.src='${src}.JPG';}else if(this.dataset.t==2){this.dataset.t=3;this.src='${src}.PNG';}else if(this.dataset.t==3){this.dataset.t=4;this.src='img/${src}.JPG';}" src="${src}" alt="Reparación Cell" loading="lazy" onerror="this.parentElement.remove()">${adminLogueado ? `<button class="del-gal-btn" onclick="eliminarFotoGaleria(${idx})">✕ Quitar</button>` : ""}</div>`).join(""); }
     function cerrarResultados() { categoriaActual = ""; document.getElementById("inputBusqueda").value = ""; document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active")); document.getElementById("contenedorCatalogo").innerHTML = ""; }
     function alEscribirBusqueda() {
       const input = document.getElementById("inputBusqueda"), lista = document.getElementById("listaSugerencias"), t = input.value.toLowerCase().trim();
@@ -276,7 +219,7 @@ footer{position:relative;padding:70px 18px 110px;text-align:center;color:#f4f4f5
 
 
 <button onclick="abrirModalPago('${q.replace(/'/g,"")}','Monto acordado')" class="btn-gold">💳 Pagar / Reservar</button></div></div></div>`; return; }
-      cont.innerHTML = lista.map(item => `<div class="item-card">${item.img ? `<img src="${item.img}" alt="${item.nombre}" class="item-img">` : ""}<div class="item-body"><div><span class="item-cat">${item.categoria}</span><h4>${item.nombre}</h4><p class="item-desc">${item.desc}</p></div><div><span class="item-price">${item.precio}</span><div class="item-actions"><a href="https://wa.me{TEL}?text=${encodeURIComponent('Hola Reparación Cell Jarabacoa, quiero cotizar: '+item.nombre)}" target="_blank" class="btn-outline">📲 Cotizar</a>
+      cont.innerHTML = lista.map(item => `<div class="item-card">${item.img ? `<img onerror="if(!this.dataset.t){this.dataset.t=1;this.src='${item.img}';}else if(this.dataset.t==1){this.dataset.t=2;this.src='${item.JPG';}else if(this.dataset.t==2){this.dataset.t=3;this.src='${item.PNG';}else if(this.dataset.t==3){this.dataset.t=4;this.src='img/${item.JPG';}" src="${item.img}" alt="${item.nombre}" class="item-img">` : ""}<div class="item-body"><div><span class="item-cat">${item.categoria}</span><h4>${item.nombre}</h4><p class="item-desc">${item.desc}</p></div><div><span class="item-price">${item.precio}</span><div class="item-actions"><a href="https://wa.me{TEL}?text=${encodeURIComponent('Hola Reparación Cell Jarabacoa, quiero cotizar: '+item.nombre)}" target="_blank" class="btn-outline">📲 Cotizar</a>
 
 
 <button onclick="abrirModalPago('${item.nombre.replace(/'/g,"")}','${item.precio}')" class="btn-gold">💳 Pagar</button></div></div></div></div>`).join("");
@@ -323,7 +266,7 @@ cat << 'EOF' >> index.html
     let categoriaActual = "", adminLogueado = false;
     async function cargarGaleriaInicial() { if (!GALERIA) { try { const r = await fetch("galeria.json"); GALERIA = await r.json(); } catch(e) { GALERIA = []; } } renderGaleria(); }
     function guardarTodo() { localStorage.setItem("rc_catalogo_v2", JSON.stringify(CATALOGO)); localStorage.setItem("rc_galeria_v2", JSON.stringify(GALERIA)); }
-    function renderGaleria() { document.getElementById("gridGaleria").innerHTML = (GALERIA || []).map((src, idx) => `<div class="gallery-item"><img src="${src}" alt="Reparación Cell" loading="lazy" onerror="this.parentElement.remove()">${adminLogueado ? `<button class="del-gal-btn" onclick="eliminarFotoGaleria(${idx})">✕ Quitar</button>` : ""}</div>`).join(""); }
+    function renderGaleria() { document.getElementById("gridGaleria").innerHTML = (GALERIA || []).map((src, idx) => `<div class="gallery-item"><img onerror="if(!this.dataset.t){this.dataset.t=1;this.src='${src}';}else if(this.dataset.t==1){this.dataset.t=2;this.src='${src}.JPG';}else if(this.dataset.t==2){this.dataset.t=3;this.src='${src}.PNG';}else if(this.dataset.t==3){this.dataset.t=4;this.src='img/${src}.JPG';}" src="${src}" alt="Reparación Cell" loading="lazy" onerror="this.parentElement.remove()">${adminLogueado ? `<button class="del-gal-btn" onclick="eliminarFotoGaleria(${idx})">✕ Quitar</button>` : ""}</div>`).join(""); }
     function cerrarResultados() { categoriaActual = ""; document.getElementById("inputBusqueda").value = ""; document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active")); document.getElementById("contenedorCatalogo").innerHTML = ""; }
     function alEscribirBusqueda() {
       const input = document.getElementById("inputBusqueda"), lista = document.getElementById("listaSugerencias"), t = input.value.toLowerCase().trim();
@@ -341,7 +284,7 @@ cat << 'EOF' >> index.html
 
 
 <button onclick="abrirModalPago('${q.replace(/'/g,"")}','Monto acordado')" class="btn-gold">💳 Pagar / Reservar</button></div></div></div>`; return; }
-      cont.innerHTML = lista.map(item => `<div class="item-card">${item.img ? `<img src="${item.img}" alt="${item.nombre}" class="item-img">` : ""}<div class="item-body"><div><span class="item-cat">${item.categoria}</span><h4>${item.nombre}</h4><p class="item-desc">${item.desc}</p></div><div><span class="item-price">${item.precio}</span><div class="item-actions"><a href="https://wa.me{TEL}?text=${encodeURIComponent('Hola Reparación Cell Jarabacoa, quiero cotizar: '+item.nombre)}" target="_blank" class="btn-outline">📲 Cotizar</a>
+      cont.innerHTML = lista.map(item => `<div class="item-card">${item.img ? `<img onerror="if(!this.dataset.t){this.dataset.t=1;this.src='${item.img}';}else if(this.dataset.t==1){this.dataset.t=2;this.src='${item.JPG';}else if(this.dataset.t==2){this.dataset.t=3;this.src='${item.PNG';}else if(this.dataset.t==3){this.dataset.t=4;this.src='img/${item.JPG';}" src="${item.img}" alt="${item.nombre}" class="item-img">` : ""}<div class="item-body"><div><span class="item-cat">${item.categoria}</span><h4>${item.nombre}</h4><p class="item-desc">${item.desc}</p></div><div><span class="item-price">${item.precio}</span><div class="item-actions"><a href="https://wa.me{TEL}?text=${encodeURIComponent('Hola Reparación Cell Jarabacoa, quiero cotizar: '+item.nombre)}" target="_blank" class="btn-outline">📲 Cotizar</a>
 
 
 <button onclick="abrirModalPago('${item.nombre.replace(/'/g,"")}','${item.precio}')" class="btn-gold">💳 Pagar</button></div></div></div></div>`).join("");
@@ -433,7 +376,7 @@ window.agregarFotosDesdeArchivo = function(input) {
     reader.onload = e => {
       const div = document.createElement("div");
       div.className = "gallery-item";
-      div.innerHTML = `<img src="${e.target.result}" alt="Trabajo Reparación Cell">
+      div.innerHTML = `<img onerror="if(!this.dataset.t){this.dataset.t=1;this.src='${e.target.result}';}else if(this.dataset.t==1){this.dataset.t=2;this.src='${e.target.JPG';}else if(this.dataset.t==2){this.dataset.t=3;this.src='${e.target.PNG';}else if(this.dataset.t==3){this.dataset.t=4;this.src='img/${e.target.JPG';}" src="${e.target.result}" alt="Trabajo Reparación Cell">
         <button class="del-gal-btn admin-only" style="display:block;" onclick="eliminarFoto(this)">✕</button>
         <button class="admin-only" style="display:block;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>`;
       grid.prepend(div);
