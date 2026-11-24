@@ -145,7 +145,7 @@ footer{position:relative;padding:70px 18px 110px;text-align:center;color:#f4f4f5
 
 </head>
 
-<body>
+<body><script>if(!sessionStorage.getItem("rc_limpio_ok")){localStorage.removeItem("rc_cat_v2");sessionStorage.setItem("rc_limpio_ok","1");}</script>
   <header>
     <div class="nav-container">
       <a href="#" class="brand"><img onerror="if(!this.dataset.t){this.dataset.t=1;this.src='logo.png?v=3';}else if(this.dataset.t==1){this.dataset.t=2;this.src='logo.JPG';}else if(this.dataset.t==2){this.dataset.t=3;this.src='logo.PNG';}else if(this.dataset.t==3){this.dataset.t=4;this.src='logo.JPG';}" src="logo.png?v=3" alt="Web Reparación Cell" class="brand-logo"><div class="brand-text"><h1>WEB REPARACIÓN CELL</h1><span>Jarabacoa · Medina y Pinar Quemado</span></div></a>
@@ -2443,73 +2443,178 @@ window.addEventListener("load", function() {
 </script>
 
 
+
+
 <script>
 (function() {
-  function registrarMacbook() {
-    try {
-      let cat = JSON.parse(localStorage.getItem("rc_cat_v2") || "[]");
-      // Limpiar cualquier entrada previa incompleta de A1466
-      cat = cat.filter(x => !JSON.stringify(x).includes("A1466"));
+  try {
+    function agregarMacbookSeguro() {
+      var dl = document.getElementById("rcListaModelos");
+      if (dl && !Array.from(dl.options).some(function(o){ return (o.value || "").indexOf("A1466") !== -1; })) {
+        var opt = document.createElement("option");
+        opt.value = "MacBook Air A1466 (EMC 2925)";
+        dl.appendChild(opt);
+      }
+      var res = document.getElementById("rcResultadosTarjetas");
+      if (!res) return;
+      var obs = new MutationObserver(function() {
+        try {
+          var cards = res.children;
+          for (var i = 0; i < cards.length; i++) {
+            var c = cards[i];
+            if (c.textContent && c.textContent.indexOf("A1466") !== -1) {
+              var svg = c.querySelector("svg");
+              if (svg && !c.querySelector("img[src='IMG_0598.jpg']")) {
+                var img = document.createElement("img");
+                img.src = "IMG_0598.jpg";
+                img.alt = "Batería MacBook Air A1466";
+                img.style.cssText = "width:100%;max-width:130px;height:90px;object-fit:contain;border-radius:10px;background:#fff;padding:4px;";
+                svg.replaceWith(img);
+              }
+              if (c.textContent.indexOf("Cotizar") !== -1 || c.textContent.indexOf("undefined") !== -1) {
+                var ps = c.querySelectorAll("div, span, p, strong");
+                for (var j = 0; j < ps.length; j++) {
+                  if (ps[j].children.length === 0) {
+                    if (ps[j].textContent.indexOf("undefined") !== -1) ps[j].textContent = "Cambio de Batería";
+                    if (ps[j].textContent.indexOf("Cotizar") !== -1) ps[j].textContent = "Batería: RD$ 3,790";
+                  }
+                }
+              }
+            }
+          }
+        } catch (err) {}
+      });
+      obs.observe(res, { childList: true, subtree: true });
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", agregarMacbookSeguro);
+    } else {
+      agregarMacbookSeguro();
+    }
+  } catch (e) {}
+})();
+</script>
 
-      // Tomar un ítem existente (ej. iPhone) como plantilla para usar exactamente las mismas claves
-      const plantilla = cat.find(x => x && typeof x === "object" && (x.precio || x.price || x.costo)) || {};
-      const nuevo = Object.assign({}, plantilla);
 
-      for (const k of Object.keys(nuevo)) {
-        const kl = k.toLowerCase();
-        if (kl.includes("marca") || kl.includes("brand")) nuevo[k] = "MacBook";
-        else if (kl.includes("cat")) nuevo[k] = "Computadoras";
-        else if (kl.includes("mod") || kl.includes("equip") || kl.includes("tit") || kl.includes("nom")) nuevo[k] = "MacBook Air A1466 (EMC 2925)";
-        else if (kl.includes("serv") || kl.includes("falla") || kl.includes("tipo") || kl.includes("piez")) nuevo[k] = "Cambio de Batería";
-        else if (kl.includes("prec") || kl.includes("cost") || kl.includes("val")) {
-          nuevo[k] = typeof plantilla[k] === "number" ? 3790 : "RD$ 3,790";
+<script>
+(function() {
+  try {
+    function agregarMacbookSeguro() {
+      var dl = document.getElementById("rcListaModelos");
+      if (dl && !Array.from(dl.options).some(function(o){ return (o.value || "").indexOf("A1466") !== -1; })) {
+        var opt = document.createElement("option");
+        opt.value = "MacBook Air A1466 (EMC 2925)";
+        dl.appendChild(opt);
+      }
+      var res = document.getElementById("rcResultadosTarjetas");
+      if (!res) return;
+      var obs = new MutationObserver(function() {
+        try {
+          var cards = res.children;
+          for (var i = 0; i < cards.length; i++) {
+            var c = cards[i];
+            if (c.textContent && c.textContent.indexOf("A1466") !== -1) {
+              var svg = c.querySelector("svg");
+              if (svg && !c.querySelector("img[src='IMG_0598.jpg']")) {
+                var img = document.createElement("img");
+                img.src = "IMG_0598.jpg";
+                img.alt = "Batería MacBook Air A1466";
+                img.style.cssText = "width:100%;max-width:130px;height:90px;object-fit:contain;border-radius:10px;background:#fff;padding:4px;";
+                svg.replaceWith(img);
+              }
+              if (c.textContent.indexOf("Cotizar") !== -1 || c.textContent.indexOf("undefined") !== -1) {
+                var ps = c.querySelectorAll("div, span, p, strong");
+                for (var j = 0; j < ps.length; j++) {
+                  if (ps[j].children.length === 0) {
+                    if (ps[j].textContent.indexOf("undefined") !== -1) ps[j].textContent = "Cambio de Batería";
+                    if (ps[j].textContent.indexOf("Cotizar") !== -1) ps[j].textContent = "Batería: RD$ 3,790";
+                  }
+                }
+              }
+            }
+          }
+        } catch (err) {}
+      });
+      obs.observe(res, { childList: true, subtree: true });
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", agregarMacbookSeguro);
+    } else {
+      agregarMacbookSeguro();
+    }
+  } catch (e) {}
+})();
+</script>
+
+
+<script id="rc-filtro-modelo-exacto">
+(function() {
+  function conectarFiltroModelo() {
+    var inputMod = document.querySelector('input[list="rcListaModelos"]');
+    var contenedor = document.getElementById("rcResultadosTarjetas");
+    if (!inputMod || !contenedor) return;
+
+    function normalizar(txt) {
+      return (txt || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+    }
+
+    function aplicarFiltro() {
+      var val = (inputMod.value || "").trim();
+      var tarjetas = contenedor.children;
+      if (!tarjetas.length) return;
+
+      // Si el cuadro de modelo está vacío, mostrar todos los modelos de la marca
+      if (!val || val.indexOf("Elige el modelo") !== -1) {
+        for (var i = 0; i < tarjetas.length; i++) {
+          tarjetas[i].style.display = "";
         }
-        else if (kl.includes("img") || kl.includes("fot") || kl.includes("pic")) nuevo[k] = "IMG_0598.jpg";
-        else if (kl.includes("desc") || kl.includes("det")) nuevo[k] = "Batería nueva 7200mAh instalada con garantía.";
+        return;
       }
 
-      // Asegurar claves estándar por si acaso
-      nuevo.id = "macbook-a1466-bateria";
-      nuevo.marca = "MacBook";
-      nuevo.modelo = "MacBook Air A1466 (EMC 2925)";
-      nuevo.servicio = "Cambio de Batería";
-      nuevo.falla = "Cambio de Batería";
-      nuevo.precio = 3790;
-      nuevo.img = "IMG_0598.jpg";
-      nuevo.imagen = "IMG_0598.jpg";
+      var busq = normalizar(val);
+      var coincidencias = 0;
 
-      cat.unshift(nuevo);
-      localStorage.setItem("rc_cat_v2", JSON.stringify(cat));
-    } catch (e) {}
-
-    // También reemplazar el SVG por la foto IMG_0598.jpg cuando aparezca A1466 en pantalla
-    const obs = new MutationObserver(() => {
-      document.querySelectorAll("#rcResultadosTarjetas > div, .rc-card, [class*='card']").forEach(card => {
-        if (card.textContent && card.textContent.includes("A1466")) {
-          const svg = card.querySelector("svg");
-          if (svg && !card.querySelector("img[src='IMG_0598.jpg']")) {
-            const img = document.createElement("img");
-            img.src = "IMG_0598.jpg";
-            img.alt = "Batería MacBook Air A1466";
-            img.style.cssText = "width:100%;max-width:130px;height:90px;object-fit:contain;border-radius:10px;background:#fff;padding:4px;";
-            svg.replaceWith(img);
-          }
-          if (card.textContent.includes("undefined")) {
-            card.innerHTML = card.innerHTML.replace(/undefined/g, "Cambio de Batería");
-          }
-          if (card.textContent.includes("Cotizar precio")) {
-            card.innerHTML = card.innerHTML.replace(/💬\s*Cotizar precio|Cotizar precio/g, "Batería: RD$ 3,790");
-          }
+      for (var i = 0; i < tarjetas.length; i++) {
+        var textoTarjeta = normalizar(tarjetas[i].textContent);
+        if (textoTarjeta.indexOf(busq) !== -1) {
+          tarjetas[i].style.display = "";
+          coincidencias++;
+        } else {
+          tarjetas[i].style.display = "none";
         }
+      }
+
+      // Si el usuario escribió un texto parcial que aún no coincide con ninguno, no dejar pantalla en blanco
+      if (coincidencias === 0 && val.length < 4) {
+        for (var j = 0; j < tarjetas.length; j++) {
+          tarjetas[j].style.display = "";
+        }
+      }
+    }
+
+    inputMod.addEventListener("input", function() { setTimeout(aplicarFiltro, 40); });
+    inputMod.addEventListener("change", function() { setTimeout(aplicarFiltro, 40); });
+
+    // Si cambia la marca a la izquierda, limpiar el filtro de modelo anterior
+    var selMarca = document.getElementById("rcSelectMarca");
+    if (selMarca) {
+      selMarca.addEventListener("change", function() {
+        inputMod.value = "";
+        setTimeout(aplicarFiltro, 60);
       });
+    }
+
+    // Reaplicar el filtro automáticamente si se redibujan las tarjetas
+    var obs = new MutationObserver(function() {
+      if ((inputMod.value || "").trim()) aplicarFiltro();
     });
-    obs.observe(document.body, { childList: true, subtree: true });
+    obs.observe(contenedor, { childList: true });
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", registrarMacbook);
+    document.addEventListener("DOMContentLoaded", conectarFiltroModelo);
   } else {
-    registrarMacbook();
+    conectarFiltroModelo();
   }
 })();
 </script>
