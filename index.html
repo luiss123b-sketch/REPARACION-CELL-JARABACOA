@@ -1,0 +1,742 @@
+<!DOCTYPE html><html lang="es-DO"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Web Reparación Cell - Jarabacoa</title><link rel="icon" type="image/png" href="img/logo.png"/><link href="https://googleapis.com" rel="stylesheet"><style>
+:root{--bg:#09090b;--card:#121216;--gold:#f5b915;--gold-light:#ffd54f;--text:#f4f4f5;--muted:#a1a1aa;--border:rgba(245,185,21,0.28);--green:#25d366}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.55;overflow-x:hidden}
+header{position:sticky;top:0;z-index:100;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-container{max-width:1250px;margin:auto;padding:10px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}.brand-logo{width:48px;height:48px;border-radius:12px;object-fit:cover;border:1.5px solid var(--gold);background:#000}
+.brand-text h1{font-size:1.06rem;font-weight:800;color:#fff;line-height:1.1}.brand-text span{font-size:0.74rem;color:var(--gold);display:block}
+nav{display:flex;gap:18px}nav a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500}.header-btns{display:flex;align-items:center;gap:8px}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#e09f00);color:#09090b;padding:9px 16px;border-radius:99px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;border:none;cursor:pointer;font-size:0.86rem;font-family:inherit}
+.btn-outline{border:1px solid var(--border);background:rgba(255,255,255,0.04);color:#fff;padding:9px 15px;border-radius:99px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;font-size:0.86rem;font-family:inherit}
+.hero{position:relative;overflow:hidden;padding:70px 18px 54px;text-align:center;border-bottom:1px solid var(--border);background:#09090b;max-width:100%}
+.hero-blur-bg{position:absolute;inset:-25px;background:url('img/hero_taller.jpg') center/cover no-repeat;filter:blur(28px) brightness(0.45);transform:scale(1.12);z-index:1}
+.hero-center-img{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:min(1100px,100%);background:url('img/hero_taller.jpg') center/cover no-repeat;mask-image:linear-gradient(90deg,transparent 0%,black 20%,black 80%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,black 20%,black 80%,transparent 100%);opacity:0.58;z-index:2}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,9,11,0.4),rgba(9,9,11,0.82));z-index:3}.hero-content{position:relative;z-index:4;max-width:900px;margin:auto}
+.badge{display:inline-block;padding:6px 14px;border-radius:99px;background:rgba(245,185,21,0.16);border:1px solid var(--border);color:var(--gold-light);font-size:0.82rem;font-weight:600;margin-bottom:14px}
+.hero h2{font-size:clamp(1.85rem,4.8vw,3.3rem);font-weight:800;line-height:1.12;margin:0 auto 14px}.hero h2 span{background:linear-gradient(90deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:#e4e4e7;max-width:700px;margin:0 auto 24px;font-size:1rem}section{padding:48px 18px;max-width:1200px;margin:auto}.sec-head{text-align:center;margin-bottom:28px}.sec-head h3{font-size:clamp(1.5rem,3vw,1.95rem);font-weight:800;margin-bottom:6px}.sec-head p{color:var(--muted);max-width:640px;margin:auto;font-size:0.95rem}
+.search-panel{position:relative;overflow:hidden;background:linear-gradient(160deg,#16161d,#0d0d11);border:1px solid var(--border);border-radius:22px;padding:24px 18px}.cat-bg-icon{position:absolute;right:20px;bottom:10px;font-size:11rem;opacity:0.06;pointer-events:none}
+.search-box-rel{position:relative;margin-bottom:16px;z-index:20}.search-input{width:100%;padding:15px 18px;border-radius:14px;border:1.5px solid rgba(245,185,21,0.5);background:#09090b;color:#fff;font-size:1rem;font-family:inherit}
+.autocomplete-list{position:absolute;top:105%;left:0;right:0;background:#16161d;border:1px solid var(--gold);border-radius:14px;z-index:50;max-height:240px;overflow-y:auto;display:none}.autocomplete-list.show{display:block}.ac-item{padding:11px 16px;border-bottom:1px solid rgba(255,255,255,0.06);cursor:pointer;display:flex;justify-content:space-between;font-size:0.92rem}
+.filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;position:relative;z-index:10}.tab-btn{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);color:var(--muted);padding:8px 14px;border-radius:99px;cursor:pointer;font-family:inherit;font-weight:600;font-size:0.84rem}.tab-btn.active{background:var(--gold);color:#09090b;border-color:var(--gold)}
+.catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:14px;position:relative;z-index:10}.item-card{background:rgba(18,18,22,0.95);border:1px solid rgba(255,255,255,0.09);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}.item-img{width:100%;height:175px;object-fit:cover}.item-body{padding:18px;display:flex;flex-direction:column;justify-content:space-between;flex:1}.item-cat{font-size:0.72rem;text-transform:uppercase;color:var(--gold);font-weight:700}.item-card h4{font-size:1.08rem;margin:4px 0 6px;color:#fff}.item-desc{font-size:0.86rem;color:var(--muted);margin-bottom:12px}.item-price{font-size:1.12rem;font-weight:800;color:var(--gold-light);display:block;margin-bottom:10px}.item-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;border-top:1px solid rgba(255,255,255,0.07);padding-top:10px}
+.stores-grid,.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}.store-card,.rev-card{background:rgba(18,18,22,0.92);border:1px solid var(--border);border-radius:20px;padding:22px}.store-info{list-style:none;color:var(--muted);margin:12px 0 14px;font-size:0.93rem}.store-info li{margin-bottom:5px}
+.map-box{width:100%;height:165px;border-radius:14px;overflow:hidden;border:1px solid var(--border);margin-bottom:14px;background:#0b0b0e}.map-box iframe{width:100%;height:100%;border:0;filter:invert(90%) hue-rotate(180deg) contrast(95%)}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:12px}.gallery-item{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);aspect-ratio:1/1;background:#141418}.gallery-item img{width:100%;height:100%;object-fit:cover}.del-gal-btn{position:absolute;top:8px;right:8px;background:rgba(220,38,38,0.9);color:#fff;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer}
+.workshop-bg-section{position:relative;max-width:100%;padding:70px 18px;background:linear-gradient(rgba(9,9,11,0.78),rgba(9,9,11,0.9)),url('img/fondo_taller.jpg') center/cover no-repeat fixed;border-top:1px solid var(--border)}.workshop-inner{max-width:1200px;margin:auto}
+footer{position:relative;padding:70px 18px 110px;text-align:center;color:#f4f4f5;background:linear-gradient(rgba(9,9,11,0.62),rgba(9,9,11,0.9)),url('img/footer_fondo.jpg') center/cover no-repeat;border-top:1px solid var(--border)}.socials{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:16px 0}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:999;place-items:center;padding:14px}.modal-bg.open{display:grid}.modal-box{background:#14141a;border:1px solid var(--gold);border-radius:22px;max-width:540px;width:100%;padding:22px;position:relative;max-height:92vh;overflow-y:auto}.close-btn{position:absolute;top:12px;right:16px;background:none;border:none;color:var(--muted);font-size:1.6rem;cursor:pointer}
+.bank-card{background:#0b0b0e;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;margin:10px 0}.bank-row{display:flex;justify-content:space-between;align-items:center;gap:8px}.copy-btn{background:rgba(245,185,21,0.16);color:var(--gold-light);border:1px solid var(--border);padding:5px 12px;border-radius:8px;font-size:0.8rem;font-weight:700;cursor:pointer}.adm-input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);background:#09090b;color:#fff;margin-bottom:8px;font-family:inherit}
+.mobile-bar{display:none}.wa-float{position:fixed;bottom:20px;right:20px;background:var(--green);color:#fff;padding:13px 20px;border-radius:99px;font-weight:700;text-decoration:none;z-index:200}
+@media(max-width:768px){nav,.wa-float{display:none}.workshop-bg-section{background-attachment:scroll}.filter-tabs{flex-wrap:nowrap;overflow-x:auto}.tab-btn{white-space:nowrap;flex-shrink:0}.mobile-bar{display:grid;grid-template-columns:1fr 1fr 1fr;position:fixed;bottom:0;left:0;right:0;background:rgba(12,12,15,0.96);border-top:1px solid var(--border);z-index:300;padding:8px;gap:8px}.mobile-bar a,.mobile-bar button{text-align:center;padding:10px 6px;border-radius:12px;font-size:0.82rem;font-weight:700;text-decoration:none;border:none;font-family:inherit}.mb-wa{background:var(--green);color:#fff}.mb-pay{background:var(--gold);color:#000}.mb-loc{background:#1d1d24;color:#fff;border:1px solid var(--border)!important}}
+</style>
+<style>
+.reviews-grid, .testimonials-grid { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)) !important; gap: 14px !important; }
+.review-card, .testimonial-card { padding: 14px !important; font-size: 0.86rem !important; }
+.map-box { height: 165px !important; max-width: 95%; margin: 10px auto !important; }
+</style>
+
+</head>
+
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand"><img src="img/logo.png" alt="Web Reparación Cell" class="brand-logo"><div class="brand-text"><h1>WEB REPARACIÓN CELL</h1><span>Jarabacoa · Medina y Pinar Quemado</span></div></a>
+      <nav><a href="#buscador">Precios y Pagos</a><a href="#sucursales">Medina & Pinar Quemado</a><a href="#galeria">Galería</a><a href="#resenas">Reseñas</a></nav>
+      <div class="header-btns"><button onclick="abrirModalPago('Pago General / Abono', 'Monto acordado')" class="btn-gold">💳 Pagar</button><button onclick="abrirAdmin()" id="btnHeaderAdmin" class="btn-outline">🔒 Iniciar Sesión</button></div>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="hero-blur-bg"></div><div class="hero-center-img"></div><div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="badge">🏆 Centro Técnico Líder en Jarabacoa · Medina y Pinar Quemado</span>
+      <h2>Expertos en <span>iPhone, Celulares, PlayStation, PC</span> y Patinetes Eléctricos</h2>
+      <p>Busca cualquier dispositivo, explora nuestras categorías especializadas y paga o reserva por transferencia bancaria.</p>
+      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;"><a href="#buscador" class="btn-gold">🔍 Buscar Mi Equipo</a><a href="#sucursales" class="btn-outline">📍 Visitar Medina o Pinar Quemado</a></div>
+    </div>
+  </section>
+  <section id="buscador">
+    <div class="search-panel" id="panelBuscador">
+      <div class="cat-bg-icon" id="iconoFondoCategoria">📱</div>
+      <div class="sec-head" style="margin-bottom:18px;position:relative;z-index:10;"><h3>Buscador Inteligente de Dispositivos y Servicios</h3><p>Escribe el nombre de tu dispositivo o toca una categoría.</p></div>
+      <div class="search-box-rel"><input type="text" id="inputBusqueda" class="search-input" placeholder="🔍 Escribe aquí el dispositivo que buscas..." oninput="alEscribirBusqueda()" autocomplete="off" />
+<div id="rcPiezaWrap" style="margin-top:10px;">
+  <input id="rcInputPieza" list="rcListaPiezas" type="text" placeholder="🔧 Escribe o elige: Reparar, Cambiar Batería, Mojado, Cambiar Pantalla, Cambiar Housing, Cambiar Tapa..." style="width:100%;box-sizing:border-box;padding:12px 16px;border-radius:99px;border:1.5px solid rgba(245,185,21,0.65);background:#0b0b0e;color:#fff;font-size:0.95rem;">
+  <datalist id="rcListaPiezas">
+    <option value="Todo"><option value="Reparar"><option value="Cambiar Pantalla"><option value="Cambiar Batería"><option value="Mojado"><option value="Cambiar Housing"><option value="Cambiar Tapa"><option value="Turbo SIM / Kit MEP"><option value="Pin de Carga">
+  </datalist>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;justify-content:center;align-items:center;">
+    <button type="button" onclick="rcBuscarPieza('Todo')" style="background:#262930;color:#fff;border:1px solid rgba(255,255,255,0.2);padding:6px 12px;border-radius:99px;font-size:0.78rem;font-weight:700;cursor:pointer;">Todo</button>
+    <button type="button" onclick="rcBuscarPieza('Reparar')" style="background:#1c1f26;color:#f5b915;border:1px solid rgba(245,185,21,0.45);padding:6px 12px;border-radius:99px;font-size:0.78rem;font-weight:700;cursor:pointer;">🛠️ Reparar</button>
+    <button type="button" onclick="rcBuscarPieza('Cambiar Batería')" style="background:#1c1f26;color:#f5b915;border:1px solid rgba(245,185,21,0.45);padding:6px 12px;border-radius:99px;font-size:0.78rem;font-weight:700;cursor:pointer;">🔋 Cambiar Batería</button>
+    <button type="button" onclick="rcBuscarPieza('Mojado')" style="background:#1c1f26;color:#f5b915;border:1px solid rgba(245,185,21,0.45);padding:6px 12px;border-radius:99px;font-size:0.78rem;font-weight:700;cursor:pointer;">💧 Mojado</button>
+    <button type="button" onclick="rcBuscarPieza('Cambiar Pantalla')" style="background:#1c1f26;color:#f5b915;border:1px solid rgba(245,185,21,0.45);padding:6px 12px;border-radius:99px;font-size:0.78rem;font-weight:700;cursor:pointer;">🖥️ Cambiar Pantalla</button>
+    <button type="button" onclick="rcBuscarPieza('Cambiar Housing')" style="background:#1c1f26;color:#f5b915;border:1px solid rgba(245,185,21,0.45);padding:6px 12px;border-radius:99px;font-size:0.78rem;font-weight:700;cursor:pointer;">📱 Cambiar Housing</button>
+    <button type="button" onclick="rcBuscarPieza('Cambiar Tapa')" style="background:#1c1f26;color:#f5b915;border:1px solid rgba(245,185,21,0.45);padding:6px 12px;border-radius:99px;font-size:0.78rem;font-weight:700;cursor:pointer;">🛡️ Cambiar Tapa</button>
+    <button type="button" onclick="rcEjecutarBusqueda()" style="background:#f5b915;color:#000;border:none;padding:6px 14px;border-radius:99px;font-size:0.8rem;font-weight:800;cursor:pointer;">🔍 Buscar</button>
+    <button type="button" onclick="rcLimpiarBusqueda()" style="background:#2d3139;color:#ccc;border:none;padding:6px 11px;border-radius:99px;font-size:0.76rem;cursor:pointer;">✕ Limpiar</button>
+    <button type="button" class="admin-only" onclick="agregarPrecioAdmin()" style="display:none;background:#25D366;color:#fff;border:none;padding:6px 12px;border-radius:99px;font-size:0.76rem;font-weight:700;cursor:pointer;">➕ Agregar Dispositivo/Pieza</button>
+  </div>
+</div>
+<datalist id="rcListaModelos"></datalist>
+<div id="rcResultadosTarjetas" style="margin-top:14px;display:none;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;"></div>
+<div id="listaSugerencias" class="autocomplete-list"></div></div>
+      <div class="filter-tabs" id="tabsCategoria">
+        <button class="tab-btn" onclick="cambiarCategoria('Todos', '📱', this)">📋 Ver Todo</button>
+        <button class="tab-btn" onclick="cambiarCategoria('iPhone', '🍎', this)">🍎 iPhone</button>
+        <button class="tab-btn" onclick="cambiarCategoria('Celulares y Mojados', '💧', this)">💧 Celulares y Mojados</button>
+        <button class="tab-btn" onclick="cambiarCategoria('PlayStation y Mandos', '🎮', this)">🎮 PlayStation y Mandos</button>
+        <button class="tab-btn" onclick="cambiarCategoria('Computadoras', '💻', this)">💻 Computadoras</button>
+        <button class="tab-btn" onclick="cambiarCategoria('Patinetes y Pasolas', '🛴', this)">🛴 Patinetes y Pasolas</button>
+        <button class="tab-btn" onclick="cambiarCategoria('Tienda y Accesorios', '🛍️', this)">🛍️ Tienda y Covers</button>
+      </div>
+
+
+
+
+
+
+      <div class="catalog-grid" id="contenedorCatalogo"></div>
+    </div>
+  </section>
+  <section id="sucursales">
+    <div class="sec-head"><h3>Nuestras 2 Tiendas en Jarabacoa: Medina y Pinar Quemado</h3><p>Visítanos o pide recogida y entrega (Delivery) en todo Jarabacoa.</p></div>
+    <div class="stores-grid">
+      <div class="store-card"><span class="item-cat">Sucursal Medina</span><h4 style="font-size:1.3rem;margin:6px 0;">Reparación Cell – Medina</h4><ul class="store-info"><li>📍 Sector Medina 2, Jarabacoa, La Vega</li><li>⏰ Lun–Sáb: 8:00 AM – 6:00 PM</li><li>📞 Tel / WhatsApp: +1 (809) 975-7231</li><li>⚡ Laboratorio iPhone, micro-soldadura, PlayStation, PC y patinetes/pasolas</li></ul><a href="https://wa.me" target="_blank" class="btn-gold">Contactar Tienda Medina</a>
+
+
+</div>
+      <div class="store-card"><span class="item-cat">Sucursal Pinar Quemado</span><h4 style="font-size:1.3rem;margin:6px 0;">L Reparación Cell – Pinar Quemado</h4><ul class="store-info"><li>📍 Pinar Quemado, Jarabacoa, La Vega</li><li>⏰ Lun–Sáb: 8:00 AM – 6:00 PM</li><li>📞 Tel / WhatsApp: +1 (809) 975-7231</li><li>🛠️ Reparación express de iPhone, celulares, venta de equipos y accesorios</li></ul><a href="https://wa.me" target="_blank" class="btn-gold">Contactar Tienda Pinar Quemado</a>
+
+
+</div>
+    </div>
+  </section>
+  <section id="galeria"><div class="sec-head"><h3>Galería de Trabajos y Equipos en Jarabacoa</h3><p>Imágenes reales de nuestro taller y equipos entregados.</p></div>
+<div id="adminGalBar" class="admin-only" style="display:none;background:rgba(245,185,21,0.15);border:1px solid #f5b915;border-radius:14px;padding:14px;margin:0 auto 18px;max-width:900px;text-align:center;">
+  <strong style="color:#f5b915;display:block;margin-bottom:10px;">🛠️ Modo Administrador Activo — Gestión de Galería</strong>
+  <input type="file" id="galFileInput" accept="image/*" multiple style="display:none;" onchange="agregarFotosDesdeArchivo(this)">
+  <button onclick="document.getElementById('galFileInput').click()" style="background:#f5b915;color:#000;border:none;padding:9px 16px;border-radius:10px;font-weight:700;cursor:pointer;margin:4px;">➕ Agregar Fotos</button>
+  <button onclick="descargarHTMLActualizado()" style="background:#25D366;color:#fff;border:none;padding:9px 16px;border-radius:10px;font-weight:700;cursor:pointer;margin:4px;">💾 Guardar Archivo Web</button>
+  <button onclick="cerrarAdmin()" style="background:#dc2626;color:#fff;border:none;padding:9px 16px;border-radius:10px;font-weight:700;cursor:pointer;margin:4px;">Salir Admin</button>
+</div>
+<div class="gallery-grid" id="gridGaleria">
+<div class="gallery-item" data-idx="0">
+  <img src="img/hero_taller.jpg" alt="Trabajo Reparación Cell">
+  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
+  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
+</div>
+<div class="gallery-item" data-idx="1">
+  <img src="img/trabajo_01.jpg" alt="Trabajo Reparación Cell">
+  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
+  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
+</div>
+<div class="gallery-item" data-idx="2">
+  <img src="img/trabajo_03.jpg" alt="Trabajo Reparación Cell">
+  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
+  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
+</div>
+<div class="gallery-item" data-idx="3">
+  <img src="img/trabajo_04.jpg" alt="Trabajo Reparación Cell">
+  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
+  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
+</div>
+<div class="gallery-item" data-idx="4">
+  <img src="img/trabajo_05.jpg" alt="Trabajo Reparación Cell">
+  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
+  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
+</div>
+<div class="gallery-item" data-idx="5">
+  <img src="img/trabajo_06.jpg" alt="Trabajo Reparación Cell">
+  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
+  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
+</div>
+<div class="gallery-item" data-idx="6">
+  <img src="img/trabajo_07.jpg" alt="Trabajo Reparación Cell">
+  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
+  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
+</div>
+<div class="gallery-item" data-idx="7">
+  <img src="img/trabajo_08.jpg" alt="Trabajo Reparación Cell">
+  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
+  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
+</div>
+<div class="gallery-item" data-idx="8">
+  <img src="img/trabajo_09.jpg" alt="Trabajo Reparación Cell">
+  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
+  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
+</div>
+<div class="gallery-item" data-idx="9">
+  <img src="img/trabajo_10.jpg" alt="Trabajo Reparación Cell">
+  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
+  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
+</div>
+<div class="gallery-item" data-idx="10">
+  <img src="img/trabajo_11.jpg" alt="Trabajo Reparación Cell">
+  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
+  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
+</div>
+<div class="gallery-item" data-idx="11">
+  <img src="img/trabajo_12.jpg" alt="Trabajo Reparación Cell">
+  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
+  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
+</div>
+<div class="gallery-item" data-idx="12">
+  <img src="img/trabajo_13.jpg" alt="Trabajo Reparación Cell">
+  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
+  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
+</div>
+<div class="gallery-item" data-idx="13">
+  <img src="img/trabajo_14.jpg" alt="Trabajo Reparación Cell">
+  <button class="del-gal-btn admin-only" style="display:none;" onclick="eliminarFoto(this)">✕</button>
+  <button class="admin-only" style="display:none;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>
+</div>
+</div></section>
+  <div class="workshop-bg-section" id="resenas"><div class="workshop-inner"><div class="sec-head"><h3>Lo Que Dicen Nuestros Clientes en Google</h3><p>Calidad comprobada en Medina y Pinar Quemado.</p></div><div class="reviews-grid"><div class="rev-card"><div style="color:var(--gold);margin-bottom:8px;">★★★★★</div><p style="color:#e4e4e7;margin-bottom:10px;">"Tuve un problema con mi móvil mientras visitaba Jarabacoa y encontré esta increíble tienda. En menos de una hora mi teléfono estaba como nuevo."</p><strong style="color:var(--gold-light);">— Edison Puma · Google</strong></div><div class="rev-card"><div style="color:var(--gold);margin-bottom:8px;">★★★★★</div><p style="color:#e4e4e7;margin-bottom:10px;">"Excelente atención para reparar mi teléfono y además encontré el cover ideal para cuidarlo. Muy recomendados en Jarabacoa."</p><strong style="color:var(--gold-light);">— Stayce De La Rosa · Google</strong></div><div class="rev-card"><div style="color:var(--gold);margin-bottom:8px;">★★★★★</div><p style="color:#e4e4e7;margin-bottom:10px;">"Los mejores en iPhone en Jarabacoa. Me salvaron un teléfono mojado que en otros sitios daban por perdido y con garantía."</p><strong style="color:var(--gold-light);">— Carlos M. · Google</strong></div><div class="rev-card"><div style="color:var(--gold);margin-bottom:8px;">★★★★★</div><p style="color:#e4e4e7;margin-bottom:10px;">"Llevé mi PlayStation y dos mandos con drift en las palancas; quedaron como de fábrica el mismo día. Servicio 10/10."</p><strong style="color:var(--gold-light);">— José Luis R. · Google</strong></div></div><div style="text-align:center;margin-top:26px;"><a href="https://g.page" target="_blank" class="btn-gold">⭐ Ver Todas las Reseñas o Dejar la Tuya en Google</a></div></div></div>
+  
+<!-- MAPAS_JARABACOA_START -->
+<div style="max-width:920px;margin:28px auto 10px;padding:0 16px;">
+  <h3 style="text-align:center;color:#f5b915;margin-bottom:14px;font-size:1.15rem;">📍 Nuestras Sucursales en Jarabacoa</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
+    <div style="background:rgba(18,20,24,0.92);border:1px solid rgba(245,185,21,0.35);border-radius:14px;padding:12px;">
+      <div style="font-weight:700;color:#fff;margin-bottom:6px;font-size:0.92rem;">📍 Sucursal Medina · Jarabacoa</div>
+      <iframe src="https://google.com" width="100%" height="160" style="border:0;border-radius:10px;display:block;" loading="lazy"></iframe>
+    </div>
+    <div style="background:rgba(18,20,24,0.92);border:1px solid rgba(245,185,21,0.35);border-radius:14px;padding:12px;">
+      <div style="font-weight:700;color:#fff;margin-bottom:6px;font-size:0.92rem;">📍 Sucursal Pinar Quemado · Jarabacoa</div>
+      <iframe src="https://google.com" width="100%" height="160" style="border:0;border-radius:10px;display:block;" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+<!-- MAPAS_JARABACOA_END -->
+
+<footer><img src="img/logo.png" alt="Web Reparación Cell" style="width:68px;height:68px;border-radius:16px;border:1.5px solid var(--gold);margin-bottom:10px;object-fit:cover"><br><strong style="color:#fff;font-size:1.15rem;">WEB REPARACIÓN CELL · JARABACOA</strong><p style="margin-top:6px;">Medina & Pinar Quemado · Jarabacoa, La Vega · Tel: +1 (809) 975-7231</p>
+<div class="socials" style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:16px 0;">
+  <a href="https://www.instagram.com/reparacion_cell1/" target="_blank" style="background:#E1306C;color:#fff;padding:9px 16px;border-radius:99px;font-weight:700;text-decoration:none;font-size:0.88rem;">📸 @reparacion_cell1</a>
+  <a href="https://www.instagram.com/rep_aracioncell/" target="_blank" style="background:#C13584;color:#fff;padding:9px 16px;border-radius:99px;font-weight:700;text-decoration:none;font-size:0.88rem;">📸 @rep_aracioncell</a>
+  <a href="https://www.facebook.com/61566362797815" target="_blank" style="background:#1877F2;color:#fff;padding:9px 16px;border-radius:99px;font-weight:700;text-decoration:none;font-size:0.88rem;">📘 Facebook</a>
+  <a href="https://youtube.com" target="_blank" style="background:#FF0000;color:#fff;padding:9px 16px;border-radius:99px;font-weight:700;text-decoration:none;font-size:0.88rem;">▶️ YouTube</a>
+</div>
+<p style="font-size:0.82rem;">© 2026 Web Reparación Cell Jarabacoa.</p>
+  <div class="modal-bg" id="modalPago"><div class="modal-box"><button class="close-btn" onclick="cerrarModalPago()">×</button><span class="item-cat">Pago / Reserva Segura</span><h3 id="pagoServicioTitulo" style="font-size:1.25rem;margin:4px 0;">Servicio</h3><p id="pagoServicioMonto" style="color:var(--gold-light);font-weight:800;font-size:1.05rem;margin-bottom:10px;"></p><p style="color:var(--muted);font-size:0.85rem;">Realiza tu depósito o transferencia y envíanos el comprobante:</p><div class="bank-card"><strong style="color:#fff;">🏦 Banreservas (Ahorros)</strong><p style="font-size:0.82rem;color:var(--muted);">Titular: Luis Valerio / Reparación Cell</p><div class="bank-row"><strong id="cuentaBR" style="color:var(--gold-light);font-size:1rem;">PENDIENTE-BANRESERVAS</strong><button class="copy-btn" onclick="copiarTexto('cuentaBR', this)">Copiar</button></div></div><div class="bank-card"><strong style="color:#fff;">🏦 Banco BHD (Ahorros)</strong><p style="font-size:0.82rem;color:var(--muted);">Titular: Luis Valerio / Reparación Cell</p><div class="bank-row"><strong id="cuentaBHD" style="color:var(--gold-light);font-size:1rem;">PENDIENTE-BHD</strong><button class="copy-btn" onclick="copiarTexto('cuentaBHD', this)">Copiar</button></div></div><a id="btnEnviarComprobante" href="#" target="_blank" class="btn-gold" style="width:100%;margin-top:8px;padding:12px;">✅ Enviar Comprobante por WhatsApp</a></div></div>
+  <div class="modal-bg" id="modalAdmin"><div class="modal-box"><button class="close-btn" onclick="document.getElementById('modalAdmin').classList.remove('open')">×</button><span class="item-cat">Panel Administrador</span><div id="adminLoginBox"><h3 style="margin:6px 0 12px;">Iniciar Sesión</h3><input type="text" id="admUser" class="adm-input" placeholder="Usuario" /><input type="password" id="admPass" class="adm-input" placeholder="Contraseña" /><button onclick="loginAdmin()" class="btn-gold" style="width:100%;">Entrar al Panel</button></div><div id="adminPanelBox" style="display:none;"><h3 style="margin:6px 0 10px;">Publicar Producto / Accesorio / Servicio</h3><select id="admCat" class="adm-input"><option value="Tienda y Accesorios">🛍️ Tienda y Accesorios (Covers, Cargadores...)</option><option value="iPhone">🍎 iPhone</option><option value="Celulares y Mojados">💧 Celulares y Mojados</option><option value="PlayStation y Mandos">🎮 PlayStation y Mandos</option><option value="Computadoras">💻 Computadoras</option><option value="Patinetes y Pasolas">🛴 Patinetes y Pasolas</option></select><input type="text" id="admNombre" class="adm-input" placeholder="Nombre (Ej: Cargador Rápido 20W)" /><input type="text" id="admDesc" class="adm-input" placeholder="Descripción corta" /><input type="text" id="admPrecio" class="adm-input" placeholder="Precio (Ej: RD$ 650)" /><label style="font-size:0.82rem;color:var(--gold-light);display:block;margin-bottom:4px;">📷 Foto del producto/accesorio (opcional):</label><input type="file" id="admFoto" accept="image/*" class="adm-input" /><button onclick="agregarItemAdmin()" class="btn-gold" style="width:100%;margin-bottom:14px;">+ Publicar en la Web</button><h4 style="margin-bottom:6px;color:var(--gold);">📷 Agregar Foto a la Galería</h4><input type="file" id="admGalFoto" accept="image/*" class="adm-input" onchange="subirFotoGaleria(this)" /><h4 style="margin:10px 0 6px;color:var(--gold);">✏️ Editar Precios o Quitar Artículos</h4><div id="adminListaEditar" style="max-height:200px;overflow-y:auto;border-top:1px solid rgba(255,255,255,0.1);padding-top:8px;"></div></div></div></div>
+  <a href="https://wa.me" target="_blank" class="wa-float">💬 WhatsApp</a>
+
+
+
+  <div class="mobile-bar"><a href="https://wa.me" target="_blank" class="mb-wa">💬 WhatsApp</a>
+
+
+<button onclick="abrirModalPago('Pago / Reserva','Monto acordado')" class="mb-pay">💳 Pagar</button><button onclick="abrirAdmin()" class="mb-loc">🔒 Admin</button></div>
+  <script>
+    const TEL = "18099757231";
+    document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
+      if (!a.href.includes(TEL)) a.href = `https://wa.me{TEL}?text=${encodeURIComponent("Hola Reparación Cell Jarabacoa, necesito información")}`;
+    });
+    const CATALOGO_BASE = [
+      { categoria: "iPhone", nombre: "Cambio de Pantalla iPhone 13 Pro Max", desc: "Display de alta calidad con True Tone conservado e instalación garantizada.", precio: "Cotizar / Reservar", img: "" },
+      { categoria: "iPhone", nombre: "Pantalla iPhone (X / XS / 11 / 12 / 13 / 14 / 15 / 16)", desc: "Instalación express con garantía. Opciones OLED y Original.", precio: "Desde RD$ 2,200", img: "" },
+      { categoria: "iPhone", nombre: "Cambio de Tapa Trasera iPhone (8 al 15 Pro Max)", desc: "Acabado láser de fábrica sin destapar el equipo innecesariamente.", precio: "Desde RD$ 1,500", img: "" },
+      { categoria: "iPhone", nombre: "Batería Nueva iPhone al 100%", desc: "Reemplazo rápido para recuperar la duración original de tu iPhone.", precio: "Desde RD$ 1,200", img: "" },
+      { categoria: "iPhone", nombre: "Desbloqueo Semi Factory y Placa Base iPhone", desc: "Libera tu iPhone sin Turbo SIM, reparación de Face ID, pantalla blanca y cortos.", precio: "Cotizar al instante", img: "" },
+      { categoria: "Celulares y Mojados", nombre: "Rescate de iPhone Mojado (Todos los modelos)", desc: "Limpieza ultrasónica química inmediata, rescate de Face ID y placa base.", precio: "Diagnóstico Urgente", img: "" },
+      { categoria: "Celulares y Mojados", nombre: "Rescate de Celulares Android Mojados (Samsung, Xiaomi, etc.)", desc: "Eliminación de humedad y sulfatación para encender equipos caídos al agua.", precio: "Diagnóstico Urgente", img: "" },
+      { categoria: "Celulares y Mojados", nombre: "Pantallas y Baterías Samsung / Xiaomi / Redmi / Tecno", desc: "Repuestos de alta calidad instalados el mismo día en Medina y Pinar Quemado.", precio: "Desde RD$ 1,800", img: "" },
+      { categoria: "PlayStation y Mandos", nombre: "Mantenimiento Completo PlayStation (PS4 / PS5)", desc: "Limpieza interna profunda, cambio de pasta térmica / metal líquido.", precio: "Desde RD$ 1,500", img: "" },
+      { categoria: "PlayStation y Mandos", nombre: "Reparación de Consolas PlayStation (Puerto HDMI / Encendido)", desc: "Cambio de puerto HDMI dañado, fuente de poder y fallos de imagen.", precio: "Cotizar en Taller", img: "" },
+      { categoria: "PlayStation y Mandos", nombre: "Reparación y Mantenimiento de Mandos PS4 / PS5", desc: "Solución a drift en joysticks (palancas), botones pegados, batería y carga.", precio: "Desde RD$ 700", img: "" },
+      { categoria: "Computadoras", nombre: "Mantenimiento y Optimización de Computadoras / Laptops", desc: "Limpieza interna, pasta térmica, formateo, Windows/Office y aceleración.", precio: "Desde RD$ 1,000", img: "" },
+      { categoria: "Computadoras", nombre: "Reparación de Laptops (Pantalla, Teclado, Batería y Disco SSD)", desc: "Repuestos e instalación rápida para laptops de estudio, oficina o gaming.", precio: "Cotizar PC / Laptop", img: "" },
+      { categoria: "Patinetes y Pasolas", nombre: "Reparación General de Patinetes y Pasolas Eléctricas", desc: "Frenos, neumáticos, acelerador, luces, milleros digitales y sistema eléctrico.", precio: "Cotizar en Medina", img: "" },
+      { categoria: "Patinetes y Pasolas", nombre: "Baterías de Litio y Aumento de Potencia / Velocidad", desc: "Upgrade de controladoras, baterías de mayor autonomía y modificación de velocidad.", precio: "Cotizar Upgrade", img: "" },
+      { categoria: "Tienda y Accesorios", nombre: "Covers MagSafe, Antigolpes y Cristales Templados", desc: "Gran variedad de covers para iPhone, Samsung, Xiaomi y protección de cámara.", precio: "Desde RD$ 300", img: "" },
+      { categoria: "Tienda y Accesorios", nombre: "Cargadores Rápidos 20W/35W, Cables, AirPods y Smartwatches", desc: "Accesorios certificados de carga rápida y audio inalámbrico con garantía.", precio: "Desde RD$ 500", img: "" },
+      { categoria: "Tienda y Accesorios", nombre: "iPhone y Celulares Garantizados en Venta", desc: "Equipos probados, desbloqueados y listos para usar en Medina y Pinar Quemado.", precio: "Ver stock WhatsApp", img: "" }
+    ];
+    let CATALOGO = JSON.parse(localStorage.getItem("rc_catalogo_v2")) || CATALOGO_BASE;
+    let GALERIA = JSON.parse(null) || null;
+    let categoriaActual = "", adminLogueado = false;
+    async function cargarGaleriaInicial() { if (!GALERIA) { try { const r = await fetch("galeria.json"); GALERIA = await r.json(); } catch(e) { GALERIA = []; } } renderGaleria(); }
+    function guardarTodo() { localStorage.setItem("rc_catalogo_v2", JSON.stringify(CATALOGO)); localStorage.setItem("rc_galeria_v2", JSON.stringify(GALERIA)); }
+    function renderGaleria() { document.getElementById("gridGaleria").innerHTML = (GALERIA || []).map((src, idx) => `<div class="gallery-item"><img src="${src}" alt="Reparación Cell" loading="lazy" onerror="this.parentElement.remove()">${adminLogueado ? `<button class="del-gal-btn" onclick="eliminarFotoGaleria(${idx})">✕ Quitar</button>` : ""}</div>`).join(""); }
+    function cerrarResultados() { categoriaActual = ""; document.getElementById("inputBusqueda").value = ""; document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active")); document.getElementById("contenedorCatalogo").innerHTML = ""; }
+    function alEscribirBusqueda() {
+      const input = document.getElementById("inputBusqueda"), lista = document.getElementById("listaSugerencias"), t = input.value.toLowerCase().trim();
+      filtrarCatalogo();
+      if (!t) { lista.classList.remove("show"); return; }
+      const c = CATALOGO.filter(i => i.nombre.toLowerCase().includes(t) || i.categoria.toLowerCase().includes(t) || i.desc.toLowerCase().includes(t)).slice(0, 6);
+      if (c.length > 0) { lista.innerHTML = c.map(x => `<div class="ac-item" onclick="elegirSugerencia('${x.nombre.replace(/'/g,"")}')"><span>${x.nombre}</span><strong style="color:var(--gold)">${x.precio}</strong></div>`).join(""); lista.classList.add("show"); }
+      else { lista.classList.remove("show"); }
+    }
+    function elegirSugerencia(n) { document.getElementById("inputBusqueda").value = n; document.getElementById("listaSugerencias").classList.remove("show"); filtrarCatalogo(); }
+    document.addEventListener("click", e => { if (!e.target.closest(".search-box-rel")) document.getElementById("listaSugerencias").classList.remove("show"); });
+    function renderizarCatalogo(lista) {
+      const cont = document.getElementById("contenedorCatalogo");
+      if (lista.length === 0) { const q = document.getElementById("inputBusqueda").value; cont.innerHTML = `<div class="item-card" style="grid-column:1/-1;text-align:center;padding:24px;"><div class="item-body"><h4>¡Sí reparamos o conseguimos "${q}" en Jarabacoa!</h4><p class="item-desc">Trabajamos con todas las marcas en Medina y Pinar Quemado.</p><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;"><a href="https://wa.me{TEL}?text=${encodeURIComponent('Hola Reparación Cell Jarabacoa, necesito cotizar: '+q)}" target="_blank" class="btn-outline">📲 Cotizar</a>
+
+
+<button onclick="abrirModalPago('${q.replace(/'/g,"")}','Monto acordado')" class="btn-gold">💳 Pagar / Reservar</button></div></div></div>`; return; }
+      cont.innerHTML = lista.map(item => `<div class="item-card">${item.img ? `<img src="${item.img}" alt="${item.nombre}" class="item-img">` : ""}<div class="item-body"><div><span class="item-cat">${item.categoria}</span><h4>${item.nombre}</h4><p class="item-desc">${item.desc}</p></div><div><span class="item-price">${item.precio}</span><div class="item-actions"><a href="https://wa.me{TEL}?text=${encodeURIComponent('Hola Reparación Cell Jarabacoa, quiero cotizar: '+item.nombre)}" target="_blank" class="btn-outline">📲 Cotizar</a>
+
+
+<button onclick="abrirModalPago('${item.nombre.replace(/'/g,"")}','${item.precio}')" class="btn-gold">💳 Pagar</button></div></div></div></div>`).join("");
+    }
+    function cambiarCategoria(cat, icono, btn) { categoriaActual = cat; document.getElementById("iconoFondoCategoria").innerText = icono; document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active")); btn.classList.add("active"); filtrarCatalogo(); }
+    function filtrarCatalogo() {
+      const t = document.getElementById("inputBusqueda").value.toLowerCase().trim();
+      if (!t && !categoriaActual) { document.getElementById("contenedorCatalogo").innerHTML = ""; return; }
+      renderizarCatalogo(CATALOGO.filter(i => (!categoriaActual || categoriaActual==="Todos" || i.categoria===categoriaActual) && (i.nombre.toLowerCase().includes(t)||i.desc.toLowerCase().includes(t)||i.categoria.toLowerCase().includes(t))));
+      document.getElementById("contenedorCatalogo").insertAdjacentHTML("beforeend", '<div style="grid-column:1/-1;text-align:center;margin-top:6px;"><button onclick="cerrarResultados()" class="btn-outline" style="font-size:0.82rem;">▲ Ocultar resultados</button></div>');
+    }
+    function abrirModalPago(s, m) { document.getElementById("pagoServicioTitulo").innerText = s; document.getElementById("pagoServicioMonto").innerText = m; document.getElementById("btnEnviarComprobante").href = `https://wa.me{TEL}?text=${encodeURIComponent('Hola Reparación Cell Jarabacoa, acabo de transferir para: *'+s+'* ('+m+'). Aquí envío mi comprobante:')}`; document.getElementById("modalPago").classList.add("open"); }
+    function cerrarModalPago() { document.getElementById("modalPago").classList.remove("open"); }
+    function copiarTexto(id, btn) { navigator.clipboard.writeText(document.getElementById(id).innerText); btn.innerText = "¡Copiado!"; setTimeout(() => btn.innerText = "Copiar", 2000); }
+
+cat << 'EOF' >> index.html
+  <script>
+    const TEL = "18099757231";
+    document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
+      if (!a.href.includes(TEL)) a.href = `https://wa.me{TEL}?text=${encodeURIComponent("Hola Reparación Cell Jarabacoa, necesito información")}`;
+    });
+    const CATALOGO_BASE = [
+      { categoria: "iPhone", nombre: "Cambio de Pantalla iPhone 13 Pro Max", desc: "Display de alta calidad con True Tone conservado e instalación garantizada.", precio: "Cotizar / Reservar", img: "" },
+      { categoria: "iPhone", nombre: "Pantalla iPhone (X / XS / 11 / 12 / 13 / 14 / 15 / 16)", desc: "Instalación express con garantía. Opciones OLED y Original.", precio: "Desde RD$ 2,200", img: "" },
+      { categoria: "iPhone", nombre: "Cambio de Tapa Trasera iPhone (8 al 15 Pro Max)", desc: "Acabado láser de fábrica sin destapar el equipo innecesariamente.", precio: "Desde RD$ 1,500", img: "" },
+      { categoria: "iPhone", nombre: "Batería Nueva iPhone al 100%", desc: "Reemplazo rápido para recuperar la duración original de tu iPhone.", precio: "Desde RD$ 1,200", img: "" },
+      { categoria: "iPhone", nombre: "Desbloqueo Semi Factory y Placa Base iPhone", desc: "Libera tu iPhone sin Turbo SIM, reparación de Face ID, pantalla blanca y cortos.", precio: "Cotizar al instante", img: "" },
+      { categoria: "Celulares y Mojados", nombre: "Rescate de iPhone Mojado (Todos los modelos)", desc: "Limpieza ultrasónica química inmediata, rescate de Face ID y placa base.", precio: "Diagnóstico Urgente", img: "" },
+      { categoria: "Celulares y Mojados", nombre: "Rescate de Celulares Android Mojados (Samsung, Xiaomi, etc.)", desc: "Eliminación de humedad y sulfatación para encender equipos caídos al agua.", precio: "Diagnóstico Urgente", img: "" },
+      { categoria: "Celulares y Mojados", nombre: "Pantallas y Baterías Samsung / Xiaomi / Redmi / Tecno", desc: "Repuestos de alta calidad instalados el mismo día en Medina y Pinar Quemado.", precio: "Desde RD$ 1,800", img: "" },
+      { categoria: "PlayStation y Mandos", nombre: "Mantenimiento Completo PlayStation (PS4 / PS5)", desc: "Limpieza interna profunda, cambio de pasta térmica / metal líquido.", precio: "Desde RD$ 1,500", img: "" },
+      { categoria: "PlayStation y Mandos", nombre: "Reparación de Consolas PlayStation (Puerto HDMI / Encendido)", desc: "Cambio de puerto HDMI dañado, fuente de poder y fallos de imagen.", precio: "Cotizar en Taller", img: "" },
+      { categoria: "PlayStation y Mandos", nombre: "Reparación y Mantenimiento de Mandos PS4 / PS5", desc: "Solución a drift en joysticks (palancas), botones pegados, batería y carga.", precio: "Desde RD$ 700", img: "" },
+      { categoria: "Computadoras", nombre: "Mantenimiento y Optimización de Computadoras / Laptops", desc: "Limpieza interna, pasta térmica, formateo, Windows/Office y aceleración.", precio: "Desde RD$ 1,000", img: "" },
+      { categoria: "Computadoras", nombre: "Reparación de Laptops (Pantalla, Teclado, Batería y Disco SSD)", desc: "Repuestos e instalación rápida para laptops de estudio, oficina o gaming.", precio: "Cotizar PC / Laptop", img: "" },
+      { categoria: "Patinetes y Pasolas", nombre: "Reparación General de Patinetes y Pasolas Eléctricas", desc: "Frenos, neumáticos, acelerador, luces, milleros digitales y sistema eléctrico.", precio: "Cotizar en Medina", img: "" },
+      { categoria: "Patinetes y Pasolas", nombre: "Baterías de Litio y Aumento de Potencia / Velocidad", desc: "Upgrade de controladoras, baterías de mayor autonomía y modificación de velocidad.", precio: "Cotizar Upgrade", img: "" },
+      { categoria: "Tienda y Accesorios", nombre: "Covers MagSafe, Antigolpes y Cristales Templados", desc: "Gran variedad de covers para iPhone, Samsung, Xiaomi y protección de cámara.", precio: "Desde RD$ 300", img: "" },
+      { categoria: "Tienda y Accesorios", nombre: "Cargadores Rápidos 20W/35W, Cables, AirPods y Smartwatches", desc: "Accesorios certificados de carga rápida y audio inalámbrico con garantía.", precio: "Desde RD$ 500", img: "" },
+      { categoria: "Tienda y Accesorios", nombre: "iPhone y Celulares Garantizados en Venta", desc: "Equipos probados, desbloqueados y listos para usar en Medina y Pinar Quemado.", precio: "Ver stock WhatsApp", img: "" }
+    ];
+    let CATALOGO = JSON.parse(localStorage.getItem("rc_catalogo_v2")) || CATALOGO_BASE;
+    let GALERIA = JSON.parse(null) || null;
+    let categoriaActual = "", adminLogueado = false;
+    async function cargarGaleriaInicial() { if (!GALERIA) { try { const r = await fetch("galeria.json"); GALERIA = await r.json(); } catch(e) { GALERIA = []; } } renderGaleria(); }
+    function guardarTodo() { localStorage.setItem("rc_catalogo_v2", JSON.stringify(CATALOGO)); localStorage.setItem("rc_galeria_v2", JSON.stringify(GALERIA)); }
+    function renderGaleria() { document.getElementById("gridGaleria").innerHTML = (GALERIA || []).map((src, idx) => `<div class="gallery-item"><img src="${src}" alt="Reparación Cell" loading="lazy" onerror="this.parentElement.remove()">${adminLogueado ? `<button class="del-gal-btn" onclick="eliminarFotoGaleria(${idx})">✕ Quitar</button>` : ""}</div>`).join(""); }
+    function cerrarResultados() { categoriaActual = ""; document.getElementById("inputBusqueda").value = ""; document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active")); document.getElementById("contenedorCatalogo").innerHTML = ""; }
+    function alEscribirBusqueda() {
+      const input = document.getElementById("inputBusqueda"), lista = document.getElementById("listaSugerencias"), t = input.value.toLowerCase().trim();
+      filtrarCatalogo();
+      if (!t) { lista.classList.remove("show"); return; }
+      const c = CATALOGO.filter(i => i.nombre.toLowerCase().includes(t) || i.categoria.toLowerCase().includes(t) || i.desc.toLowerCase().includes(t)).slice(0, 6);
+      if (c.length > 0) { lista.innerHTML = c.map(x => `<div class="ac-item" onclick="elegirSugerencia('${x.nombre.replace(/'/g,"")}')"><span>${x.nombre}</span><strong style="color:var(--gold)">${x.precio}</strong></div>`).join(""); lista.classList.add("show"); }
+      else { lista.classList.remove("show"); }
+    }
+    function elegirSugerencia(n) { document.getElementById("inputBusqueda").value = n; document.getElementById("listaSugerencias").classList.remove("show"); filtrarCatalogo(); }
+    document.addEventListener("click", e => { if (!e.target.closest(".search-box-rel")) document.getElementById("listaSugerencias").classList.remove("show"); });
+    function renderizarCatalogo(lista) {
+      const cont = document.getElementById("contenedorCatalogo");
+      if (lista.length === 0) { const q = document.getElementById("inputBusqueda").value; cont.innerHTML = `<div class="item-card" style="grid-column:1/-1;text-align:center;padding:24px;"><div class="item-body"><h4>¡Sí reparamos o conseguimos "${q}" en Jarabacoa!</h4><p class="item-desc">Trabajamos con todas las marcas en Medina y Pinar Quemado.</p><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;"><a href="https://wa.me{TEL}?text=${encodeURIComponent('Hola Reparación Cell Jarabacoa, necesito cotizar: '+q)}" target="_blank" class="btn-outline">📲 Cotizar</a>
+
+
+<button onclick="abrirModalPago('${q.replace(/'/g,"")}','Monto acordado')" class="btn-gold">💳 Pagar / Reservar</button></div></div></div>`; return; }
+      cont.innerHTML = lista.map(item => `<div class="item-card">${item.img ? `<img src="${item.img}" alt="${item.nombre}" class="item-img">` : ""}<div class="item-body"><div><span class="item-cat">${item.categoria}</span><h4>${item.nombre}</h4><p class="item-desc">${item.desc}</p></div><div><span class="item-price">${item.precio}</span><div class="item-actions"><a href="https://wa.me{TEL}?text=${encodeURIComponent('Hola Reparación Cell Jarabacoa, quiero cotizar: '+item.nombre)}" target="_blank" class="btn-outline">📲 Cotizar</a>
+
+
+<button onclick="abrirModalPago('${item.nombre.replace(/'/g,"")}','${item.precio}')" class="btn-gold">💳 Pagar</button></div></div></div></div>`).join("");
+    }
+    function cambiarCategoria(cat, icono, btn) { categoriaActual = cat; document.getElementById("iconoFondoCategoria").innerText = icono; document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active")); btn.classList.add("active"); filtrarCatalogo(); }
+    function filtrarCatalogo() {
+      const t = document.getElementById("inputBusqueda").value.toLowerCase().trim();
+      if (!t && !categoriaActual) { document.getElementById("contenedorCatalogo").innerHTML = ""; return; }
+      renderizarCatalogo(CATALOGO.filter(i => (!categoriaActual || categoriaActual==="Todos" || i.categoria===categoriaActual) && (i.nombre.toLowerCase().includes(t)||i.desc.toLowerCase().includes(t)||i.categoria.toLowerCase().includes(t))));
+      document.getElementById("contenedorCatalogo").insertAdjacentHTML("beforeend", '<div style="grid-column:1/-1;text-align:center;margin-top:6px;"><button onclick="cerrarResultados()" class="btn-outline" style="font-size:0.82rem;">▲ Ocultar resultados</button></div>');
+    }
+    function abrirModalPago(s, m) { document.getElementById("pagoServicioTitulo").innerText = s; document.getElementById("pagoServicioMonto").innerText = m; document.getElementById("btnEnviarComprobante").href = `https://wa.me{TEL}?text=${encodeURIComponent('Hola Reparación Cell Jarabacoa, acabo de transferir para: *'+s+'* ('+m+'). Aquí envío mi comprobante:')}`; document.getElementById("modalPago").classList.add("open"); }
+    function cerrarModalPago() { document.getElementById("modalPago").classList.remove("open"); }
+    function copiarTexto(id, btn) { navigator.clipboard.writeText(document.getElementById(id).innerText); btn.innerText = "¡Copiado!"; setTimeout(() => btn.innerText = "Copiar", 2000); }    function abrirAdmin() { document.getElementById("modalAdmin").classList.add("open"); if(adminLogueado) renderAdminLista(); }
+    function loginAdmin() {
+      if (document.getElementById("admUser").value.trim() === "louis102v" && document.getElementById("admPass").value.trim() === "louisvalerio0212") {
+        adminLogueado = true; document.getElementById("btnHeaderAdmin").innerText = "⚙️ Panel Admin"; document.getElementById("adminLoginBox").style.display = "none"; document.getElementById("adminPanelBox").style.display = "block"; renderAdminLista(); renderGaleria();
+      } else { alert("Usuario o contraseña incorrectos"); }
+    }
+    function leerImagenComprimida(file, cb) { const r = new FileReader(); r.onload = e => { const img = new Image(); img.onload = () => { const c = document.createElement("canvas"), s = Math.min(1, 800 / Math.max(img.width, img.height)); c.width = img.width * s; c.height = img.height * s; c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); cb(c.toDataURL("image/jpeg", 0.8)); }; img.src = e.target.result; }; r.readAsDataURL(file); }
+    function agregarItemAdmin() {
+      const cat = document.getElementById("admCat").value, nom = document.getElementById("admNombre").value.trim(), desc = document.getElementById("admDesc").value.trim() || "Disponible en Medina y Pinar Quemado.", pre = document.getElementById("admPrecio").value.trim() || "Cotizar", fi = document.getElementById("admFoto");
+      if (!nom) return alert("Escribe el nombre");
+      const fin = (imgData) => { CATALOGO.unshift({ categoria: cat, nombre: nom, desc: desc, precio: pre, img: imgData }); guardarTodo(); filtrarCatalogo(); renderAdminLista(); document.getElementById("admNombre").value = ""; document.getElementById("admDesc").value = ""; document.getElementById("admPrecio").value = ""; fi.value = ""; alert("✅ Publicado"); };
+      if (fi.files && fi.files.item(0)) leerImagenComprimida(fi.files.item(0), fin); else fin("");
+    }
+    function subirFotoGaleria(input) { if (input.files && input.files.item(0)) leerImagenComprimida(input.files.item(0), d => { GALERIA.unshift(d); guardarTodo(); renderGaleria(); input.value = ""; alert("✅ Foto agregada"); }); }
+    function eliminarFotoGaleria(idx) { if (confirm("¿Quitar foto?")) { GALERIA.splice(idx, 1); guardarTodo(); renderGaleria(); } }
+    function editarPrecioAdmin(idx) { const item = CATALOGO.at(idx), nuevo = prompt("Nuevo precio para " + item.nombre + ":", item.precio); if (nuevo !== null && nuevo.trim() !== "") { item.precio = nuevo.trim(); guardarTodo(); filtrarCatalogo(); renderAdminLista(); } }
+    function eliminarItemAdmin(idx) { const item = CATALOGO.at(idx); if (confirm("¿Eliminar " + item.nombre + "?")) { CATALOGO.splice(idx, 1); guardarTodo(); filtrarCatalogo(); renderAdminLista(); } }
+    function renderAdminLista() { document.getElementById("adminListaEditar").innerHTML = CATALOGO.map((item, idx) => `<div style="display:flex;justify-content:space-between;align-items:center;gap:6px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:0.84rem;"><span><strong>${item.nombre}</strong><br><small style="color:var(--gold)">${item.precio}</small></span><div style="display:flex;gap:4px;"><button class="copy-btn" onclick="editarPrecioAdmin(${idx})">✏️ Precio</button><button class="copy-btn" style="color:#f87171" onclick="eliminarItemAdmin(${idx})">🗑️</button></div></div>`).join(""); }
+    cargarGaleriaInicial();
+    filtrarCatalogo();
+  </script>
+
+
+
+
+
+
+
+
+<script>
+window.activarModoAdmin = function() {
+  document.querySelectorAll(".admin-only").forEach(el => el.style.display = "block");
+};
+window.cerrarAdmin = function() {
+  sessionStorage.removeItem("rc_admin");
+  document.querySelectorAll(".admin-only").forEach(el => el.style.display = "none");
+};
+window.verificarAdmin = function() {
+  const u = (document.getElementById("admUser").value || "").trim().toLowerCase();
+  const p = (document.getElementById("admPass").value || "").trim();
+  if (u === "louis102v" && p === "louisvalerio0212") {
+    sessionStorage.setItem("rc_admin", "1");
+    document.getElementById("adminModal").style.display = "none";
+    document.getElementById("admMsg").textContent = "";
+    window.activarModoAdmin();
+  } else {
+    document.getElementById("admMsg").textContent = "Usuario o contraseña incorrectos.";
+  }
+};
+window.eliminarFoto = function(btn) {
+  if (confirm("¿Eliminar esta foto de la galería?")) {
+    btn.closest(".gallery-item").remove();
+    guardarGaleriaLocal();
+  }
+};
+window.cambiarFoto = function(btn) {
+  const inp = document.createElement("input");
+  inp.type = "file";
+  inp.accept = "image/*";
+  inp.onchange = function() {
+    if (inp.files && inp.files[0]) {
+      const reader = new FileReader();
+      reader.onload = e => {
+        btn.closest(".gallery-item").querySelector("img").src = e.target.result;
+        guardarGaleriaLocal();
+      };
+      reader.readAsDataURL(inp.files[0]);
+    }
+  };
+  inp.click();
+};
+window.agregarFotosDesdeArchivo = function(input) {
+  const grid = document.querySelector(".gallery-grid");
+  Array.from(input.files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const div = document.createElement("div");
+      div.className = "gallery-item";
+      div.innerHTML = `<img src="${e.target.result}" alt="Trabajo Reparación Cell">
+        <button class="del-gal-btn admin-only" style="display:block;" onclick="eliminarFoto(this)">✕</button>
+        <button class="admin-only" style="display:block;position:absolute;bottom:8px;left:8px;background:#f5b915;color:#000;border:none;border-radius:8px;padding:4px 8px;font-size:0.75rem;font-weight:700;cursor:pointer;" onclick="cambiarFoto(this)">🔄 Cambiar</button>`;
+      grid.prepend(div);
+      guardarGaleriaLocal();
+    };
+    reader.readAsDataURL(file);
+  });
+};
+function guardarGaleriaLocal() {
+  const grid = document.querySelector(".gallery-grid");
+  if (grid) localStorage.setItem("rc_galeria_html", grid.innerHTML);
+}
+window.descargarHTMLActualizado = function() {
+  const clon = document.documentElement.cloneNode(true);
+  clon.querySelectorAll(".admin-only").forEach(el => el.style.display = "none");
+  const blob = new Blob(["<!DOCTYPE html>
+" + clon.outerHTML], {type: "text/html;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "index.html";
+  a.click();
+};
+document.addEventListener("DOMContentLoaded", () => {
+  const saved = localStorage.getItem("rc_galeria_html");
+  const grid = document.querySelector(".gallery-grid");
+  if (saved && grid) grid.innerHTML = saved;
+  if (sessionStorage.getItem("rc_admin") === "1") window.activarModoAdmin();
+  document.querySelectorAll("button, a").forEach(el => {
+    const txt = (el.textContent || "").toLowerCase();
+    if ((txt.includes("admin") || txt.includes("iniciar") || el.innerHTML.includes("🔒")) && !el.closest("#adminModal")) {
+      el.onclick = function(e) { e.preventDefault(); document.getElementById("adminModal").style.display = "grid"; };
+    }
+  });
+});
+</script>
+
+
+<!-- ADMIN_PRO_START -->
+<div id="rcAdminModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:99999;place-items:center;padding:16px;">
+  <div style="background:#14161a;border:1px solid #f5b915;border-radius:18px;max-width:380px;width:100%;padding:24px;position:relative;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,0.6);">
+    <button type="button" onclick="document.getElementById('rcAdminModal').style.display='none'" style="position:absolute;top:12px;right:14px;background:none;border:none;color:#aaa;font-size:1.3rem;cursor:pointer;">✕</button>
+    <h3 style="margin:0 0 14px;color:#f5b915;text-align:center;">🔐 Acceso Administrador</h3>
+    <input id="rcUser" type="text" placeholder="Usuario" autocapitalize="none" autocorrect="off" style="width:100%;box-sizing:border-box;padding:11px 12px;margin-bottom:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:#0b0b0e;color:#fff;font-size:0.95rem;">
+    <input id="rcPass" type="password" placeholder="Contraseña" style="width:100%;box-sizing:border-box;padding:11px 12px;margin-bottom:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:#0b0b0e;color:#fff;font-size:0.95rem;">
+    <button type="button" id="rcLoginBtn" style="width:100%;padding:12px;background:#f5b915;color:#000;font-weight:700;border:none;border-radius:10px;font-size:1rem;cursor:pointer;">Entrar</button>
+    <p id="rcLoginMsg" style="color:#ff5252;font-size:0.85rem;margin:10px 0 0;text-align:center;"></p>
+  </div>
+</div>
+<script>
+(function() {
+  function mostrarControlesAdmin(activo) {
+    document.querySelectorAll(".admin-only").forEach(el => {
+      el.style.display = activo ? "block" : "none";
+    });
+  }
+
+  document.addEventListener("click", function(e) {
+    const btn = e.target.closest("button, a");
+    if (!btn || btn.closest("#rcAdminModal")) return;
+    const texto = (btn.textContent || "").toLowerCase();
+    if (texto.includes("iniciar") || texto.includes("admin") || btn.innerHTML.includes("🔒") || btn.innerHTML.includes("👤")) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      document.getElementById("rcLoginMsg").textContent = "";
+      document.getElementById("rcAdminModal").style.display = "grid";
+    }
+  }, true);
+
+  document.getElementById("rcLoginBtn").addEventListener("click", function() {
+    const u = (document.getElementById("rcUser").value || "").trim().toLowerCase();
+    const p = (document.getElementById("rcPass").value || "").trim();
+    if (u === "louis102v" && p === "louisvalerio0212") {
+      sessionStorage.setItem("rc_admin", "1");
+      document.getElementById("rcAdminModal").style.display = "none";
+      mostrarControlesAdmin(true);
+      alert("✅ Sesión de administrador iniciada.");
+    } else {
+      document.getElementById("rcLoginMsg").textContent = "Usuario o contraseña incorrectos.";
+    }
+  });
+
+  if (sessionStorage.getItem("rc_admin") === "1") {
+    mostrarControlesAdmin(true);
+  }
+})();
+</script>
+<!-- ADMIN_PRO_END -->
+
+<!-- DOBLE_BUSCADOR_START -->
+<script>
+(function(){
+  const DEF = [{"modelo": "iPhone 6s / 6s Plus", "tipo": "Pantalla", "precios": "AAA: RD$1,200", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "Pantalla", "precios": "AAA: RD$1,450", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "Pantalla", "precios": "AAA: RD$1,750", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "Pantalla", "precios": "AAA: RD$1,550", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "Pantalla", "precios": "AAA: RD$1,850", "extra": ""}, {"modelo": "iPhone X", "tipo": "Pantalla", "precios": "Incell: RD$2,100 · OLED: RD$2,850", "extra": ""}, {"modelo": "iPhone XS", "tipo": "Pantalla", "precios": "Incell: RD$2,250 · OLED: RD$2,850", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "Pantalla", "precios": "Incell: RD$2,550 · OLED: RD$3,600", "extra": ""}, {"modelo": "iPhone XR", "tipo": "Pantalla", "precios": "Incell: RD$2,400 · OLED: RD$3,200", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 11", "tipo": "Pantalla", "precios": "Incell: RD$3,050 · OLED: RD$3,900 · Original: RD$5,590", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 11 Pro", "tipo": "Pantalla", "precios": "Incell: RD$3,350 · OLED: RD$4,000", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 11 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$3,300 · OLED: RD$4,450 · Original: RD$8,500", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 12 / 12 Pro", "tipo": "Pantalla", "precios": "Incell: RD$3,650 · OLED: RD$6,000 · Original: RD$7,690", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 12 Mini", "tipo": "Pantalla", "precios": "Incell: RD$3,350 · OLED: RD$4,990", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 12 Pro Max", "tipo": "Pantalla", "precios": "Incell GX: RD$3,900 · JK: RD$4,450 · OLED: RD$6,500 · Original: RD$11,900", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 13 Normal", "tipo": "Pantalla", "precios": "Incell: RD$3,800 · OLED: RD$6,650", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 13 Pro", "tipo": "Pantalla", "precios": "Incell: RD$4,990 · OLED: RD$8,100", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 13 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$5,650 · Soft OLED: RD$9,450", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 14 Normal", "tipo": "Pantalla", "precios": "Incell: RD$4,100 · OLED: RD$7,950", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 14 Plus", "tipo": "Pantalla", "precios": "Incell: RD$4,950 · OLED: RD$6,200", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 14 Pro", "tipo": "Pantalla", "precios": "Incell: RD$5,250 · OLED: RD$8,950", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 14 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$5,950 · Premium: RD$7,200 · OLED: RD$9,800", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 15", "tipo": "Pantalla", "precios": "Incell: RD$5,700 · OLED: RD$9,600", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 15 Pro", "tipo": "Pantalla", "precios": "Incell: RD$5,450 · Premium: RD$6,950 · OLED: RD$15,900", "extra": ""}, {"modelo": "iPhone 15 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$5,650 · Premium: RD$7,150 · OLED: RD$9,550", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 16", "tipo": "Pantalla", "precios": "Incell: RD$9,650 · OLED: RD$15,700", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 16 Plus", "tipo": "Pantalla", "precios": "Incell: RD$9,700 · OLED: RD$16,200", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 16 Pro", "tipo": "Pantalla", "precios": "Incell: RD$9,650 · Buena: RD$9,350-10,290 · Premium: RD$13,350 · OLED: RD$15,700", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 16 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$10,250 · OLED: RD$15,350-16,350", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 17 / 17 Air", "tipo": "Pantalla", "precios": "Incell: RD$10,200 · OLED: RD$16,700", "extra": ""}, {"modelo": "iPhone 17 Pro", "tipo": "Pantalla", "precios": "Incell: RD$10,300 · OLED: RD$16,700", "extra": ""}, {"modelo": "iPhone 17 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$12,800 · OLED: RD$16,900", "extra": ""}, {"modelo": "iPhone 6s Plus", "tipo": "Batería", "precios": "RD$1,100", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "Batería", "precios": "RD$1,150", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "Batería", "precios": "RD$1,200", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "Batería", "precios": "RD$1,300", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "Batería", "precios": "RD$1,400", "extra": ""}, {"modelo": "iPhone X Normal", "tipo": "Batería", "precios": "RD$1,900", "extra": ""}, {"modelo": "iPhone XS", "tipo": "Batería", "precios": "RD$2,050", "extra": ""}, {"modelo": "iPhone XS Max / XR", "tipo": "Batería", "precios": "RD$2,100", "extra": ""}, {"modelo": "iPhone 11 Normal", "tipo": "Batería", "precios": "Normal: RD$2,200 · Programable: RD$3,225", "extra": ""}, {"modelo": "iPhone 11 Pro", "tipo": "Batería", "precios": "Normal: RD$2,250 · Programable: RD$3,275", "extra": ""}, {"modelo": "iPhone 11 Pro Max / 12 Normal", "tipo": "Batería", "precios": "Normal: RD$2,350 · Programable: RD$3,375", "extra": ""}, {"modelo": "iPhone 12 Pro", "tipo": "Batería", "precios": "Normal: RD$2,390 · Programable: RD$3,415", "extra": ""}, {"modelo": "iPhone 12 Pro Max", "tipo": "Batería", "precios": "Normal: RD$2,490 · Programable: RD$3,515", "extra": ""}, {"modelo": "iPhone 13 Normal / 13 Pro", "tipo": "Batería", "precios": "Normal: RD$2,450 · Programable: RD$3,475", "extra": ""}, {"modelo": "iPhone 13 Pro Max", "tipo": "Batería", "precios": "Normal: RD$2,900 · Programable: RD$3,925 · Original: RD$4,700", "extra": ""}, {"modelo": "iPhone 14 Normal / Plus / Pro", "tipo": "Batería", "precios": "Normal: RD$2,900 · Programable: RD$3,925", "extra": ""}, {"modelo": "iPhone 14 Pro Max", "tipo": "Batería", "precios": "Normal: RD$3,000 · Programable: RD$4,025 · Original: RD$4,900", "extra": ""}, {"modelo": "iPhone 15", "tipo": "Batería", "precios": "Normal: RD$3,100 · Programable: RD$4,125", "extra": ""}, {"modelo": "iPhone 15 Plus", "tipo": "Batería", "precios": "Normal: RD$4,900 · Programable: RD$5,925", "extra": ""}, {"modelo": "iPhone 15 Pro", "tipo": "Batería", "precios": "Normal: RD$4,000 · Programable: RD$5,025", "extra": ""}, {"modelo": "iPhone 15 Pro Max", "tipo": "Batería", "precios": "Normal: RD$4,950 · Programable: RD$5,975 · Original: RD$6,450", "extra": ""}, {"modelo": "iPhone 16", "tipo": "Batería", "precios": "Normal: RD$5,200 · Programable: RD$6,225", "extra": ""}, {"modelo": "iPhone 16 Pro", "tipo": "Batería", "precios": "Normal: RD$5,300 · Programable: RD$6,325", "extra": ""}, {"modelo": "iPhone 16 Plus / 16 Pro Max", "tipo": "Batería", "precios": "Consultar disponibilidad", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "Tapa Trasera", "precios": "RD$1,600", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "Tapa Trasera", "precios": "RD$1,790", "extra": ""}, {"modelo": "iPhone X / XS", "tipo": "Tapa Trasera", "precios": "RD$1,990", "extra": ""}, {"modelo": "iPhone XS Max / XR", "tipo": "Tapa Trasera", "precios": "RD$2,099", "extra": ""}, {"modelo": "iPhone 11 Normal", "tipo": "Tapa Trasera", "precios": "RD$2,150", "extra": ""}, {"modelo": "iPhone 11 Pro", "tipo": "Tapa Trasera", "precios": "RD$2,100", "extra": ""}, {"modelo": "iPhone 11 Pro Max", "tipo": "Tapa Trasera", "precios": "RD$2,200", "extra": ""}, {"modelo": "iPhone 12 Mini", "tipo": "Tapa Trasera", "precios": "RD$2,100", "extra": ""}, {"modelo": "iPhone 12 Normal", "tipo": "Tapa Trasera", "precios": "RD$2,150", "extra": ""}, {"modelo": "iPhone 12 Pro", "tipo": "Tapa Trasera", "precios": "RD$2,200", "extra": ""}, {"modelo": "iPhone 12 Pro Max", "tipo": "Tapa Trasera", "precios": "RD$2,240", "extra": ""}, {"modelo": "iPhone 13 Normal / Pro", "tipo": "Tapa Trasera", "precios": "RD$2,300", "extra": ""}, {"modelo": "iPhone 13 Pro Max", "tipo": "Tapa Trasera", "precios": "RD$2,900", "extra": ""}, {"modelo": "iPhone 14 Normal", "tipo": "Tapa Trasera", "precios": "RD$2,990", "extra": ""}, {"modelo": "iPhone 14 Pro", "tipo": "Tapa Trasera", "precios": "RD$3,000", "extra": ""}, {"modelo": "iPhone 14 Plus", "tipo": "Tapa Trasera", "precios": "Normal: RD$3,200 · Original: RD$4,600", "extra": ""}, {"modelo": "iPhone 14 Pro Max", "tipo": "Tapa Trasera", "precios": "RD$3,400", "extra": ""}, {"modelo": "iPhone 15 / 15 Pro", "tipo": "Tapa Trasera", "precios": "Normal: RD$3,500 · Original: RD$5,300", "extra": ""}, {"modelo": "iPhone 15 Plus", "tipo": "Tapa Trasera", "precios": "Normal: RD$3,500 · Original: RD$5,350", "extra": ""}, {"modelo": "iPhone 15 Pro Max", "tipo": "Tapa Trasera", "precios": "Normal: RD$3,900 · Original: RD$5,950", "extra": ""}, {"modelo": "iPhone 16", "tipo": "Tapa Trasera", "precios": "RD$4,650", "extra": ""}, {"modelo": "iPhone 16 Plus", "tipo": "Tapa Trasera", "precios": "RD$4,750", "extra": ""}, {"modelo": "iPhone 16 Pro", "tipo": "Tapa Trasera", "precios": "RD$5,300", "extra": ""}, {"modelo": "iPhone 16 Pro Max", "tipo": "Tapa Trasera", "precios": "RD$5,900", "extra": ""}, {"modelo": "iPhone 7 al 12 Pro Max", "tipo": "Turbo SIM", "precios": "RD$2,300", "extra": ""}, {"modelo": "iPhone 13 / 13 Pro Max", "tipo": "Turbo SIM", "precios": "RD$2,850", "extra": ""}, {"modelo": "iPhone 14 / 14 Pro Max", "tipo": "Turbo SIM / Kit MEP", "precios": "Turbo SIM: RD$3,000 · Kit MEP: RD$4,000", "extra": ""}, {"modelo": "iPhone 15 / 15 Pro Max", "tipo": "Kit MEP", "precios": "RD$4,800", "extra": ""}, {"modelo": "iPhone 16 / 16 Pro Max", "tipo": "Kit MEP", "precios": "RD$6,350", "extra": ""}, {"modelo": "iPhone 17 / 17 Pro Max", "tipo": "Kit MEP", "precios": "RD$7,850", "extra": ""}, {"modelo": "ZTE A71", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,700 · Original: RD$3,200", "extra": ""}, {"modelo": "Samsung A51 / A71", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,800 · Original: RD$3,300", "extra": ""}, {"modelo": "Samsung A21 / A21s", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,700 · Original: RD$3,000", "extra": ""}, {"modelo": "Samsung A30", "tipo": "Pantalla Android", "precios": "Compatible: RD$3,890 · Original: RD$3,290", "extra": ""}, {"modelo": "Huawei Y6 / Y7 / Y8", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,700 · Original: RD$3,100", "extra": ""}, {"modelo": "Oppo Genérico", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,790 · Original: RD$3,200", "extra": ""}, {"modelo": "Xiaomi Poco C40", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,800 · Original: RD$3,200", "extra": ""}, {"modelo": "Android V8 Antiguo (Soldar)", "tipo": "Pin de Carga", "precios": "RD$600 - RD$650", "extra": ""}, {"modelo": "Android Tipo C (Soldar)", "tipo": "Pin de Carga", "precios": "RD$800 - RD$900", "extra": ""}, {"modelo": "Android Flex Pin V8", "tipo": "Pin de Carga", "precios": "RD$1,000 - RD$1,200", "extra": ""}, {"modelo": "Android Flex Pin Tipo C", "tipo": "Pin de Carga", "precios": "RD$1,200 - RD$1,500", "extra": ""}];
+  let cat = JSON.parse(localStorage.getItem("rc_cat_v2") || "null") || DEF;
+  const save = () => localStorage.setItem("rc_cat_v2", JSON.stringify(cat));
+  const getM = () => document.querySelector('input[placeholder*="dispositivo"]');
+  function poblar(){
+    const m=getM(), d=document.getElementById("rcListaModelos");
+    if(m) m.setAttribute("list","rcListaModelos");
+    if(d) d.innerHTML=[...new Set(cat.map(x=>x.modelo))].map(v=>`<option value="${v}">`).join("");
+  }
+  function svgTel(mod){
+    const m = mod.toLowerCase();
+    const pro = m.includes("pro");
+    if (m.includes("17")) {
+      if (pro) {
+        return `<svg width="62" height="86" viewBox="0 0 64 86"><rect x="6" y="3" width="52" height="80" rx="11" fill="#27272a" stroke="#e4e4e7" stroke-width="2"/><rect x="10" y="9" width="44" height="25" rx="7" fill="#18181b" stroke="#71717a" stroke-width="1.2"/><circle cx="18" cy="16" r="4.3" fill="#090d16" stroke="#a1a1aa" stroke-width="1.2"/><circle cx="18" cy="27" r="4.3" fill="#090d16" stroke="#a1a1aa" stroke-width="1.2"/><circle cx="28" cy="21.5" r="4.3" fill="#090d16" stroke="#a1a1aa" stroke-width="1.2"/><circle cx="47" cy="15.5" r="2" fill="#fef08a"/><circle cx="47" cy="27" r="2.3" fill="#090d16" stroke="#52525b" stroke-width="1"/><circle cx="32" cy="53" r="4.5" fill="rgba(255,255,255,0.4)"/></svg>`;
+      }
+      return `<svg width="62" height="86" viewBox="0 0 64 86"><rect x="6" y="3" width="52" height="80" rx="11" fill="#312e81" stroke="#a5b4fc" stroke-width="2"/><rect x="11" y="10" width="42" height="15" rx="7.5" fill="#1e1b4b" stroke="#c7d2fe" stroke-width="1.2"/><circle cx="19" cy="17.5" r="4.8" fill="#090d16" stroke="#94a3b8" stroke-width="1.2"/><circle cx="31" cy="17.5" r="4.8" fill="#090d16" stroke="#94a3b8" stroke-width="1.2"/><circle cx="45" cy="17.5" r="2.2" fill="#fef08a"/><circle cx="32" cy="52" r="4.5" fill="rgba(255,255,255,0.45)"/></svg>`;
+    }
+    if (m.includes("iphone 10") || m.includes("ip 10") || m.includes("iphone x") || m.includes("ip x") || m.includes("xs") || m.includes("xr")) {
+      const dual = !m.includes("xr");
+      const lens = dual ? '<rect x="13" y="10" width="13" height="27" rx="6.5" fill="#090d16" stroke="#cbd5e1" stroke-width="1.2"/><circle cx="19.5" cy="16.5" r="3.8" fill="#1e293b"/><circle cx="19.5" cy="30" r="3.8" fill="#1e293b"/>' : '<circle cx="19" cy="17" r="5.2" fill="#090d16" stroke="#cbd5e1" stroke-width="1.4"/><circle cx="19" cy="27" r="2" fill="#fef08a"/>';
+      return `<svg width="62" height="86" viewBox="0 0 64 86"><rect x="6" y="3" width="52" height="80" rx="11" fill="#18181b" stroke="#a1a1aa" stroke-width="2"/>${lens}<circle cx="32" cy="46" r="4.5" fill="rgba(255,255,255,0.45)"/></svg>`;
+    }
+    if (m.includes("6s") || m.includes("7") || m.includes("8")) {
+      const plus = m.includes("plus");
+      const lens = plus ? '<rect x="12" y="10" width="22" height="11" rx="5.5" fill="#090d16" stroke="#cbd5e1" stroke-width="1.2"/><circle cx="17.5" cy="15.5" r="3.5" fill="#1e293b"/><circle cx="28.5" cy="15.5" r="3.5" fill="#1e293b"/>' : '<circle cx="18" cy="16" r="5" fill="#090d16" stroke="#cbd5e1" stroke-width="1.4"/><circle cx="28" cy="16" r="2" fill="#fef08a"/>';
+      return `<svg width="62" height="86" viewBox="0 0 64 86"><rect x="6" y="3" width="52" height="80" rx="11" fill="#334155" stroke="#cbd5e1" stroke-width="2"/>${lens}<circle cx="32" cy="44" r="4.5" fill="rgba(255,255,255,0.5)"/></svg>`;
+    }
+    if (pro) {
+      return `<svg width="62" height="86" viewBox="0 0 64 86"><rect x="6" y="3" width="52" height="80" rx="11" fill="#27272a" stroke="#d4d4d8" stroke-width="2"/><rect x="12" y="9" width="28" height="31" rx="7" fill="#18181b" stroke="#71717a" stroke-width="1"/><circle cx="20" cy="17" r="5" fill="#090d16" stroke="#a1a1aa" stroke-width="1.3"/><circle cx="20" cy="32" r="5" fill="#090d16" stroke="#a1a1aa" stroke-width="1.3"/><circle cx="33" cy="24.5" r="5" fill="#090d16" stroke="#a1a1aa" stroke-width="1.3"/><circle cx="33" cy="14" r="1.8" fill="#fef08a"/><circle cx="32" cy="52" r="4.5" fill="rgba(255,255,255,0.4)"/></svg>`;
+    }
+    if (m.includes("16")) {
+      return `<svg width="62" height="86" viewBox="0 0 64 86"><rect x="6" y="3" width="52" height="80" rx="11" fill="#4f46e5" stroke="#a5b4fc" stroke-width="2"/><rect x="13" y="10" width="15" height="31" rx="7.5" fill="#312e81" stroke="#c7d2fe" stroke-width="1.2"/><circle cx="20.5" cy="18" r="5" fill="#090d16" stroke="#94a3b8" stroke-width="1.3"/><circle cx="20.5" cy="33" r="5" fill="#090d16" stroke="#94a3b8" stroke-width="1.3"/><circle cx="34" cy="25.5" r="2.2" fill="#fef08a"/><circle cx="32" cy="52" r="4.5" fill="rgba(255,255,255,0.5)"/></svg>`;
+    }
+    return `<svg width="62" height="86" viewBox="0 0 64 86"><rect x="6" y="3" width="52" height="80" rx="11" fill="#0f172a" stroke="#64748b" stroke-width="2"/><rect x="12" y="9" width="27" height="29" rx="7" fill="#1e293b" stroke="#475569" stroke-width="1"/><circle cx="20" cy="17" r="5" fill="#090d16" stroke="#94a3b8" stroke-width="1.3"/><circle cx="31" cy="30" r="5" fill="#090d16" stroke="#94a3b8" stroke-width="1.3"/><circle cx="32" cy="15" r="2" fill="#fef08a"/><circle cx="32" cy="52" r="4.5" fill="rgba(255,255,255,0.45)"/></svg>`;
+  }
+  function svgPieza(t){
+    t=t.toLowerCase();
+    if(t.includes("pantalla")) return `<svg width="60" height="82" viewBox="0 0 64 86"><rect x="8" y="3" width="48" height="72" rx="9" fill="#090b10" stroke="#475569" stroke-width="2"/><rect x="11" y="6" width="42" height="66" rx="7" fill="#111827"/><rect x="24" y="9" width="16" height="4" rx="2" fill="#000"/><path d="M22 75v8h6v-8M36 75v9h6v-9" fill="#d97706"/></svg>`;
+    if(t.includes("bater")) return `<svg width="60" height="82" viewBox="0 0 64 86"><rect x="14" y="10" width="36" height="68" rx="5" fill="#18181b" stroke="#22c55e" stroke-width="1.8"/><path d="M25 10V4h14v6" fill="#d97706"/><text x="32" y="45" font-size="16" fill="#22c55e" text-anchor="middle">⚡</text></svg>`;
+    if(t.includes("tapa")) return `<svg width="60" height="82" viewBox="0 0 64 86"><rect x="8" y="4" width="48" height="78" rx="10" fill="#1e293b" stroke="#a855f7" stroke-width="2"/><rect x="14" y="10" width="24" height="28" rx="6" fill="#0f172a" stroke="#a855f7" stroke-width="1.2"/><circle cx="32" cy="50" r="10" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2"/></svg>`;
+    return `<svg width="60" height="82" viewBox="0 0 64 86"><rect x="10" y="12" width="44" height="62" rx="10" fill="#1f2937" stroke="#f5b915" stroke-width="2"/><text x="32" y="48" font-size="22" text-anchor="middle">🔧</text></svg>`;
+  }
+  window.rcBuscarPieza = p => { const i=document.getElementById("rcInputPieza"); if(i)i.value=p; rcEjecutarBusqueda(); };
+  window.rcLimpiarBusqueda = () => { const m=getM(), p=document.getElementById("rcInputPieza"), c=document.getElementById("rcResultadosTarjetas"); if(m)m.value=""; if(p)p.value=""; if(c){c.innerHTML="";c.style.display="none";} };
+  window.editarItemPrecio = i => { const x=cat[i]; const m=prompt("Modelo:",x.modelo); if(!m)return; const t=prompt("Pieza:",x.tipo); if(!t)return; const p=prompt("Precios:",x.precios); if(!p)return; const e=prompt("Extra:",x.extra||""); cat[i]={modelo:m,tipo:t,precios:p,extra:e||""}; save(); poblar(); rcEjecutarBusqueda(); };
+  window.eliminarItemPrecio = i => { if(confirm("¿Eliminar?")){ cat.splice(i,1); save(); rcEjecutarBusqueda(); } };
+  window.agregarPrecioAdmin = () => { const m=prompt("Dispositivo / Modelo:"); if(!m)return; const t=prompt("Pieza (Pantalla, Batería, Tapa, etc.):","Pantalla"); if(!t)return; const p=prompt("Precios:"); if(!p)return; const e=prompt("Nota extra (opcional):","")||""; cat.unshift({modelo:m,tipo:t,precios:p,extra:e}); save(); poblar(); rcEjecutarBusqueda(); };
+  window.rcEjecutarBusqueda = () => {
+    const m=getM(), p=document.getElementById("rcInputPieza"), c=document.getElementById("rcResultadosTarjetas"); if(!c)return;
+    let qm=((m&&m.value)||"").trim().toLowerCase(), qp=((p&&p.value)||"").trim().toLowerCase();
+    if(!qm && !qp){ c.style.display="none"; c.innerHTML=""; return; }
+    if(qm === "iphone 10" || qm === "ip 10") qm = "iphone x";
+    const partesM = qm.split("/").map(s => s.trim()).filter(Boolean);
+    const qpClean = qp.replace("cambiar ", "").trim();
+    const adm=sessionStorage.getItem("rc_admin")==="1";
+    const res=cat.map((x,i)=>({...x,_i:i})).filter(x => {
+      const modLow = x.modelo.toLowerCase();
+      const matchM = !qm || modLow.includes(qm) || partesM.some(pt => pt.length > 2 && modLow.includes(pt));
+      if (!qpClean || qpClean === "todo") return matchM;
+      return matchM && (x.tipo.toLowerCase().includes(qpClean) || x.precios.toLowerCase().includes(qpClean));
+    });
+    c.style.display="grid";
+    if(!res.length){ c.innerHTML=`<div style="grid-column:1/-1;text-align:center;color:#ccc;padding:12px;">No encontrado. <a href="https://wa.me{encodeURIComponent('Hola Reparación Cell, cotizar: '+qm+' '+qp)}" target="_blank" style="color:#f5b915;font-weight:700;">Cotizar por WhatsApp →</a></div>`; return; }
+    c.innerHTML=res.map(x=>{ const wa=encodeURIComponent(`Hola Reparación Cell Jarabacoa, me interesa: ${x.modelo} - ${x.tipo} (${x.precios})`);
+      return `<div style="background:#14171f;border:1px solid rgba(245,185,21,.5);border-radius:16px;padding:12px;display:flex;gap:10px;align-items:center;">
+        <div style="display:flex;gap:6px;flex-shrink:0;">
+          <div style="background:#0b0e14;border:1px solid rgba(245,185,21,.45);border-radius:12px;padding:4px;text-align:center;">${svgTel(x.modelo)}<div style="font-size:.6rem;color:#fff;font-weight:700;">${x.modelo.replace("iPhone ","IP ")}</div></div>
+          <div style="background:#0b0e14;border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:4px;text-align:center;">${svgPieza(x.tipo)}<div style="font-size:.6rem;color:#f5b915;font-weight:700;">${x.tipo}</div></div>
+        </div>
+        <div style="flex:1;text-align:left;min-width:0;">
+          <div style="font-weight:800;color:#fff;font-size:.9rem;">${x.modelo}</div>
+          <div style="color:#f5b915;font-size:.75rem;font-weight:700;">${x.tipo}</div>
+          <div style="color:#e5e7eb;font-size:.78rem;">${x.precios}</div>
+          ${x.extra?`<div style="color:#34d399;font-size:.71rem;font-weight:700;">✨ ${x.extra}</div>`:""}
+          <div style="margin-top:6px;display:flex;gap:5px;flex-wrap:wrap;">
+            <a href="https://wa.me{wa}" target="_blank" style="background:#25D366;color:#fff;text-decoration:none;padding:4px 9px;border-radius:7px;font-size:.72rem;font-weight:700;">💬 Reservar</a>
+            <button type="button" class="admin-only" onclick="editarItemPrecio(${x._i})" style="display:${adm?"inline-block":"none"};background:#f5b915;color:#000;border:none;padding:4px 8px;border-radius:7px;font-size:.71rem;font-weight:700;cursor:pointer;">✏️ Editar</button>
+            <button type="button" class="admin-only" onclick="eliminarItemPrecio(${x._i})" style="display:${adm?"inline-block":"none"};background:#dc2626;color:#fff;border:none;padding:4px 7px;border-radius:7px;font-size:.71rem;font-weight:700;cursor:pointer;">✕</button>
+          </div>
+        </div>
+      </div>`; }).join("");
+  };
+  document.addEventListener("DOMContentLoaded",()=>{
+    poblar();
+    const m=getM(), p=document.getElementById("rcInputPieza");
+    if(m){ m.addEventListener("change",rcEjecutarBusqueda); m.addEventListener("keydown",e=>{if(e.key==="Enter")rcEjecutarBusqueda();}); }
+    if(p){ p.addEventListener("change",rcEjecutarBusqueda); p.addEventListener("keydown",e=>{if(e.key==="Enter")rcEjecutarBusqueda();}); }
+  });
+})();
+</script>
+<!-- DOBLE_BUSCADOR_END -->
+<!-- CAT_FALLAS_START -->
+<script>
+(function(){
+  const OPCIONES_CAT = {
+    "tienda": {
+      modelo: "Tienda, Covers y Accesorios",
+      botones: ["Todo", "Covers", "Cargadores", "Micas", "Audífonos", "Equipos"],
+      items: [
+        { modelo: "Covers MagSafe y Antigolpes (iPhone y Android)", tipo: "Covers", precios: "Silicona, Transparente, MagSafe y Uso Rudo", extra: "Disponibles en Medina y Pinar Quemado" },
+        { modelo: "Cargadores Rápidos 20W / 35W / 65W y Cables", tipo: "Cargadores", precios: "Cubos Tipo C, Cables Lightning y USB-C originales y certificados", extra: "Carga rápida segura" },
+        { modelo: "Micas de Cristal Templado y Privacidad", tipo: "Micas", precios: "Protector de pantalla completo + Protector de lentes de cámara", extra: "Instalación gratis en tienda" },
+        { modelo: "Audífonos AirPods, Inalámbricos y Cable", tipo: "Audífonos", precios: "Audífonos Bluetooth, Lightning y Tipo C con micrófono", extra: "Garantía en tienda" },
+        { modelo: "iPhone y Celulares Garantizados", tipo: "Equipos", precios: "Equipos nuevos y seminuevos probados con garantía", extra: "Consulta modelos disponibles" },
+        { modelo: "Más Accesorios (Soportes, Power Banks, Bocinas)", tipo: "Accesorios", precios: "Baterías portátiles, soportes para carro y memorias", extra: "Envío en todo Jarabacoa" }
+      ]
+    },
+    "playstation": {
+      modelo: "PlayStation (PS4 / PS5 / Mandos)",
+      botones: ["Todo", "Mantenimiento", "Pasta Térmica", "No Enciende", "Puerto HDMI", "Drift Mando"],
+      items: [
+        { modelo: "PlayStation 5 (PS5)", tipo: "Mantenimiento y Pasta Térmica", precios: "Limpieza interna profunda + Metal líquido / Pasta térmica", extra: "Evita sobrecalentamiento y apagones" },
+        { modelo: "PlayStation 4 (Slim / Pro / Fat)", tipo: "Mantenimiento y Pasta Térmica", precios: "Limpieza general + Cambio de pasta térmica", extra: "Queda silenciosa y fresca" },
+        { modelo: "PlayStation 4 / PS5", tipo: "No Enciende / Fuente", precios: "Diagnóstico de placa, fuente de poder y corto circuito", extra: "Garantía en reparación" },
+        { modelo: "PlayStation 4 / PS5", tipo: "Puerto HDMI", precios: "Reemplazo de puerto HDMI soldado en placa", extra: "Sin señal de video solucionado" },
+        { modelo: "Mando PS5 DualSense / PS4", tipo: "Drift Mando / Botones", precios: "Cambio de joystick analógico (Drift), gatillos y batería", extra: "Calibración precisa" }
+      ]
+    },
+    "computadora": {
+      modelo: "Computadoras y Laptops",
+      botones: ["Todo", "Mantenimiento", "Pasta Térmica", "No Enciende", "Formateo / SSD", "Pantalla / Teclado"],
+      items: [
+        { modelo: "Laptop / PC Gaming", tipo: "Mantenimiento y Pasta Térmica", precios: "Limpieza de abanicos + Pasta térmica de alto rendimiento", extra: "Baja temperatura y ruido" },
+        { modelo: "Laptop / PC de Escritorio", tipo: "No Enciende", precios: "Reparación de placa madre, pin de carga y fuente", extra: "Diagnóstico rápido" },
+        { modelo: "Laptop / PC", tipo: "Formateo / Windows / SSD", precios: "Instalación de Windows, Office, programas y mejora con SSD", extra: "Hasta 10x más rápida" },
+        { modelo: "Laptop (HP, Dell, Lenovo, Mac)", tipo: "Pantalla / Teclado / Batería", precios: "Reemplazo de pantalla rota, teclado y batería", extra: "Por encargo o entrega inmediata" }
+      ]
+    },
+    "patinete": {
+      modelo: "Patinetes y Pasolas Eléctricas",
+      botones: ["Todo", "No Enciende", "Batería", "Controladora", "Frenos / Gomas", "Mantenimiento"],
+      items: [
+        { modelo: "Patinete / Pasola Eléctrica", tipo: "No Enciende / Eléctrico", precios: "Revisión de encendido, llave, acelerador y cableado", extra: "Medina y Pinar Quemado" },
+        { modelo: "Patinete / Pasola Eléctrica", tipo: "Batería / Carga", precios: "Reparación de celdas, BMS y puerto de carga", extra: "Recupera autonomía" },
+        { modelo: "Patinete / Pasola Eléctrica", tipo: "Controladora / Motor", precios: "Reparación o cambio de controlador y sensores Hall", extra: "Fuerza y velocidad al 100%" },
+        { modelo: "Patinete / Pasola Eléctrica", tipo: "Frenos / Gomas / Mantenimiento", precios: "Ajuste de frenos, cambio de gomas y mantenimiento general", extra: "Listo para rodar seguro" }
+      ]
+    },
+    "mojado": {
+      modelo: "Celulares Mojados",
+      botones: ["Todo", "Baño Químico", "No Enciende", "No Carga", "Recuperar Datos"],
+      items: [
+        { modelo: "iPhone / Android Mojado", tipo: "Baño Químico Ultrasonido", precios: "Desarme completo, limpieza ultrasónica y secado técnico", extra: "Tráelo apagado sin cargarlo" },
+        { modelo: "Celular Mojado No Enciende", tipo: "Micro-Soldadura en Placa", precios: "Reparación de cortos por humedad y líneas dañadas", extra: "Rescate de placa y datos" }
+      ]
+    }
+  };
+
+  function activarCategoriaEspecial(clave) {
+    const data = OPCIONES_CAT[clave];
+    if (!data) return;
+    const inpM = document.querySelector('input[placeholder*="dispositivo"]');
+    const inpP = document.getElementById("rcInputPieza");
+    const wrap = document.getElementById("rcPiezaWrap");
+    const cont = document.getElementById("rcResultadosTarjetas");
+
+    if (inpM) inpM.value = data.modelo;
+    if (inpP) {
+      inpP.value = "";
+      inpP.placeholder = "🔧 ¿Qué falla tiene? (" + data.botones.slice(1).join(", ") + "...)";
+    }
+
+    if (wrap) {
+      const btnBar = wrap.querySelector("div");
+      if (btnBar) {
+        btnBar.innerHTML = data.botones.map(b =>
+          `<button type="button" onclick="rcFiltrarEspecial('${clave}','${b === 'Todo' ? '' : b}')" style="background:#1c1f26;color:#f5b915;border:1px solid rgba(245,185,21,0.5);padding:6px 12px;border-radius:99px;font-size:0.78rem;font-weight:700;cursor:pointer;">${b}</button>`
+        ).join("") + `<button type="button" onclick="rcLimpiarBusqueda()" style="background:#2d3139;color:#ccc;border:none;padding:6px 11px;border-radius:99px;font-size:0.76rem;cursor:pointer;">✕ Limpiar</button>`;
+      }
+    }
+
+    window.rcFiltrarEspecial = function(cl, filtro) {
+      if (inpP) inpP.value = filtro;
+      const lista = OPCIONES_CAT[cl].items.filter(it =>
+        !filtro || it.tipo.toLowerCase().includes(filtro.toLowerCase()) || it.precios.toLowerCase().includes(filtro.toLowerCase())
+      );
+      if (!cont) return;
+      cont.style.display = "grid";
+      cont.innerHTML = lista.map(x => {
+        const wa = encodeURIComponent(`Hola Reparación Cell Jarabacoa, necesito ayuda con: ${x.modelo} - ${x.tipo}`);
+        return `<div style="background:#14171f;border:1px solid rgba(245,185,21,.5);border-radius:16px;padding:12px;display:flex;gap:12px;align-items:center;">
+          <div style="width:54px;height:68px;border-radius:12px;background:#0b0e14;border:1px solid #f5b915;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;">🛠️</div>
+          <div style="flex:1;text-align:left;">
+            <div style="font-weight:800;color:#fff;font-size:.9rem;">${x.modelo}</div>
+            <div style="color:#f5b915;font-size:.76rem;font-weight:700;">${x.tipo}</div>
+            <div style="color:#e5e7eb;font-size:.78rem;margin-top:2px;">${x.precios}</div>
+            <div style="color:#34d399;font-size:.72rem;font-weight:700;margin-top:2px;">✨ ${x.extra}</div>
+            <a href="https://wa.me{wa}" target="_blank" style="display:inline-block;margin-top:7px;background:#25D366;color:#fff;text-decoration:none;padding:5px 10px;border-radius:8px;font-size:.74rem;font-weight:700;">💬 Cotizar / Agendar</a>
+          </div>
+        </div>`;
+      }).join("");
+    };
+
+    window.rcFiltrarEspecial(clave, "");
+  }
+
+  document.addEventListener("click", function(e) {
+    const tab = e.target.closest(".filter-tabs button, .filter-tabs a, [data-filter]");
+    if (!tab) return;
+    const txt = (tab.textContent || "").toLowerCase();
+    if (txt.includes("playstation") || txt.includes("mando")) activarCategoriaEspecial("playstation");
+    else if (txt.includes("computadora")) activarCategoriaEspecial("computadora");
+    else if (txt.includes("patinete") || txt.includes("pasola")) activarCategoriaEspecial("patinete");
+    else if (txt.includes("mojado")) activarCategoriaEspecial("mojado");
+    else if (txt.includes("tienda") || txt.includes("cover")) activarCategoriaEspecial("tienda");
+  });
+})();
+</script>
+<!-- CAT_FALLAS_END -->
+
+<a href="tel:+18099757231" style="position:fixed;bottom:20px;right:165px;z-index:9998;background:#f5b915;color:#000;padding:12px 18px;border-radius:99px;font-weight:800;font-size:0.92rem;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,0.45);display:inline-flex;align-items:center;gap:6px;">📞 Llamar</a>
+
+</body>
+</html>
