@@ -143,9 +143,186 @@ footer{position:relative;padding:70px 18px 110px;text-align:center;color:#f4f4f5
   }
 </style>
 
+<style id="rc-admin-compacto-css">
+  .rc-admin-editor-inline {
+    display: none !important;
+  }
+  body.rc-admin-logueado #rcResultadosTarjetas {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    max-width: 1080px !important;
+    margin: 10px auto !important;
+  }
+  @media (max-width: 768px) {
+    body.rc-admin-logueado #rcResultadosTarjetas {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
+  body.rc-admin-logueado #rcResultadosTarjetas > div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    gap: 4px !important;
+    padding: 7px 9px !important;
+    background: #141414 !important;
+    border: 1px solid #333 !important;
+    border-radius: 9px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 11.5px !important;
+    line-height: 1.25 !important;
+  }
+  body.rc-admin-logueado #rcResultadosTarjetas > div svg,
+  body.rc-admin-logueado #rcResultadosTarjetas > div img,
+  body.rc-admin-logueado #rcResultadosTarjetas > div .rc-add-cart-btn,
+  body.rc-admin-logueado #rcResultadosTarjetas > div .rc-oculto-admin {
+    display: none !important;
+  }
+  body.rc-admin-logueado .rc-admin-editor-inline {
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    width: 100% !important;
+    margin-top: 4px !important;
+  }
+  body.rc-admin-logueado .rc-admin-input-precio {
+    background: #0b0b0b !important;
+    color: #4ade80 !important;
+    border: 1px solid #d4af37 !important;
+    border-radius: 6px !important;
+    padding: 4px 7px !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+  body.rc-admin-logueado .rc-admin-btn-save {
+    background: #22c55e !important;
+    color: #000 !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+  }
+</style>
+<style id="rc-cliente-compacto-css">
+  body:not(.rc-admin-logueado) #rcResultadosTarjetas {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(335px, 1fr)) !important;
+    gap: 10px !important;
+  }
+  @media (max-width: 480px) {
+    body:not(.rc-admin-logueado) #rcResultadosTarjetas {
+      grid-template-columns: 1fr !important;
+    }
+  }
+  body:not(.rc-admin-logueado) #rcResultadosTarjetas > div.rc-card-horizontal {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 9px 11px !important;
+    border-radius: 13px !important;
+  }
+  body:not(.rc-admin-logueado) .rc-h-media {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+  }
+  body:not(.rc-admin-logueado) .rc-h-media svg {
+    max-height: 66px !important;
+    width: auto !important;
+  }
+  body:not(.rc-admin-logueado) .rc-h-media img {
+    height: 66px !important;
+    width: auto !important;
+    max-width: 62px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+  }
+  body:not(.rc-admin-logueado) .rc-h-info {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    gap: 3px !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+  body:not(.rc-admin-logueado) .rc-h-btns {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin-top: 5px !important;
+  }
+  body:not(.rc-admin-logueado) .rc-h-btns button {
+    padding: 5px 10px !important;
+    font-size: 11.5px !important;
+    margin: 0 !important;
+  }
+  .rc-pieza-badge-box {
+    width: 58px;
+    height: 66px;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 9px;
+    background: rgba(15, 15, 15, 0.95);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 3px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+  }
+  .rc-pieza-badge-box svg {
+    max-height: 32px !important;
+  }
+  .rc-pieza-badge-box span {
+    font-size: 8.5px;
+    font-weight: 700;
+    color: #f59e0b;
+    text-align: center;
+    line-height: 1.05;
+  }
+</style>
+<style id="rc-tienda-pro-css">
+  body:not(.rc-admin-logueado) .rc-h-btns {
+    display: flex !important; flex-wrap: wrap !important; align-items: center !important; gap: 5px !important; margin-top: 6px !important;
+  }
+  body:not(.rc-admin-logueado) .rc-h-btns button,
+  body:not(.rc-admin-logueado) .rc-h-btns a {
+    padding: 4px 9px !important; font-size: 11px !important; border-radius: 7px !important; line-height: 1.2 !important; margin: 0 !important;
+  }
+  body:not(.rc-admin-logueado) .rc-h-media svg { max-height: 80px !important; max-width: 72px !important; width: auto !important; }
+  body:not(.rc-admin-logueado) .rc-h-media img { height: 80px !important; max-width: 72px !important; }
+  .rc-pieza-badge-box { width: 66px !important; height: 80px !important; padding: 2px !important; }
+  .rc-pieza-badge-box svg { max-height: 42px !important; width: auto !important; }
+  .rc-precio-pills-wrap { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
+  .rc-precio-pill { background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.35); color: #f8fafc; font-size: 11px; padding: 2px 7px; border-radius: 6px; line-height: 1.25; }
+  .rc-precio-pill strong { color: #4ade80; font-weight: 800; }
+  .rc-precio-pill .rc-calidad-lbl { color: #fbbf24; font-weight: 600; }
+</style>
 </head>
 
-<body><script>if(!sessionStorage.getItem("rc_limpio_ok")){localStorage.removeItem("rc_cat_v2");sessionStorage.setItem("rc_limpio_ok","1");}</script>
+<body>
+<script id="rc-sync-1718">
+(function(){
+  try {
+    var raw = localStorage.getItem("rc_cat_v2");
+    if (raw && raw.indexOf("iPhone 18 Pro Max") === -1) {
+      localStorage.removeItem("rc_cat_v2");
+    }
+  } catch(e) {}
+})();
+</script>
   <header>
     <div class="nav-container">
       <a href="#" class="brand"><img onerror="if(!this.dataset.t){this.dataset.t=1;this.src='logo.png?v=3';}else if(this.dataset.t==1){this.dataset.t=2;this.src='logo.JPG';}else if(this.dataset.t==2){this.dataset.t=3;this.src='logo.PNG';}else if(this.dataset.t==3){this.dataset.t=4;this.src='logo.JPG';}" src="logo.png?v=3" alt="Web Reparación Cell" class="brand-logo"><div class="brand-text"><h1>WEB REPARACIÓN CELL</h1><span>Jarabacoa · Medina y Pinar Quemado</span></div></a>
@@ -192,7 +369,15 @@ footer{position:relative;padding:70px 18px 110px;text-align:center;color:#f4f4f5
     <button type="button" class="admin-only" onclick="agregarPrecioAdmin()" style="display:none;background:#25D366;color:#fff;border:none;padding:6px 12px;border-radius:99px;font-size:0.76rem;font-weight:700;cursor:pointer;">➕ Agregar Dispositivo/Pieza</button>
   </div>
 </div>
-<datalist id="rcListaModelos"></datalist>
+<datalist id="rcListaModelos"><option value="iPhone 17"></option>
+<option value="iPhone 17 Air"></option>
+<option value="iPhone 17 Pro"></option>
+<option value="iPhone 17 Pro Max"></option>
+<option value="iPhone 18"></option>
+<option value="iPhone 18 Air"></option>
+<option value="iPhone 18 Pro"></option>
+<option value="iPhone 18 Pro Max"></option>
+</datalist>
 <div id="rcResultadosTarjetas" style="margin-top:14px;display:none;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;"></div>
 <div id="listaSugerencias" class="autocomplete-list"></div></div>
       <div class="filter-tabs" id="tabsCategoria">
@@ -728,7 +913,20 @@ document.addEventListener("DOMContentLoaded", () => {
 <!-- DOBLE_BUSCADOR_START -->
 <script>
 (function(){
-  const DEF = [{"modelo": "iPhone 6s / 6s Plus", "tipo": "Pantalla", "precios": "AAA: RD$1,200", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "Pantalla", "precios": "AAA: RD$1,450", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "Pantalla", "precios": "AAA: RD$1,750", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "Pantalla", "precios": "AAA: RD$1,550", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "Pantalla", "precios": "AAA: RD$1,850", "extra": ""}, {"modelo": "iPhone X", "tipo": "Pantalla", "precios": "Incell: RD$2,100 · Soft OLED: RD$2,850", "extra": ""}, {"modelo": "iPhone XS", "tipo": "Pantalla", "precios": "Incell: RD$2,250 · Soft OLED: RD$2,850", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "Pantalla", "precios": "Incell: RD$2,550 · Soft OLED: RD$3,600", "extra": ""}, {"modelo": "iPhone XR", "tipo": "Pantalla", "precios": "Incell: RD$2,400 · Soft OLED: RD$3,200", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 11", "tipo": "Pantalla", "precios": "Incell: RD$3,050 · Soft OLED: RD$3,900 · Original: RD$5,590", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 11 Pro", "tipo": "Pantalla", "precios": "Incell: RD$3,350 · Soft OLED: RD$4,000", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 11 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$3,300 · Soft OLED: RD$4,450 · Original: RD$8,500", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 12 / 12 Pro", "tipo": "Pantalla", "precios": "Incell: RD$3,650 · Soft OLED: RD$6,000 · Original: RD$7,690", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 12 Mini", "tipo": "Pantalla", "precios": "Incell: RD$3,350 · Soft OLED: RD$4,990", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 12 Pro Max", "tipo": "Pantalla", "precios": "Incell GX: RD$3,900 · JK: RD$4,450 · Soft OLED: RD$6,500 · Original: RD$11,900", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 13 Normal", "tipo": "Pantalla", "precios": "Incell: RD$3,800 · Soft OLED: RD$6,650", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 13 Pro", "tipo": "Pantalla", "precios": "Incell: RD$4,990 · Soft OLED: RD$8,100", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 13 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$5,650 · Soft OLED: RD$9,450", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 14 Normal", "tipo": "Pantalla", "precios": "Incell: RD$4,100 · Soft OLED: RD$7,950", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 14 Plus", "tipo": "Pantalla", "precios": "Incell: RD$4,950 · Soft OLED: RD$6,200", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 14 Pro", "tipo": "Pantalla", "precios": "Incell: RD$5,250 · Soft OLED: RD$8,950", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 14 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$5,950 · Premium: RD$7,200 · Soft OLED: RD$9,800", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 15", "tipo": "Pantalla", "precios": "Incell: RD$5,700 · Soft OLED: RD$9,600", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 15 Pro", "tipo": "Pantalla", "precios": "Incell: RD$5,450 · Premium: RD$6,950 · Soft OLED: RD$15,900", "extra": ""}, {"modelo": "iPhone 15 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$5,650 · Premium: RD$7,150 · Soft OLED: RD$9,550", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 16", "tipo": "Pantalla", "precios": "Incell: RD$9,650 · Soft OLED: RD$15,700", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 16 Plus", "tipo": "Pantalla", "precios": "Incell: RD$9,700 · Soft OLED: RD$16,200", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 16 Pro", "tipo": "Pantalla", "precios": "Incell: RD$9,650 · Buena: RD$9,350-10,290 · Premium: RD$13,350 · Soft OLED: RD$15,700", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 16 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$10,250 · Soft OLED: RD$15,350-16,350", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 6s Plus", "tipo": "Batería", "precios": "RD$1,100", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "Batería", "precios": "RD$1,150", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "Batería", "precios": "RD$1,200", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "Batería", "precios": "RD$1,300", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "Batería", "precios": "RD$1,400", "extra": ""}, {"modelo": "iPhone X Normal", "tipo": "Batería", "precios": "RD$1,900", "extra": ""}, {"modelo": "iPhone XS", "tipo": "Batería", "precios": "RD$2,050", "extra": ""}, {"modelo": "iPhone XS Max / XR", "tipo": "Batería", "precios": "RD$2,100", "extra": ""}, {"modelo": "iPhone 11 Normal", "tipo": "Batería", "precios": "Normal: RD$2,200 · Programable: RD$3,225", "extra": ""}, {"modelo": "iPhone 11 Pro", "tipo": "Batería", "precios": "Normal: RD$2,250 · Programable: RD$3,275", "extra": ""}, {"modelo": "iPhone 11 Pro Max / 12 Normal", "tipo": "Batería", "precios": "Normal: RD$2,350 · Programable: RD$3,375", "extra": ""}, {"modelo": "iPhone 12 Pro", "tipo": "Batería", "precios": "Normal: RD$2,390 · Programable: RD$3,415", "extra": ""}, {"modelo": "iPhone 12 Pro Max", "tipo": "Batería", "precios": "Normal: RD$2,490 · Programable: RD$3,515", "extra": ""}, {"modelo": "iPhone 13 Normal / 13 Pro", "tipo": "Batería", "precios": "Normal: RD$2,450 · Programable: RD$3,475", "extra": ""}, {"modelo": "iPhone 13 Pro Max", "tipo": "Batería", "precios": "Normal: RD$2,900 · Programable: RD$3,925 · Original: RD$4,700", "extra": ""}, {"modelo": "iPhone 14 Normal / Plus / Pro", "tipo": "Batería", "precios": "Normal: RD$2,900 · Programable: RD$3,925", "extra": ""}, {"modelo": "iPhone 14 Pro Max", "tipo": "Batería", "precios": "Normal: RD$3,000 · Programable: RD$4,025 · Original: RD$4,900", "extra": ""}, {"modelo": "iPhone 15", "tipo": "Batería", "precios": "Normal: RD$3,100 · Programable: RD$4,125", "extra": ""}, {"modelo": "iPhone 15 Plus", "tipo": "Batería", "precios": "Normal: RD$4,900 · Programable: RD$5,925", "extra": ""}, {"modelo": "iPhone 15 Pro", "tipo": "Batería", "precios": "Normal: RD$4,000 · Programable: RD$5,025", "extra": ""}, {"modelo": "iPhone 15 Pro Max", "tipo": "Batería", "precios": "Normal: RD$4,950 · Programable: RD$5,975 · Original: RD$6,450", "extra": ""}, {"modelo": "iPhone 16", "tipo": "Batería", "precios": "Normal: RD$5,200 · Programable: RD$6,225", "extra": ""}, {"modelo": "iPhone 16 Pro", "tipo": "Batería", "precios": "Normal: RD$5,300 · Programable: RD$6,325", "extra": ""}, {"modelo": "iPhone 16 Plus / 16 Pro Max", "tipo": "Batería", "precios": "Consultar disponibilidad", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "Tapa Trasera", "precios": "RD$1,600", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "Tapa Trasera", "precios": "RD$1,790", "extra": ""}, {"modelo": "iPhone X / XS", "tipo": "Tapa Trasera", "precios": "RD$1,990", "extra": ""}, {"modelo": "iPhone XS Max / XR", "tipo": "Tapa Trasera", "precios": "RD$2,099", "extra": ""}, {"modelo": "iPhone 11 Normal", "tipo": "Tapa Trasera", "precios": "RD$2,150", "extra": ""}, {"modelo": "iPhone 11 Pro", "tipo": "Tapa Trasera", "precios": "RD$2,100", "extra": ""}, {"modelo": "iPhone 11 Pro Max", "tipo": "Tapa Trasera", "precios": "RD$2,200", "extra": ""}, {"modelo": "iPhone 12 Mini", "tipo": "Tapa Trasera", "precios": "RD$2,100", "extra": ""}, {"modelo": "iPhone 12 Normal", "tipo": "Tapa Trasera", "precios": "RD$2,150", "extra": ""}, {"modelo": "iPhone 12 Pro", "tipo": "Tapa Trasera", "precios": "RD$2,200", "extra": ""}, {"modelo": "iPhone 12 Pro Max", "tipo": "Tapa Trasera", "precios": "RD$2,240", "extra": ""}, {"modelo": "iPhone 13 Normal / Pro", "tipo": "Tapa Trasera", "precios": "RD$2,300", "extra": ""}, {"modelo": "iPhone 13 Pro Max", "tipo": "Tapa Trasera", "precios": "RD$2,900", "extra": ""}, {"modelo": "iPhone 14 Normal", "tipo": "Tapa Trasera", "precios": "RD$2,990", "extra": ""}, {"modelo": "iPhone 14 Pro", "tipo": "Tapa Trasera", "precios": "RD$3,000", "extra": ""}, {"modelo": "iPhone 14 Plus", "tipo": "Tapa Trasera", "precios": "Normal: RD$3,200 · Original: RD$4,600", "extra": ""}, {"modelo": "iPhone 14 Pro Max", "tipo": "Tapa Trasera", "precios": "RD$3,400", "extra": ""}, {"modelo": "iPhone 15 / 15 Pro", "tipo": "Tapa Trasera", "precios": "Normal: RD$3,500 · Original: RD$5,300", "extra": ""}, {"modelo": "iPhone 15 Plus", "tipo": "Tapa Trasera", "precios": "Normal: RD$3,500 · Original: RD$5,350", "extra": ""}, {"modelo": "iPhone 15 Pro Max", "tipo": "Tapa Trasera", "precios": "Normal: RD$3,900 · Original: RD$5,950", "extra": ""}, {"modelo": "iPhone 16", "tipo": "Tapa Trasera", "precios": "RD$4,650", "extra": ""}, {"modelo": "iPhone 16 Plus", "tipo": "Tapa Trasera", "precios": "RD$4,750", "extra": ""}, {"modelo": "iPhone 16 Pro", "tipo": "Tapa Trasera", "precios": "RD$5,300", "extra": ""}, {"modelo": "iPhone 16 Pro Max", "tipo": "Tapa Trasera", "precios": "RD$5,900", "extra": ""}, {"modelo": "iPhone 7 al 12 Pro Max", "tipo": "Turbo SIM", "precios": "RD$2,300", "extra": ""}, {"modelo": "iPhone 13 / 13 Pro Max", "tipo": "Turbo SIM", "precios": "RD$2,850", "extra": ""}, {"modelo": "iPhone 14 / 14 Pro Max", "tipo": "Turbo SIM / Kit MEP", "precios": "Turbo SIM: RD$3,000 · Kit MEP: RD$4,000", "extra": ""}, {"modelo": "iPhone 15 / 15 Pro Max", "tipo": "Kit MEP", "precios": "RD$4,800", "extra": ""}, {"modelo": "iPhone 16 / 16 Pro Max", "tipo": "Kit MEP", "precios": "RD$6,350", "extra": ""}, {"modelo": "ZTE A71", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,700 · Original: RD$3,200", "extra": ""}, {"modelo": "Samsung A51 / A71", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,800 · Original: RD$3,300", "extra": ""}, {"modelo": "Samsung A21 / A21s", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,700 · Original: RD$3,000", "extra": ""}, {"modelo": "Samsung A30", "tipo": "Pantalla Android", "precios": "Compatible: RD$3,890 · Original: RD$3,290", "extra": ""}, {"modelo": "Huawei Y6 / Y7 / Y8", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,700 · Original: RD$3,100", "extra": ""}, {"modelo": "Oppo Genérico", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,790 · Original: RD$3,200", "extra": ""}, {"modelo": "Xiaomi Poco C40", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,800 · Original: RD$3,200", "extra": ""}, {"modelo": "Android V8 Antiguo (Soldar)", "tipo": "Pin de Carga", "precios": "RD$600 - RD$650", "extra": ""}, {"modelo": "Android Tipo C (Soldar)", "tipo": "Pin de Carga", "precios": "RD$800 - RD$900", "extra": ""}, {"modelo": "Android Flex Pin V8", "tipo": "Pin de Carga", "precios": "RD$1,000 - RD$1,200", "extra": ""}, {"modelo": "Android Flex Pin Tipo C", "tipo": "Pin de Carga", "precios": "RD$1,200 - RD$1,500", "extra": ""},
+  const DEF = [{"modelo": "iPhone 6s / 6s Plus", "tipo": "Pantalla", "precios": "AAA: RD$1,200", "extra": ""}, {"modelo": "iPhone 6s / 6s Plus", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 6s / 6s Plus", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 6s / 6s Plus", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 6s / 6s Plus", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 6s / 6s Plus", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "Pantalla", "precios": "AAA: RD$1,450", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "Pantalla", "precios": "AAA: RD$1,750", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "Pantalla", "precios": "AAA: RD$1,550", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "Pantalla", "precios": "AAA: RD$1,850", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone X", "tipo": "Pantalla", "precios": "Incell: RD$2,100 · Soft OLED: RD$2,850", "extra": ""}, {"modelo": "iPhone X", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone X", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone X", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone X", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone X", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone XS", "tipo": "Pantalla", "precios": "Incell: RD$2,250 · Soft OLED: RD$2,850", "extra": ""}, {"modelo": "iPhone XS", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone XS", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone XS", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone XS", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "Pantalla", "precios": "Incell: RD$2,550 · Soft OLED: RD$3,600", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone XR", "tipo": "Pantalla", "precios": "Incell: RD$2,400 · Soft OLED: RD$3,200", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone XR", "tipo": "Batería", "precios": "Normal: RD$2,100 · Con Flex Original: RD$3,000", "extra": ""}, {"modelo": "iPhone XR", "tipo": "Tapa Trasera", "precios": "RD$2,099", "extra": ""}, {"modelo": "iPhone XR", "tipo": "Pin de Carga", "precios": "Repararlo: RD$900 · Cambiarlo: RD$1,600", "extra": ""}, {"modelo": "iPhone XR", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone XR", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 11", "tipo": "Pantalla", "precios": "Incell: RD$3,050 · Soft OLED: RD$3,900 · Original: RD$5,590", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 11", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 11", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 11", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 11", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 11", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro", "tipo": "Pantalla", "precios": "Incell: RD$3,350 · Soft OLED: RD$4,000", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 11 Pro", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$3,300 · Soft OLED: RD$4,450 · Original: RD$8,500", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 11 Pro Max", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro Max", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro Max", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro Max", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 12", "tipo": "Pantalla", "precios": "Incell: RD$3,650 · Soft OLED: RD$6,000 · Original: RD$7,690", "extra": "+ Sin MSJ: +RD$500"},
+  {"modelo": "iPhone 12", "tipo": "Batería", "precios": "Normal: RD$2,350 · Programable: RD$3,375", "extra": ""},
+  {"modelo": "iPhone 12", "tipo": "Tapa Trasera", "precios": "RD$2,150", "extra": ""},
+  {"modelo": "iPhone 12", "tipo": "Turbo SIM", "precios": "RD$2,300", "extra": ""},
+  {"modelo": "iPhone 12", "tipo": "Pin de Carga", "precios": "", "extra": ""},
+  {"modelo": "iPhone 12", "tipo": "No Enciende", "precios": "", "extra": ""},
+  {"modelo": "iPhone 12", "tipo": "Housing / Chasis", "precios": "", "extra": ""},
+  {"modelo": "iPhone 12 Pro", "tipo": "Pantalla", "precios": "Incell: RD$3,650 · Soft OLED: RD$6,000 · Original: RD$7,690", "extra": "+ Sin MSJ: +RD$500"},
+  {"modelo": "iPhone 12 Pro", "tipo": "Batería", "precios": "Normal: RD$2,390 · Programable: RD$3,415", "extra": ""},
+  {"modelo": "iPhone 12 Pro", "tipo": "Tapa Trasera", "precios": "RD$2,200", "extra": ""},
+  {"modelo": "iPhone 12 Pro", "tipo": "Pin de Carga", "precios": "", "extra": ""},
+  {"modelo": "iPhone 12 Pro", "tipo": "No Enciende", "precios": "", "extra": ""},
+  {"modelo": "iPhone 12 Pro", "tipo": "Housing / Chasis", "precios": "", "extra": ""},
+  {"modelo": "iPhone 12 Mini", "tipo": "Pantalla", "precios": "Incell: RD$3,350 · Soft OLED: RD$4,990", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 12 Mini", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 12 Mini", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 12 Mini", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 12 Mini", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 12 Pro Max", "tipo": "Pantalla", "precios": "Incell GX: RD$3,900 · JK: RD$4,450 · Soft OLED: RD$6,500 · Original: RD$11,900", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 12 Pro Max", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 12 Pro Max", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 12 Pro Max", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 13 Normal", "tipo": "Pantalla", "precios": "Incell: RD$3,800 · Soft OLED: RD$6,650", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 13 Normal", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 13 Normal", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 13 Normal", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 13 Normal", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 13 Normal", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 13 Pro", "tipo": "Pantalla", "precios": "Incell: RD$4,990 · Soft OLED: RD$8,100", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 13 Pro", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 13 Pro", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 13 Pro", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 13 Pro", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 13 Pro", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 13 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$5,650 · Soft OLED: RD$9,450", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 13 Pro Max", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 13 Pro Max", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 13 Pro Max", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 14 Normal", "tipo": "Pantalla", "precios": "Incell: RD$4,100 · Soft OLED: RD$7,950", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 14 Normal", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 14 Normal", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 14 Normal", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 14 Normal", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 14 Plus", "tipo": "Pantalla", "precios": "Incell: RD$4,950 · Soft OLED: RD$6,200", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 14 Plus", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 14 Plus", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 14 Plus", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 14 Plus", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 14 Pro", "tipo": "Pantalla", "precios": "Incell: RD$5,250 · Soft OLED: RD$8,950", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 14 Pro", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 14 Pro", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 14 Pro", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 14 Pro", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 14 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$5,950 · Premium: RD$7,200 · Soft OLED: RD$9,800", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 14 Pro Max", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 14 Pro Max", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 14 Pro Max", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 15", "tipo": "Pantalla", "precios": "Incell: RD$5,700 · Soft OLED: RD$9,600", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 15", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 15", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 15", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 15", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 15 Pro", "tipo": "Pantalla", "precios": "Incell: RD$5,450 · Premium: RD$6,950 · Soft OLED: RD$15,900", "extra": ""}, {"modelo": "iPhone 15 Pro", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 15 Pro", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 15 Pro", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 15 Pro", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 15 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$5,650 · Premium: RD$7,150 · Soft OLED: RD$9,550", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 15 Pro Max", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 15 Pro Max", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 15 Pro Max", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 16", "tipo": "Pantalla", "precios": "Incell: RD$9,650 · Soft OLED: RD$15,700", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 16", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 16", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 16", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 16 Plus", "tipo": "Pantalla", "precios": "Incell: RD$9,700 · Soft OLED: RD$16,200", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 16 Plus", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 16 Plus", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 16 Plus", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 16 Plus", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 16 Pro", "tipo": "Pantalla", "precios": "Incell: RD$9,650 · Buena: RD$9,350-10,290 · Premium: RD$13,350 · Soft OLED: RD$15,700", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 16 Pro", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 16 Pro", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 16 Pro", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 16 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$10,250 · Soft OLED: RD$15,350-16,350", "extra": "Sin MSJ: +RD$1,000"}, {"modelo": "iPhone 16 Pro Max", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 16 Pro Max", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 16 Pro Max", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 16 Pro Max", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 17", "tipo": "Pantalla", "precios": "", "extra": ""}, {"modelo": "iPhone 17", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 17", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 17", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 17", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 17", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Air", "tipo": "Pantalla", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Air", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Air", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Air", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Air", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Air", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Pro", "tipo": "Pantalla", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Pro", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Pro", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Pro", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Pro", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Pro", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Pro Max", "tipo": "Pantalla", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Pro Max", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Pro Max", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Pro Max", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Pro Max", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 17 Pro Max", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 18", "tipo": "Pantalla", "precios": "", "extra": ""}, {"modelo": "iPhone 18", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 18", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 18", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 18", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 18", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Air", "tipo": "Pantalla", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Air", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Air", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Air", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Air", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Air", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Pro", "tipo": "Pantalla", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Pro", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Pro", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Pro", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Pro", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Pro", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Pro Max", "tipo": "Pantalla", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Pro Max", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Pro Max", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Pro Max", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Pro Max", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 18 Pro Max", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 6s Plus", "tipo": "Batería", "precios": "RD$1,100", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "Batería", "precios": "RD$1,150", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "Batería", "precios": "RD$1,200", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "Batería", "precios": "RD$1,300", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "Batería", "precios": "RD$1,400", "extra": ""}, {"modelo": "iPhone X Normal", "tipo": "Batería", "precios": "RD$1,900", "extra": ""}, {"modelo": "iPhone XS", "tipo": "Batería", "precios": "RD$2,050", "extra": ""}, {"modelo": "iPhone XS Max / XR", "tipo": "Batería", "precios": "RD$2,100", "extra": ""}, {"modelo": "iPhone 11 Normal", "tipo": "Batería", "precios": "Normal: RD$2,200 · Programable: RD$3,225", "extra": ""}, {"modelo": "iPhone 11 Pro", "tipo": "Batería", "precios": "Normal: RD$2,250 · Programable: RD$3,275", "extra": ""}, {"modelo": "iPhone 11 Pro Max / 12 Normal", "tipo": "Batería", "precios": "Normal: RD$2,350 · Programable: RD$3,375", "extra": ""}, {"modelo": "iPhone 12 Pro Max", "tipo": "Batería", "precios": "Normal: RD$2,490 · Programable: RD$3,515", "extra": ""}, {"modelo": "iPhone 13 Normal / 13 Pro", "tipo": "Batería", "precios": "Normal: RD$2,450 · Programable: RD$3,475", "extra": ""}, {"modelo": "iPhone 13 Pro Max", "tipo": "Batería", "precios": "Normal: RD$2,900 · Programable: RD$3,925 · Original: RD$4,700", "extra": ""}, {"modelo": "iPhone 14 Normal / Plus / Pro", "tipo": "Batería", "precios": "Normal: RD$2,900 · Programable: RD$3,925", "extra": ""}, {"modelo": "iPhone 14 Pro Max", "tipo": "Batería", "precios": "Normal: RD$3,000 · Programable: RD$4,025 · Original: RD$4,900", "extra": ""}, {"modelo": "iPhone 15", "tipo": "Batería", "precios": "Normal: RD$3,100 · Programable: RD$4,125", "extra": ""}, {"modelo": "iPhone 15 Plus", "tipo": "Batería", "precios": "Normal: RD$4,900 · Programable: RD$5,925", "extra": ""}, {"modelo": "iPhone 15 Pro", "tipo": "Batería", "precios": "Normal: RD$4,000 · Programable: RD$5,025", "extra": ""}, {"modelo": "iPhone 15 Pro Max", "tipo": "Batería", "precios": "Normal: RD$4,950 · Programable: RD$5,975 · Original: RD$6,450", "extra": ""}, {"modelo": "iPhone 16", "tipo": "Batería", "precios": "Normal: RD$5,200 · Programable: RD$6,225", "extra": ""}, {"modelo": "iPhone 16 Pro", "tipo": "Batería", "precios": "Normal: RD$5,300 · Programable: RD$6,325", "extra": ""}, {"modelo": "iPhone 16 Plus / 16 Pro Max", "tipo": "Batería", "precios": "Consultar disponibilidad", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "Tapa Trasera", "precios": "RD$1,600", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "Tapa Trasera", "precios": "RD$1,790", "extra": ""}, {"modelo": "iPhone X / XS", "tipo": "Tapa Trasera", "precios": "RD$1,990", "extra": ""}, {"modelo": "iPhone XS Max / XR", "tipo": "Tapa Trasera", "precios": "RD$2,099", "extra": ""}, {"modelo": "iPhone 11 Normal", "tipo": "Tapa Trasera", "precios": "RD$2,150", "extra": ""}, {"modelo": "iPhone 11 Pro", "tipo": "Tapa Trasera", "precios": "RD$2,100", "extra": ""}, {"modelo": "iPhone 11 Pro Max", "tipo": "Tapa Trasera", "precios": "RD$2,200", "extra": ""}, {"modelo": "iPhone 12 Mini", "tipo": "Tapa Trasera", "precios": "RD$2,100", "extra": ""}, {"modelo": "iPhone 12 Normal", "tipo": "Tapa Trasera", "precios": "RD$2,150", "extra": ""}, {"modelo": "iPhone 12 Pro Max", "tipo": "Tapa Trasera", "precios": "RD$2,240", "extra": ""}, {"modelo": "iPhone 13 Normal / Pro", "tipo": "Tapa Trasera", "precios": "RD$2,300", "extra": ""}, {"modelo": "iPhone 13 Pro Max", "tipo": "Tapa Trasera", "precios": "RD$2,900", "extra": ""}, {"modelo": "iPhone 14 Normal", "tipo": "Tapa Trasera", "precios": "RD$2,990", "extra": ""}, {"modelo": "iPhone 14 Pro", "tipo": "Tapa Trasera", "precios": "RD$3,000", "extra": ""}, {"modelo": "iPhone 14 Plus", "tipo": "Tapa Trasera", "precios": "Normal: RD$3,200 · Original: RD$4,600", "extra": ""}, {"modelo": "iPhone 14 Pro Max", "tipo": "Tapa Trasera", "precios": "RD$3,400", "extra": ""}, {"modelo": "iPhone 15 / 15 Pro", "tipo": "Tapa Trasera", "precios": "Normal: RD$3,500 · Original: RD$5,300", "extra": ""}, {"modelo": "iPhone 15 Plus", "tipo": "Tapa Trasera", "precios": "Normal: RD$3,500 · Original: RD$5,350", "extra": ""}, {"modelo": "iPhone 15 Pro Max", "tipo": "Tapa Trasera", "precios": "Normal: RD$3,900 · Original: RD$5,950", "extra": ""}, {"modelo": "iPhone 16", "tipo": "Tapa Trasera", "precios": "RD$4,650", "extra": ""}, {"modelo": "iPhone 16 Plus", "tipo": "Tapa Trasera", "precios": "RD$4,750", "extra": ""}, {"modelo": "iPhone 16 Pro", "tipo": "Tapa Trasera", "precios": "RD$5,300", "extra": ""}, {"modelo": "iPhone 16 Pro Max", "tipo": "Tapa Trasera", "precios": "RD$5,900", "extra": ""}, {"modelo": "iPhone 7 al 12 Pro Max", "tipo": "Turbo SIM", "precios": "RD$2,300", "extra": ""}, {"modelo": "iPhone 13 / 13 Pro Max", "tipo": "Turbo SIM", "precios": "RD$2,850", "extra": ""}, {"modelo": "iPhone 14 / 14 Pro Max", "tipo": "Turbo SIM / Kit MEP", "precios": "Turbo SIM: RD$3,000 · Kit MEP: RD$4,000", "extra": ""}, {"modelo": "iPhone 15 / 15 Pro Max", "tipo": "Kit MEP", "precios": "RD$4,800", "extra": ""}, {"modelo": "iPhone 16 / 16 Pro Max", "tipo": "Kit MEP", "precios": "RD$6,350", "extra": ""}, {"modelo": "ZTE A71", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,700 · Original: RD$3,200", "extra": ""}, {"modelo": "Samsung A51 / A71", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,800 · Original: RD$3,300", "extra": ""}, {"modelo": "Samsung A21 / A21s", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,700 · Original: RD$3,000", "extra": ""}, {"modelo": "Samsung A30", "tipo": "Pantalla Android", "precios": "Compatible: RD$3,890 · Original: RD$3,290", "extra": ""}, {"modelo": "Huawei Y6 / Y7 / Y8", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,700 · Original: RD$3,100", "extra": ""}, {"modelo": "Oppo Genérico", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,790 · Original: RD$3,200", "extra": ""}, {"modelo": "Xiaomi Poco C40", "tipo": "Pantalla Android", "precios": "Compatible: RD$2,800 · Original: RD$3,200", "extra": ""}, {"modelo": "Android V8 Antiguo (Soldar)", "tipo": "Pin de Carga", "precios": "RD$600 - RD$650", "extra": ""}, {"modelo": "Android Tipo C (Soldar)", "tipo": "Pin de Carga", "precios": "RD$800 - RD$900", "extra": ""}, {"modelo": "Android Flex Pin V8", "tipo": "Pin de Carga", "precios": "RD$1,000 - RD$1,200", "extra": ""}, {"modelo": "Android Flex Pin Tipo C", "tipo": "Pin de Carga", "precios": "RD$1,200 - RD$1,500", "extra": ""},
 {"categoria": "Celulares y Mojados", "modelo": "Samsung Galaxy S23", "tipo": "Pantalla Android", "precios": "Original: RD$8,500", "extra": ""},
   {"categoria": "Celulares y Mojados", "modelo": "Samsung Galaxy S23 Ultra", "tipo": "Pantalla Android", "precios": "Original: RD$14,500", "extra": ""},
   {"categoria": "Celulares y Mojados", "modelo": "Samsung Galaxy S24 Ultra", "tipo": "Pantalla Android", "precios": "Original: RD$16,500", "extra": ""},
@@ -2380,7 +2578,7 @@ window.addEventListener("load", function() {
     "iPhone 8 Normal", "iPhone 8 Plus", "iPhone SE (2020 / 2022)",
     "iPhone X", "iPhone XR", "iPhone XS", "iPhone XS Max",
     "iPhone 11", "iPhone 11 Pro", "iPhone 11 Pro Max",
-    "iPhone 12 Mini", "iPhone 12 / 12 Pro", "iPhone 12 Pro Max",
+    "iPhone 12 Mini", "iPhone 12", "iPhone 12 Pro", "iPhone 12 Pro Max",
     "iPhone 13 Mini", "iPhone 13", "iPhone 13 Pro", "iPhone 13 Pro Max",
     "iPhone 14", "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max",
     "iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max",
@@ -2496,128 +2694,549 @@ window.addEventListener("load", function() {
 </script>
 
 
-<script>
-(function() {
-  try {
-    function agregarMacbookSeguro() {
-      var dl = document.getElementById("rcListaModelos");
-      if (dl && !Array.from(dl.options).some(function(o){ return (o.value || "").indexOf("A1466") !== -1; })) {
-        var opt = document.createElement("option");
-        opt.value = "MacBook Air A1466 (EMC 2925)";
-        dl.appendChild(opt);
-      }
-      var res = document.getElementById("rcResultadosTarjetas");
-      if (!res) return;
-      var obs = new MutationObserver(function() {
-        try {
-          var cards = res.children;
-          for (var i = 0; i < cards.length; i++) {
-            var c = cards[i];
-            if (c.textContent && c.textContent.indexOf("A1466") !== -1) {
-              var svg = c.querySelector("svg");
-              if (svg && !c.querySelector("img[src='IMG_0598.jpg']")) {
-                var img = document.createElement("img");
-                img.src = "IMG_0598.jpg";
-                img.alt = "Batería MacBook Air A1466";
-                img.style.cssText = "width:100%;max-width:130px;height:90px;object-fit:contain;border-radius:10px;background:#fff;padding:4px;";
-                svg.replaceWith(img);
-              }
-              if (c.textContent.indexOf("Cotizar") !== -1 || c.textContent.indexOf("undefined") !== -1) {
-                var ps = c.querySelectorAll("div, span, p, strong");
-                for (var j = 0; j < ps.length; j++) {
-                  if (ps[j].children.length === 0) {
-                    if (ps[j].textContent.indexOf("undefined") !== -1) ps[j].textContent = "Cambio de Batería";
-                    if (ps[j].textContent.indexOf("Cotizar") !== -1) ps[j].textContent = "Batería: RD$ 3,790";
-                  }
-                }
-              }
-            }
-          }
-        } catch (err) {}
+
+<script id="rc-admin-organizador-pro">
+(function(){
+  const s1718=["iPhone 17","iPhone 17 Air","iPhone 17 Pro","iPhone 17 Pro Max","iPhone 18","iPhone 18 Air","iPhone 18 Pro","iPhone 18 Pro Max"];
+  function addSeries(){
+    const dl=document.getElementById("rcListaModelos");if(!dl)return;
+    const cur=Array.from(dl.options).map(o=>o.value);
+    if(cur.some(v=>v&&v.includes("iPhone 16")))s1718.forEach(m=>{if(!cur.includes(m)){const o=document.createElement("option");o.value=m;dl.appendChild(o);}});
+  }
+  function buildAdmin(){
+    const modal=document.getElementById("modalGestorTotal");
+    if(!modal||document.getElementById("rcAdminFiltroProBar"))return;
+    const bar=document.createElement("div");bar.id="rcAdminFiltroProBar";
+    bar.style.cssText="background:#141414;border:1px solid #d4af37;border-radius:12px;padding:12px;margin:10px 0 14px;display:flex;flex-direction:column;gap:10px;";
+    bar.innerHTML='<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;"><span style="color:#d4af37;font-weight:700;font-size:13px;">📂 Ordenar:</span><button type="button" class="rc-adm-tab" data-cat="ALL" style="background:#d4af37;color:#000;border:none;padding:6px 10px;border-radius:20px;font-weight:700;font-size:12px;cursor:pointer;">Todos</button><button type="button" class="rc-adm-tab" data-cat="pantalla" style="background:#222;color:#fff;border:1px solid #444;padding:6px 10px;border-radius:20px;font-size:12px;cursor:pointer;">📱 Pantallas</button><button type="button" class="rc-adm-tab" data-cat="bater" style="background:#222;color:#fff;border:1px solid #444;padding:6px 10px;border-radius:20px;font-size:12px;cursor:pointer;">🔋 Baterías</button><button type="button" class="rc-adm-tab" data-cat="tapa" style="background:#222;color:#fff;border:1px solid #444;padding:6px 10px;border-radius:20px;font-size:12px;cursor:pointer;">🔙 Tapas</button><button type="button" class="rc-adm-tab" data-cat="pin" style="background:#222;color:#fff;border:1px solid #444;padding:6px 10px;border-radius:20px;font-size:12px;cursor:pointer;">🔌 Pin de Carga</button><button type="button" class="rc-adm-tab" data-cat="enciende" style="background:#222;color:#fff;border:1px solid #444;padding:6px 10px;border-radius:20px;font-size:12px;cursor:pointer;">⚡ No Enciende</button><button type="button" class="rc-adm-tab" data-cat="housing" style="background:#222;color:#fff;border:1px solid #444;padding:6px 10px;border-radius:20px;font-size:12px;cursor:pointer;">🛠️ Housing</button></div><div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;"><span style="color:#d4af37;font-weight:700;font-size:13px;">🏷️ Marca:</span><select id="rcAdmMarcaFiltro" style="background:#1e1e1e;color:#fff;border:1px solid #555;border-radius:8px;padding:6px 10px;font-size:13px;"><option value="">Todas las marcas</option><option value="iphone">iPhone (6s - 18 Pro Max)</option><option value="samsung">Samsung</option><option value="motorola">Motorola</option><option value="xiaomi">Xiaomi</option><option value="huawei">Huawei</option><option value="macbook">MacBook</option><option value="ipad">iPad / Tablet</option><option value="playstation">PlayStation</option></select><input id="rcAdmTextoFiltro" type="text" placeholder="Buscar modelo (ej: XR, 17 Pro, A32)..." style="flex:1;min-width:180px;background:#1e1e1e;color:#fff;border:1px solid #555;border-radius:8px;padding:6px 10px;font-size:13px;"><span id="rcAdmContadorFiltro" style="color:#aaa;font-size:12px;"></span></div>';
+    const ref=modal.querySelector("table,#listaGestorTotal,.lista-catalogo,[id*='lista'],[id*='Lista']")||modal.querySelector("div>div");
+    if(ref&&ref.parentNode)ref.parentNode.insertBefore(bar,ref);else modal.appendChild(bar);
+    let cat="ALL";
+    function filtrar(){
+      const mv=(document.getElementById("rcAdmMarcaFiltro").value||"").toLowerCase(),tv=(document.getElementById("rcAdmTextoFiltro").value||"").toLowerCase().trim();
+      let vis=0;
+      modal.querySelectorAll("tr,[data-idx],.item-catalogo,#listaGestorTotal>div").forEach(r=>{
+        if(r.closest("#rcAdminFiltroProBar")||(r.tagName==="TR"&&r.querySelector("th")))return;
+        let t=(r.textContent||"").toLowerCase();r.querySelectorAll("input,select").forEach(i=>t+=" "+(i.value||"").toLowerCase());
+        if(!r.querySelector("input")&&t.length<4)return;
+        const ok=(cat==="ALL"||t.includes(cat))&&(!mv||t.includes(mv))&&(!tv||t.includes(tv));
+        r.style.display=ok?"":"none";if(ok)vis++;
       });
-      obs.observe(res, { childList: true, subtree: true });
+      const c=document.getElementById("rcAdmContadorFiltro");if(c)c.textContent="Mostrando "+vis+" ítems";
     }
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", agregarMacbookSeguro);
+    bar.querySelectorAll(".rc-adm-tab").forEach(b=>b.onclick=()=>{
+      bar.querySelectorAll(".rc-adm-tab").forEach(x=>{x.style.background="#222";x.style.color="#fff";x.style.border="1px solid #444";});
+      b.style.background="#d4af37";b.style.color="#000";b.style.border="none";cat=b.dataset.cat;filtrar();
+    });
+    document.getElementById("rcAdmMarcaFiltro").onchange=filtrar;
+    document.getElementById("rcAdmTextoFiltro").oninput=filtrar;
+    const btnCat=document.getElementById("btnTopCatalogo");if(btnCat)btnCat.addEventListener("click",()=>setTimeout(filtrar,120));
+  }
+  function boot(){
+    addSeries();buildAdmin();
+    const dl=document.getElementById("rcListaModelos");if(dl)new MutationObserver(addSeries).observe(dl,{childList:true});
+    const m=document.getElementById("modalGestorTotal");if(m)new MutationObserver(buildAdmin).observe(m,{attributes:true,childList:true});
+  }
+  document.readyState==="loading"?document.addEventListener("DOMContentLoaded",boot):boot();
+})();
+</script>
+<script id="rc-recordar-admin-user">
+(function() {
+  function activarMemoriaUsuario() {
+    var inpUser = document.getElementById("admUser") || document.querySelector('input[placeholder*="Usuario" i]');
+    var inpPass = document.getElementById("admPass") || document.querySelector('input[type="password"]');
+    if (!inpUser) return setTimeout(activarMemoriaUsuario, 150);
+
+    // 1. Rellenar con el último usuario usado (o "louis102v" por defecto)
+    var guardado = localStorage.getItem("rc_admin_usuario_guardado") || "louis102v";
+    if (!inpUser.value) inpUser.value = guardado;
+
+    // 2. Guardar cualquier usuario que escribas
+    inpUser.addEventListener("input", function() {
+      if (inpUser.value.trim()) {
+        localStorage.setItem("rc_admin_usuario_guardado", inpUser.value.trim());
+      }
+    });
+
+    // 3. Reaplicar el usuario guardado al abrir el modal de Admin
+    var btnMini = document.getElementById("btnAdminMini");
+    if (btnMini) {
+      btnMini.addEventListener("click", function() {
+        setTimeout(function() {
+          var u = localStorage.getItem("rc_admin_usuario_guardado") || "louis102v";
+          if (!inpUser.value) inpUser.value = u;
+          if (inpPass) inpPass.focus();
+        }, 50);
+      });
+    }
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", activarMemoriaUsuario);
+  else activarMemoriaUsuario();
+})();
+</script>
+<script id="rc-auto-cargar-marca">
+(function() {
+  function conectarAutoCargaMarca() {
+    var selMarca = document.getElementById("rcSelectMarca");
+    var inputMod = document.querySelector('input[list="rcListaModelos"]');
+    var inputPieza = document.getElementById("rcInputPieza");
+    if (!selMarca) return setTimeout(conectarAutoCargaMarca, 150);
+
+    function dispararMarcaCompleta() {
+      var marca = (selMarca.value || "").trim();
+      if (!marca) return;
+
+      // Limpiar modelo y pieza anteriores para que muestre TODO lo de esa marca de una vez
+      if (inputMod) inputMod.value = "";
+      if (inputPieza && inputPieza.value.trim().toLowerCase() === "todo") {
+        inputPieza.value = "";
+      }
+
+      if (typeof window.rcEjecutarBusqueda === "function") {
+        window.rcEjecutarBusqueda();
+      } else {
+        var btnBuscar = Array.from(document.querySelectorAll("button")).find(function(b) {
+          return (b.textContent || "").indexOf("Buscar") !== -1;
+        });
+        if (btnBuscar) btnBuscar.click();
+      }
+    }
+
+    selMarca.addEventListener("change", function() {
+      setTimeout(dispararMarcaCompleta, 30);
+    });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", conectarAutoCargaMarca);
+  else conectarAutoCargaMarca();
+})();
+</script>
+<script id="rc-admin-editar-todo-js">
+(function() {
+  var STORAGE_CUSTOM = "rc_precios_universales_v1";
+
+  function cargarPrecios() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_CUSTOM) || "{}"); }
+    catch (e) { return {}; }
+  }
+
+  function guardarPrecio(clave, valor, modelo, tipo) {
+    try {
+      var data = cargarPrecios();
+      data[clave] = valor;
+      localStorage.setItem(STORAGE_CUSTOM, JSON.stringify(data));
+
+      var cat = JSON.parse(localStorage.getItem("rc_cat_v2") || "[]");
+      if (Array.isArray(cat)) {
+        var modLow = (modelo || "").toLowerCase();
+        var tipLow = (tipo || "").toLowerCase();
+        cat.forEach(function(item) {
+          if (item && (item.modelo || "").toLowerCase() === modLow && (item.tipo || "").toLowerCase().indexOf(tipLow) !== -1) {
+            item.precios = valor;
+          }
+        });
+        localStorage.setItem("rc_cat_v2", JSON.stringify(cat));
+      }
+    } catch (e) {}
+  }
+
+  function adminEstaAbierto() {
+    var bar = document.getElementById("topAdminBar");
+    if (!bar) return false;
+    return bar.style.display === "flex" || bar.style.display === "block";
+  }
+
+  function infoTarjeta(card) {
+    var clon = card.cloneNode(true);
+    clon.querySelectorAll("svg, button, .rc-admin-editor-inline").forEach(function(el) { el.remove(); });
+    var lineas = (clon.textContent || "").split("\n").map(function(l) { return l.trim(); }).filter(Boolean);
+    var modelo = lineas.at(0) || "";
+    var tipo = lineas.at(1) || "";
+    return { modelo: modelo, tipo: tipo, clave: (modelo + " | " + tipo).toLowerCase() };
+  }
+
+  function nodoPrecioDe(card) {
+    var nodos = card.querySelectorAll("div, span, p");
+    for (var i = 0; i < nodos.length; i++) {
+      var el = nodos.item(i);
+      if (el.closest(".rc-admin-editor-inline")) continue;
+      if (el.children.length === 0) {
+        var t = (el.textContent || "").trim();
+        if (t.indexOf("RD$") !== -1 || t.indexOf("Cotizar") !== -1 || t.indexOf("Incell") !== -1 || t.indexOf("Soft OLED") !== -1 || t.indexOf("AAA") !== -1 || el.classList.contains("rc-precio-editado")) {
+          return el;
+        }
+      }
+    }
+    return null;
+  }
+
+  function actualizarTarjetas() {
+    var logueado = adminEstaAbierto();
+    document.body.classList.toggle("rc-admin-logueado", logueado);
+
+    var box = document.getElementById("rcResultadosTarjetas");
+    if (!box) return;
+    var guardados = cargarPrecios();
+
+    Array.from(box.children).forEach(function(card) {
+      var info = infoTarjeta(card);
+      var nodoPrecio = nodoPrecioDe(card);
+
+      // Si hay un precio guardado, actualizar el texto de precio manteniendo intacta la tarjeta original del cliente
+      if (info.clave && guardados[info.clave] && nodoPrecio && nodoPrecio.textContent !== guardados[info.clave]) {
+        nodoPrecio.textContent = guardados[info.clave];
+        nodoPrecio.classList.add("rc-precio-editado");
+      }
+
+      if (!logueado) return;
+
+      card.querySelectorAll("button").forEach(function(b) {
+        if (!b.closest(".rc-admin-editor-inline")) b.classList.add("rc-oculto-admin");
+      });
+
+      if (!card.querySelector(".rc-admin-editor-inline")) {
+        var wrap = document.createElement("div");
+        wrap.className = "rc-admin-editor-inline";
+
+        var inp = document.createElement("input");
+        inp.type = "text";
+        inp.className = "rc-admin-input-precio";
+        inp.placeholder = "Precio (ej: RD$2,100)";
+        var valActual = nodoPrecio ? nodoPrecio.textContent.trim() : "";
+        inp.value = (valActual.indexOf("Cotizar") !== -1) ? "" : valActual;
+
+        var btnSave = document.createElement("button");
+        btnSave.type = "button";
+        btnSave.className = "rc-admin-btn-save";
+        btnSave.textContent = "💾 Guardar";
+
+        function guardarAhora() {
+          var v = (inp.value || "").trim();
+          if (!v) return;
+          if (/^\d[\d,.]*$/.test(v)) v = "RD$" + v;
+          inp.value = v;
+          guardarPrecio(info.clave, v, info.modelo, info.tipo);
+          if (nodoPrecio) {
+            nodoPrecio.textContent = v;
+            nodoPrecio.classList.add("rc-precio-editado");
+          }
+          btnSave.textContent = "✅";
+          setTimeout(function() { btnSave.textContent = "💾 Guardar"; }, 1200);
+        }
+
+        btnSave.onclick = function(e) { e.stopPropagation(); guardarAhora(); };
+        inp.onkeydown = function(e) { if (e.key === "Enter") { e.preventDefault(); guardarAhora(); } };
+        inp.onclick = function(e) { e.stopPropagation(); };
+
+        wrap.appendChild(inp);
+        wrap.appendChild(btnSave);
+        card.appendChild(wrap);
+      }
+    });
+  }
+
+  function boot() {
+    document.body.classList.remove("rc-admin-logueado");
+    actualizarTarjetas();
+    setInterval(actualizarTarjetas, 300);
+    var box = document.getElementById("rcResultadosTarjetas");
+    if (box) new MutationObserver(actualizarTarjetas).observe(box, { childList: true });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+})();
+</script>
+<script id="rc-segundo-cuadrito-js">
+(function() {
+  function obtenerIconoPieza(tipoLow) {
+    if (tipoLow.indexOf("bater") !== -1) {
+      return {
+        label: "Batería",
+        svg: '<svg width="26" height="38" viewBox="0 0 28 42" fill="none"><rect x="9" y="1" width="10" height="3" rx="1" fill="#4ade80"/><rect x="4" y="4" width="20" height="36" rx="4" stroke="#4ade80" stroke-width="2" fill="#0d2818"/><path d="M15 12L10 22H14L13 31L18 20H14L15 12Z" fill="#facc15"/></svg>'
+      };
+    }
+    if (tipoLow.indexOf("tapa") !== -1) {
+      return {
+        label: "Tapa Trasera",
+        svg: '<svg width="26" height="38" viewBox="0 0 28 42" fill="none"><rect x="4" y="2" width="20" height="38" rx="4" stroke="#a855f7" stroke-width="2" fill="#1e102d"/><rect x="7" y="5" width="7" height="7" rx="2" stroke="#c084fc" stroke-width="1.3"/><path d="M19 10L12 19L17 24L10 34" stroke="#f87171" stroke-width="1.6" stroke-linecap="round"/><path d="M14 17L21 21" stroke="#f87171" stroke-width="1.3" stroke-linecap="round"/></svg>'
+      };
+    }
+    if (tipoLow.indexOf("pin") !== -1 || tipoLow.indexOf("carga") !== -1) {
+      return {
+        label: "Pin de Carga",
+        svg: '<svg width="26" height="38" viewBox="0 0 28 42" fill="none"><rect x="8" y="6" width="12" height="14" rx="2" stroke="#38bdf8" stroke-width="2" fill="#0c2438"/><rect x="11" y="2" width="6" height="4" fill="#38bdf8"/><path d="M14 20V38" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/><path d="M10 28H18" stroke="#facc15" stroke-width="1.6"/></svg>'
+      };
+    }
+    if (tipoLow.indexOf("enciende") !== -1 || tipoLow.indexOf("placa") !== -1) {
+      return {
+        label: "No Enciende",
+        svg: '<svg width="26" height="38" viewBox="0 0 28 42" fill="none"><rect x="4" y="4" width="20" height="34" rx="3" stroke="#f87171" stroke-width="2" fill="#2a1010"/><rect x="9" y="12" width="10" height="10" rx="1.5" stroke="#facc15" stroke-width="1.5"/><path d="M14 6V10M14 24V32M7 17H9M19 17H21" stroke="#f87171" stroke-width="1.5"/></svg>'
+      };
+    }
+    if (tipoLow.indexOf("housing") !== -1 || tipoLow.indexOf("chasis") !== -1) {
+      return {
+        label: "Housing",
+        svg: '<svg width="26" height="38" viewBox="0 0 28 42" fill="none"><rect x="4" y="2" width="20" height="38" rx="4" stroke="#fb923c" stroke-width="2.2" fill="#27170b"/><rect x="7" y="5" width="14" height="32" rx="2.5" stroke="#fdba74" stroke-width="1" stroke-dasharray="2 2"/></svg>'
+      };
+    }
+    return {
+      label: "Pantalla",
+      svg: '<svg width="26" height="38" viewBox="0 0 28 42" fill="none"><rect x="4" y="2" width="20" height="38" rx="4" stroke="#f59e0b" stroke-width="2" fill="#1c1608"/><path d="M9 11L15 18L11 23L18 31" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round"/></svg>'
+    };
+  }
+
+  function agregarSegundoCuadritoAFotos() {
+    var box = document.getElementById("rcResultadosTarjetas");
+    if (!box) return;
+
+    Array.from(box.children).forEach(function(card) {
+      if (card.querySelector(".rc-pieza-badge-box")) return;
+      var img = card.querySelector("img");
+      if (!img) return;
+
+      // Detectar qué reparación es esta tarjeta
+      var txt = (card.textContent || "").toLowerCase();
+      var info = obtenerIconoPieza(txt);
+
+      var badge = document.createElement("div");
+      badge.className = "rc-pieza-badge-box";
+      badge.innerHTML = info.svg + "<span>" + info.label + "</span>";
+
+      // Envolver la foto y el nuevo cuadrito lado a lado si aún no están en fila
+      var padre = img.parentNode;
+      if (padre && !padre.classList.contains("rc-foto-y-pieza-row")) {
+        var fila = document.createElement("div");
+        fila.className = "rc-foto-y-pieza-row";
+        fila.style.cssText = "display:inline-flex;align-items:center;gap:8px;margin-bottom:4px;";
+        padre.insertBefore(fila, img);
+        fila.appendChild(img);
+        fila.appendChild(badge);
+      }
+    });
+  }
+
+  function init() {
+    agregarSegundoCuadritoAFotos();
+    var box = document.getElementById("rcResultadosTarjetas");
+    if (box) new MutationObserver(agregarSegundoCuadritoAFotos).observe(box, { childList: true });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+<script id="rc-layout-horizontal-js">
+(function() {
+  function organizarTarjetaHorizontal(card) {
+    if (card.classList.contains("rc-card-horizontal")) return;
+
+    var mediaBox = document.createElement("div");
+    mediaBox.className = "rc-h-media";
+
+    var infoBox = document.createElement("div");
+    infoBox.className = "rc-h-info";
+
+    var btnsBox = document.createElement("div");
+    btnsBox.className = "rc-h-btns";
+
+    // 1. Extraer SOLO los elementos visuales (fila de foto+pieza o los SVGs directos) sin arrastrar textos ni botones
+    var filaFoto = card.querySelector(".rc-foto-y-pieza-row");
+    if (filaFoto) {
+      mediaBox.appendChild(filaFoto);
     } else {
-      agregarMacbookSeguro();
+      var svgs = Array.from(card.querySelectorAll("svg"));
+      svgs.forEach(function(svg) {
+        if (svg.closest("button")) return;
+        // Tomar el contenedor inmediato del SVG solo si no contiene textos de precio ni botones
+        var boxSvg = svg.parentElement;
+        if (boxSvg && boxSvg !== card && !boxSvg.querySelector("button") && (boxSvg.textContent || "").trim().length < 30) {
+          mediaBox.appendChild(boxSvg);
+        } else {
+          mediaBox.appendChild(svg);
+        }
+      });
+    }
+
+    // 2. Extraer todos los botones únicos (sin duplicar "+ Carrito")
+    var textosVistosBtn = {};
+    Array.from(card.querySelectorAll("button, a")).forEach(function(btn) {
+      if (btn.closest(".rc-admin-editor-inline")) return;
+      var tBtn = (btn.textContent || "").trim();
+      if (textosVistosBtn[tBtn]) {
+        btn.remove();
+      } else {
+        textosVistosBtn[tBtn] = true;
+        btnsBox.appendChild(btn);
+      }
+    });
+
+    // 3. Extraer las líneas de texto limpias (Modelo, Servicio, Precio) sin duplicados
+    var textosVistos = {};
+    Array.from(card.querySelectorAll("div, span, p, strong, h3, h4")).forEach(function(el) {
+      if (el.closest(".rc-h-media") || el.closest(".rc-h-btns") || el.closest(".rc-admin-editor-inline")) return;
+      if (el.children.length > 0) return;
+      var txt = (el.textContent || "").trim();
+      if (!txt || textosVistos[txt]) return;
+      textosVistos[txt] = true;
+      el.style.margin = "0";
+      el.style.lineHeight = "1.25";
+      infoBox.appendChild(el);
+    });
+
+    // Vaciar contenedores vacíos sobrantes antes de insertar la estructura limpia
+    Array.from(card.children).forEach(function(ch) {
+      if (!ch.classList.contains("rc-admin-editor-inline")) ch.remove();
+    });
+
+    if (btnsBox.children.length > 0) {
+      infoBox.appendChild(btnsBox);
+    }
+
+    var adminBarInline = card.querySelector(".rc-admin-editor-inline");
+    card.insertBefore(mediaBox, adminBarInline || null);
+    card.insertBefore(infoBox, adminBarInline || null);
+    card.classList.add("rc-card-horizontal");
+  }
+
+  function procesarTodas() {
+    var box = document.getElementById("rcResultadosTarjetas");
+    if (!box) return;
+    Array.from(box.children).forEach(organizarTarjetaHorizontal);
+  }
+
+  function init() {
+    procesarTodas();
+    setTimeout(procesarTodas, 150);
+    var box = document.getElementById("rcResultadosTarjetas");
+    if (box) new MutationObserver(function() { setTimeout(procesarTodas, 30); }).observe(box, { childList: true });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+<script id="rc-filtro-modelo-limpio">
+(function() {
+  var marcas = ["iphone","samsung","xiaomi","motorola","huawei","playstation","computadoras","patinetes y pasolas","macbook","ipad","lg","google pixel","honor","oppo","realme","oneplus","zte","alcatel","tcl","nintendo","blackberry","tablet / ipad"];
+  function norm(s) { return String(s || "").toLowerCase().replace(/[^a-z0-9]/g, ""); }
+
+  function aplicarFiltroModelo() {
+    var im = document.querySelector('input[list="rcListaModelos"]');
+    var box = document.getElementById("rcResultadosTarjetas");
+    if (!im || !box) return;
+
+    var val = (im.value || "").trim();
+    var low = val.toLowerCase();
+    var cards = Array.from(box.children);
+    if (!cards.length) return;
+
+    // Si el cuadro de modelo está vacío o tiene una marca general, mostrar todos
+    if (!val || low.indexOf("elige el modelo") !== -1 || marcas.indexOf(low) !== -1) {
+      cards.forEach(function(c) { c.style.removeProperty("display"); });
+      return;
+    }
+
+    var busq = norm(val);
+    cards.forEach(function(c) {
+      var clon = c.cloneNode(true);
+      clon.querySelectorAll("svg, .rc-h-media, .rc-h-btns, .rc-admin-editor-inline").forEach(function(el) { el.remove(); });
+      var txt = norm(clon.textContent);
+
+      var ok = txt.indexOf(busq) !== -1;
+      if (ok) {
+        var sufijos = ["pro", "max", "plus", "mini", "xr", "xs", "se", "air"];
+        for (var i = 0; i < sufijos.length; i++) {
+          var s = sufijos[i];
+          if (busq.indexOf(s) === -1 && txt.indexOf(busq + s) !== -1) { ok = false; break; }
+        }
+        if (busq === "iphonex" && (txt.indexOf("iphonexr") !== -1 || txt.indexOf("iphonexs") !== -1)) ok = false;
+      }
+
+      if (ok) {
+        c.style.removeProperty("display");
+      } else {
+        c.style.setProperty("display", "none", "important");
+      }
+    });
+  }
+
+  function init() {
+    var im = document.querySelector('input[list="rcListaModelos"]');
+    var sm = document.getElementById("rcSelectMarca");
+    var box = document.getElementById("rcResultadosTarjetas");
+    if (!im || !box) return setTimeout(init, 150);
+
+    ["input", "change", "keyup", "blur"].forEach(function(ev) {
+      im.addEventListener(ev, function() { setTimeout(aplicarFiltroModelo, 30); });
+    });
+    if (sm) {
+      sm.addEventListener("change", function() {
+        im.value = "";
+        setTimeout(aplicarFiltroModelo, 50);
+      });
+    }
+    document.addEventListener("click", function(e) {
+      if (e.target.closest("button")) setTimeout(aplicarFiltroModelo, 60);
+    });
+    new MutationObserver(function() {
+      setTimeout(aplicarFiltroModelo, 25);
+    }).observe(box, { childList: true });
+
+    aplicarFiltroModelo();
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+<script id="rc-tienda-pro-js">
+(function(){
+  try {
+    if (!localStorage.getItem("rc_precios_word_v6_ok")) {
+      localStorage.removeItem("rc_cat_v2");
+      localStorage.removeItem("rc_precios_universales_v1");
+      localStorage.setItem("rc_precios_word_v6_ok", "1");
     }
   } catch (e) {}
-})();
-</script>
-
-
-<script id="rc-filtro-modelo-exacto">
-(function() {
-  function conectarFiltroModelo() {
-    var inputMod = document.querySelector('input[list="rcListaModelos"]');
-    var contenedor = document.getElementById("rcResultadosTarjetas");
-    if (!inputMod || !contenedor) return;
-
-    function normalizar(txt) {
-      return (txt || "").toLowerCase().replace(/[^a-z0-9]/g, "");
-    }
-
-    function aplicarFiltro() {
-      var val = (inputMod.value || "").trim();
-      var tarjetas = contenedor.children;
-      if (!tarjetas.length) return;
-
-      // Si el cuadro de modelo está vacío, mostrar todos los modelos de la marca
-      if (!val || val.indexOf("Elige el modelo") !== -1) {
-        for (var i = 0; i < tarjetas.length; i++) {
-          tarjetas[i].style.display = "";
+  function fmt() {
+    var b = document.getElementById("rcResultadosTarjetas");
+    if (!b) return;
+    Array.from(b.children).forEach(function(c) {
+      if (c.querySelector(".rc-precio-pills-wrap")) return;
+      var i = c.querySelector(".rc-h-info");
+      if (!i) return;
+      Array.from(i.querySelectorAll("div,span,p")).forEach(function(el) {
+        if (el.children.length > 0) return;
+        var t = (el.textContent || "").trim();
+        if (t.indexOf("RD$") !== -1) {
+          var w = document.createElement("div");
+          w.className = "rc-precio-pills-wrap";
+          t.split("·").map(function(p) { return p.trim(); }).filter(Boolean).forEach(function(p) {
+            var s = document.createElement("span");
+            s.className = "rc-precio-pill";
+            if (p.indexOf(":") !== -1) {
+              var x = p.indexOf(":");
+              s.innerHTML = '<span class="rc-calidad-lbl">' + p.slice(0, x).trim() + ':</span> <strong>' + p.slice(x + 1).trim() + "</strong>";
+            } else {
+              s.innerHTML = "<strong>" + p + "</strong>";
+            }
+            w.appendChild(s);
+          });
+          el.replaceWith(w);
         }
-        return;
-      }
-
-      var busq = normalizar(val);
-      var coincidencias = 0;
-
-      for (var i = 0; i < tarjetas.length; i++) {
-        var textoTarjeta = normalizar(tarjetas[i].textContent);
-        if (textoTarjeta.indexOf(busq) !== -1) {
-          tarjetas[i].style.display = "";
-          coincidencias++;
-        } else {
-          tarjetas[i].style.display = "none";
-        }
-      }
-
-      // Si el usuario escribió un texto parcial que aún no coincide con ninguno, no dejar pantalla en blanco
-      if (coincidencias === 0 && val.length < 4) {
-        for (var j = 0; j < tarjetas.length; j++) {
-          tarjetas[j].style.display = "";
-        }
-      }
-    }
-
-    inputMod.addEventListener("input", function() { setTimeout(aplicarFiltro, 40); });
-    inputMod.addEventListener("change", function() { setTimeout(aplicarFiltro, 40); });
-
-    // Si cambia la marca a la izquierda, limpiar el filtro de modelo anterior
-    var selMarca = document.getElementById("rcSelectMarca");
-    if (selMarca) {
-      selMarca.addEventListener("change", function() {
-        inputMod.value = "";
-        setTimeout(aplicarFiltro, 60);
       });
-    }
-
-    // Reaplicar el filtro automáticamente si se redibujan las tarjetas
-    var obs = new MutationObserver(function() {
-      if ((inputMod.value || "").trim()) aplicarFiltro();
     });
-    obs.observe(contenedor, { childList: true });
   }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", conectarFiltroModelo);
-  } else {
-    conectarFiltroModelo();
+  function go() {
+    fmt(); setTimeout(fmt, 120);
+    var b = document.getElementById("rcResultadosTarjetas");
+    if (b) new MutationObserver(function() { setTimeout(fmt, 25); }).observe(b, { childList: true });
   }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go);
+  else go();
 })();
 </script>
-
 </body>
 </html>
