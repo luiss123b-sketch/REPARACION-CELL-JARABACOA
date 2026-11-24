@@ -202,24 +202,7 @@ footer{position:relative;padding:70px 18px 110px;text-align:center;color:#f4f4f5
 </div></section>
   <div class="workshop-bg-section" id="resenas"><div class="workshop-inner"><div class="sec-head"><h3>Lo Que Dicen Nuestros Clientes en Google</h3><p>Calidad comprobada en Medina y Pinar Quemado.</p></div><div class="reviews-grid"><div class="rev-card"><div style="color:var(--gold);margin-bottom:8px;">★★★★★</div><p style="color:#e4e4e7;margin-bottom:10px;">"Tuve un problema con mi móvil mientras visitaba Jarabacoa y encontré esta increíble tienda. En menos de una hora mi teléfono estaba como nuevo."</p><strong style="color:var(--gold-light);">— Edison Puma · Google</strong></div><div class="rev-card"><div style="color:var(--gold);margin-bottom:8px;">★★★★★</div><p style="color:#e4e4e7;margin-bottom:10px;">"Excelente atención para reparar mi teléfono y además encontré el cover ideal para cuidarlo. Muy recomendados en Jarabacoa."</p><strong style="color:var(--gold-light);">— Stayce De La Rosa · Google</strong></div><div class="rev-card"><div style="color:var(--gold);margin-bottom:8px;">★★★★★</div><p style="color:#e4e4e7;margin-bottom:10px;">"Los mejores en iPhone en Jarabacoa. Me salvaron un teléfono mojado que en otros sitios daban por perdido y con garantía."</p><strong style="color:var(--gold-light);">— Carlos M. · Google</strong></div><div class="rev-card"><div style="color:var(--gold);margin-bottom:8px;">★★★★★</div><p style="color:#e4e4e7;margin-bottom:10px;">"Llevé mi PlayStation y dos mandos con drift en las palancas; quedaron como de fábrica el mismo día. Servicio 10/10."</p><strong style="color:var(--gold-light);">— José Luis R. · Google</strong></div></div><div style="text-align:center;margin-top:26px;"><a href="https://g.page" target="_blank" class="btn-gold">⭐ Ver Todas las Reseñas o Dejar la Tuya en Google</a></div></div></div>
   
-<!-- PAGOS_REALES_START -->
-<div id="rcPagosReales" style="max-width:760px;margin:18px auto;padding:0 16px;">
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;">
-    <div style="background:rgba(14,32,56,0.92);border:1.5px solid #38bdf8;border-radius:16px;padding:16px;text-align:center;">
-      <div style="display:inline-block;background:#0284c7;color:#fff;font-weight:800;padding:4px 14px;border-radius:8px;font-size:0.9rem;margin-bottom:8px;">Banreservas</div>
-      <div style="color:#e2e8f0;font-size:0.85rem;">Cuenta de Ahorro (RD$)</div>
-      <div style="color:#f5b915;font-size:1.35rem;font-weight:900;letter-spacing:1px;margin:6px 0;">9606762224</div>
-      <button type="button" onclick="navigator.clipboard.writeText('9606762224');this.textContent='✅ ¡Copiada!';setTimeout(()=>this.textContent='📋 Copiar Cuenta',2000)" style="background:#f5b915;color:#000;border:none;padding:7px 14px;border-radius:99px;font-weight:800;font-size:0.8rem;cursor:pointer;">📋 Copiar Cuenta</button>
-    </div>
-    <div style="background:rgba(16,36,24,0.92);border:1.5px solid #22c55e;border-radius:16px;padding:16px;text-align:center;">
-      <div style="display:inline-block;background:#16a34a;color:#fff;font-weight:800;padding:4px 14px;border-radius:8px;font-size:0.9rem;margin-bottom:8px;">Banco BHD</div>
-      <div style="color:#e2e8f0;font-size:0.85rem;">Cuenta Móvil de Ahorro (RD$)</div>
-      <div style="color:#f5b915;font-size:1.35rem;font-weight:900;letter-spacing:1px;margin:6px 0;">39559640015</div>
-      <button type="button" onclick="navigator.clipboard.writeText('39559640015');this.textContent='✅ ¡Copiada!';setTimeout(()=>this.textContent='📋 Copiar Cuenta',2000)" style="background:#22c55e;color:#fff;border:none;padding:7px 14px;border-radius:99px;font-weight:800;font-size:0.8rem;cursor:pointer;">📋 Copiar Cuenta</button>
-    </div>
-  </div>
-</div>
-<!-- PAGOS_REALES_END -->
+
 <!-- MAPAS_JARABACOA_START -->
 <div style="max-width:920px;margin:28px auto 14px;padding:0 16px;">
   <h3 style="text-align:center;color:#f5b915;margin-bottom:14px;font-size:1.15rem;">📍 Nuestras Sucursales en Jarabacoa</h3>
@@ -789,5 +772,42 @@ window.eliminarFoto = function(btn) {
 };
 </script>
 
+<!-- MODAL_PAGOS_START -->
+<style>
+  #rcPagosModal a[x-apple-data-detectors], #rcPagosModal .num-cta { color: #f5b915 !important; text-decoration: none !important; }
+</style>
+<div id="rcPagosModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:99999;place-items:center;padding:16px;" onclick="if(event.target===this)this.style.display='none'">
+  <div style="background:#14161a;border:1.5px solid #f5b915;border-radius:20px;max-width:420px;width:100%;padding:22px;position:relative;color:#fff;box-shadow:0 12px 32px rgba(0,0,0,0.7);">
+    <button type="button" onclick="document.getElementById('rcPagosModal').style.display='none'" style="position:absolute;top:12px;right:14px;background:none;border:none;color:#aaa;font-size:1.3rem;cursor:pointer;">✕</button>
+    <h3 style="margin:0 0 14px;color:#f5b915;text-align:center;font-size:1.1rem;">💳 Cuentas para Pagos y Transferencias</h3>
+
+    <div style="background:rgba(14,32,56,0.95);border:1.5px solid #38bdf8;border-radius:14px;padding:14px;text-align:center;margin-bottom:12px;">
+      <div style="display:inline-block;background:#0284c7;color:#fff;font-weight:800;padding:3px 12px;border-radius:8px;font-size:0.85rem;margin-bottom:6px;">Banreservas</div>
+      <div style="color:#e2e8f0;font-size:0.82rem;">Cuenta de Ahorro (RD$)</div>
+      <div class="num-cta" style="color:#f5b915;font-size:1.35rem;font-weight:900;letter-spacing:1px;margin:5px 0;">960&#8203;676&#8203;2224</div>
+      <button type="button" onclick="navigator.clipboard.writeText('9606762224');this.textContent='✅ ¡Copiada!';setTimeout(()=>this.textContent='📋 Copiar Cuenta',2000)" style="background:#f5b915;color:#000;border:none;padding:6px 14px;border-radius:99px;font-weight:800;font-size:0.78rem;cursor:pointer;">📋 Copiar Cuenta</button>
+    </div>
+
+    <div style="background:rgba(16,36,24,0.95);border:1.5px solid #22c55e;border-radius:14px;padding:14px;text-align:center;">
+      <div style="display:inline-block;background:#16a34a;color:#fff;font-weight:800;padding:3px 12px;border-radius:8px;font-size:0.85rem;margin-bottom:6px;">Banco BHD</div>
+      <div style="color:#e2e8f0;font-size:0.82rem;">Cuenta Móvil de Ahorro (RD$)</div>
+      <div class="num-cta" style="color:#f5b915;font-size:1.35rem;font-weight:900;letter-spacing:1px;margin:5px 0;">395&#8203;596&#8203;40015</div>
+      <button type="button" onclick="navigator.clipboard.writeText('39559640015');this.textContent='✅ ¡Copiada!';setTimeout(()=>this.textContent='📋 Copiar Cuenta',2000)" style="background:#22c55e;color:#fff;border:none;padding:6px 14px;border-radius:99px;font-weight:800;font-size:0.78rem;cursor:pointer;">📋 Copiar Cuenta</button>
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener("click", function(e) {
+  const el = e.target.closest("button, a");
+  if (!el || el.closest("#rcPagosModal")) return;
+  const txt = (el.textContent || "").trim().toLowerCase();
+  if (txt === "pagar" || txt.includes("pagar")) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    document.getElementById("rcPagosModal").style.display = "grid";
+  }
+}, true);
+</script>
+<!-- MODAL_PAGOS_END -->
 </body>
 </html>
