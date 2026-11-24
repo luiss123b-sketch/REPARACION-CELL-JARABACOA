@@ -569,7 +569,7 @@ footer{position:relative;padding:70px 18px 110px;text-align:center;color:#f4f4f5
   <div class="mobile-bar"><a href="https://wa.me" target="_blank" class="mb-wa">💬 WhatsApp</a>
 
 
-<button onclick="abrirModalPago('Pago / Reserva','Monto acordado')" class="mb-pay">💳 Pagar</button><button onclick="abrirAdmin()" class="mb-loc">🔒 Admin</button></div>
+<button onclick="abrirModalPago('Pago / Reserva','Monto acordado')" class="mb-pay">💳 Pagar</button><button id="rcBtnCarritoFlotante" onclick="window.abrirModalCarrito()" class="mb-pay" style="margin:0 6px;">🛒 Carrito <span id="rcCartCount" style="background:#08101e;color:#f5b915;padding:1px 6px;border-radius:99px;font-size:0.78rem;margin-left:3px;">0</span></button><button onclick="abrirAdmin()" class="mb-loc" style="margin-left:10px;margin-right:-8px;">🔒 Admin</button></div>
   <script>
     const TEL = "18099757231";
     document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
@@ -913,7 +913,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <!-- DOBLE_BUSCADOR_START -->
 <script>
 (function(){
-  const DEF = [{"modelo": "iPhone 6s / 6s Plus", "tipo": "Pantalla", "precios": "AAA: RD$1,200", "extra": ""}, {"modelo": "iPhone 6s / 6s Plus", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 6s / 6s Plus", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 6s / 6s Plus", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 6s / 6s Plus", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 6s / 6s Plus", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "Pantalla", "precios": "AAA: RD$1,450", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "Pantalla", "precios": "AAA: RD$1,750", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "Pantalla", "precios": "AAA: RD$1,550", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "Pantalla", "precios": "AAA: RD$1,850", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone X", "tipo": "Pantalla", "precios": "Incell: RD$2,100 · Soft OLED: RD$2,850", "extra": ""}, {"modelo": "iPhone X", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone X", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone X", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone X", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone X", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone XS", "tipo": "Pantalla", "precios": "Incell: RD$2,250 · Soft OLED: RD$2,850", "extra": ""}, {"modelo": "iPhone XS", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone XS", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone XS", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone XS", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "Pantalla", "precios": "Incell: RD$2,550 · Soft OLED: RD$3,600", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone XR", "tipo": "Pantalla", "precios": "Incell: RD$2,400 · Soft OLED: RD$3,200", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone XR", "tipo": "Batería", "precios": "Normal: RD$2,100 · Con Flex Original: RD$3,000", "extra": ""}, {"modelo": "iPhone XR", "tipo": "Tapa Trasera", "precios": "RD$2,099", "extra": ""}, {"modelo": "iPhone XR", "tipo": "Pin de Carga", "precios": "Repararlo: RD$900 · Cambiarlo: RD$1,600", "extra": ""}, {"modelo": "iPhone XR", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone XR", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 11", "tipo": "Pantalla", "precios": "Incell: RD$3,050 · Soft OLED: RD$3,900 · Original: RD$5,590", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 11", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 11", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 11", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 11", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 11", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro", "tipo": "Pantalla", "precios": "Incell: RD$3,350 · Soft OLED: RD$4,000", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 11 Pro", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$3,300 · Soft OLED: RD$4,450 · Original: RD$8,500", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 11 Pro Max", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro Max", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro Max", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro Max", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 12", "tipo": "Pantalla", "precios": "Incell: RD$3,650 · Soft OLED: RD$6,000 · Original: RD$7,690", "extra": "+ Sin MSJ: +RD$500"},
+  const DEF = window.DEF = [{"modelo": "iPhone 6s / 6s Plus", "tipo": "Pantalla", "precios": "AAA: RD$1,200", "extra": ""}, {"modelo": "iPhone 6s / 6s Plus", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 6s / 6s Plus", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 6s / 6s Plus", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 6s / 6s Plus", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "Pantalla", "precios": "AAA: RD$1,450", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Normal", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "Pantalla", "precios": "AAA: RD$1,750", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 7 Plus", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "Pantalla", "precios": "AAA: RD$1,550", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Normal", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "Pantalla", "precios": "AAA: RD$1,850", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 8 Plus", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone X", "tipo": "Pantalla", "precios": "Incell: RD$2,100 · Soft OLED: RD$2,850", "extra": ""}, {"modelo": "iPhone X", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone X", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone X", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone X", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone X", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone XS", "tipo": "Pantalla", "precios": "Incell: RD$2,250 · Soft OLED: RD$2,850", "extra": ""}, {"modelo": "iPhone XS", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone XS", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone XS", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone XS", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "Pantalla", "precios": "Incell: RD$2,550 · Soft OLED: RD$3,600", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone XS Max", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone XR", "tipo": "Pantalla", "precios": "Incell: RD$2,400 · Soft OLED: RD$3,200", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone XR", "tipo": "Batería", "precios": "Normal: RD$2,100 · Con Flex Original: RD$3,000", "extra": ""}, {"modelo": "iPhone XR", "tipo": "Tapa Trasera", "precios": "RD$2,099", "extra": ""}, {"modelo": "iPhone XR", "tipo": "Pin de Carga", "precios": "Repararlo: RD$900 · Cambiarlo: RD$1,600", "extra": ""}, {"modelo": "iPhone XR", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone XR", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 11", "tipo": "Pantalla", "precios": "Incell: RD$3,050 · Soft OLED: RD$3,900 · Original: RD$5,590", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 11", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 11", "tipo": "Tapa Trasera", "precios": "", "extra": ""}, {"modelo": "iPhone 11", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 11", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 11", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro", "tipo": "Pantalla", "precios": "Incell: RD$3,350 · Soft OLED: RD$4,000", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 11 Pro", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro Max", "tipo": "Pantalla", "precios": "Incell: RD$3,300 · Soft OLED: RD$4,450 · Original: RD$8,500", "extra": "Sin MSJ: +RD$500"}, {"modelo": "iPhone 11 Pro Max", "tipo": "Batería", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro Max", "tipo": "Pin de Carga", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro Max", "tipo": "No Enciende", "precios": "", "extra": ""}, {"modelo": "iPhone 11 Pro Max", "tipo": "Housing / Chasis", "precios": "", "extra": ""}, {"modelo": "iPhone 12", "tipo": "Pantalla", "precios": "Incell: RD$3,650 · Soft OLED: RD$6,000 · Original: RD$7,690", "extra": "+ Sin MSJ: +RD$500"},
   {"modelo": "iPhone 12", "tipo": "Batería", "precios": "Normal: RD$2,350 · Programable: RD$3,375", "extra": ""},
   {"modelo": "iPhone 12", "tipo": "Tapa Trasera", "precios": "RD$2,150", "extra": ""},
   {"modelo": "iPhone 12", "tipo": "Turbo SIM", "precios": "RD$2,300", "extra": ""},
@@ -2248,9 +2248,7 @@ window.addEventListener("load", function() {
 </script>
 
 <!-- BOTÓN FLOTANTE Y MODAL DE CARRITO -->
-<button id="rcBtnCarritoFlotante" onclick="window.abrirModalCarrito()" style="position:fixed;bottom:18px;right:18px;z-index:9998;background:linear-gradient(135deg,#f5b915,#d97706);color:#08101e;font-weight:900;font-size:0.88rem;padding:12px 18px;border-radius:99px;border:2px solid #fff3;box-shadow:0 10px 25px rgba(0,0,0,0.55);cursor:pointer;display:flex;align-items:center;gap:8px;">
-  🛒 Carrito <span id="rcCartCount" style="background:#08101e;color:#f5b915;padding:2px 8px;border-radius:99px;font-size:0.78rem;">0</span>
-</button>
+
 
 <div id="rcModalCarrito" style="display:none;position:fixed;inset:0;background:rgba(2,6,23,0.88);backdrop-filter:blur(6px);z-index:99999;padding:16px;overflow-y:auto;">
   <div style="max-width:520px;margin:28px auto;background:#0f172a;border:1.5px solid #f5b915;border-radius:22px;padding:20px;color:#fff;box-shadow:0 20px 50px rgba(0,0,0,0.75);">
@@ -3238,5 +3236,495 @@ window.addEventListener("load", function() {
   else go();
 })();
 </script>
+
+
+<!-- RC-ADMIN-PRO-START -->
+<style id="rc-admin-excel-css">
+#rcAdminProPanel{display:none!important;max-width:1460px;margin:10px auto 24px;padding:12px;background:#0f1218;border:1px solid #d4af37;border-radius:12px;color:#f3f4f6;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+body.rc-admin-on #rcAdminProPanel{display:block!important}
+body.rc-admin-on.rc-hide-pub #contenedorCatalogo,body.rc-admin-on.rc-hide-pub #gridCatalogo,body.rc-admin-on.rc-hide-pub .rc-cards-grid{display:none!important}
+.rc-ex-bar{position:sticky;top:6px;z-index:999;display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:space-between;background:#171b24;border:1px solid rgba(212,175,55,.5);padding:8px 10px;border-radius:9px;margin-bottom:8px}
+.rc-ex-title{font-size:13.5px;font-weight:700;color:#facc15;display:flex;align-items:center;gap:6px}
+.rc-ex-filters{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px;background:#141820;padding:8px;border-radius:8px;border:1px solid #262c3a}
+.rc-ex-in,.rc-ex-sel{background:#0b0d12;border:1px solid #374151;color:#fff;padding:6px 9px;border-radius:6px;font-size:12px}
+.rc-ex-sel{min-width:155px}.rc-ex-in-q{min-width:180px;flex:1}
+.rc-ex-b{border:none;border-radius:6px;padding:6px 10px;font-size:11.5px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+.b-sv{background:#16a34a;color:#fff}.b-ad{background:#eab308;color:#111}.b-ex{background:#2563eb;color:#fff}.b-tg{background:#374151;color:#e5e7eb}.b-out{background:#dc2626;color:#fff}
+#rcExAddBox{display:none;background:#1a1f2b;border:1px dashed #eab308;border-radius:8px;padding:8px;margin-bottom:8px;gap:6px;flex-wrap:wrap;align-items:center}
+#rcExAddBox.open{display:flex}
+.rc-ex-wrap{max-height:70vh;overflow:auto;border:1px solid #2a303d;border-radius:8px;background:#131720}
+.rc-ex-tbl{width:100%;border-collapse:collapse;font-size:12px}
+.rc-ex-tbl th{position:sticky;top:0;background:#1c212e;color:#facc15;text-align:left;padding:7px 8px;border-bottom:1px solid #374151;font-size:11px;text-transform:uppercase;letter-spacing:.3px;z-index:2}
+.rc-ex-tbl td{padding:4px 8px;border-bottom:1px solid #222733;vertical-align:middle}
+.rc-ex-tbl tr:hover{background:#1a202c}
+.rc-ex-tbl tr.dirty{background:#132a1c}
+.rc-ex-cat{font-size:11px;color:#93c5fd;font-weight:600;white-space:nowrap}
+.rc-ex-mod{font-weight:700;color:#f9fafb}
+.rc-ex-tip{font-size:11.5px;color:#fde047;font-weight:600}
+.rc-ex-pi{width:100%;min-width:190px;background:#0b0d12;border:1px solid #374151;color:#4ade80;font-size:12px;font-weight:600;padding:4px 7px;border-radius:5px}
+.rc-ex-pi:focus{border-color:#4ade80;outline:none}
+.rc-ex-ac{background:#262b36;border:1px solid #374151;color:#e5e7eb;border-radius:4px;padding:3px 6px;font-size:11px;cursor:pointer}
+.rc-ex-st{font-size:11px;color:#9ca3af;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+</style>
+<section id="rcAdminProPanel">
+<div class="rc-ex-bar">
+<div class="rc-ex-title"><span>📊 Tabla Admin de Precios</span><span id="rcExCnt" style="font-size:11px;color:#9ca3af;font-weight:500"></span></div>
+<div style="display:flex;flex-wrap:wrap;gap:5px;align-items:center">
+<button type="button" id="rcExBAdd" class="rc-ex-b b-ad">➕ Agregar Producto</button>
+<button type="button" id="rcExBSave" class="rc-ex-b b-sv">💾 Guardar Cambios</button>
+<button type="button" id="rcExBExp" class="rc-ex-b b-ex">📥 Descargar Web</button>
+<button type="button" id="rcExBPub" class="rc-ex-b b-tg">👁 Ver Público</button>
+<button type="button" id="rcExBOut" class="rc-ex-b b-out">🚪 Salir Admin</button>
+</div></div>
+<div class="rc-ex-filters">
+<select id="rcExMarca" class="rc-ex-sel"><option value="">1. Todas las Marcas</option></select>
+<select id="rcExModelo" class="rc-ex-sel"><option value="">2. Todos los Modelos</option></select>
+<select id="rcExPieza" class="rc-ex-sel"><option value="">3. Todas las Piezas</option></select>
+<input type="text" id="rcExBuscar" class="rc-ex-in rc-ex-in-q" placeholder="🔍 Escribir modelo, pieza o precio...">
+<button type="button" id="rcExBLimpiar" class="rc-ex-b b-tg">✕ Limpiar</button>
+</div>
+<div id="rcExAddBox">
+<input type="text" id="rcNewCat" class="rc-ex-in" placeholder="Marca (ej: iPhone, Samsung, MacBook)">
+<input type="text" id="rcNewMod" class="rc-ex-in" placeholder="Modelo (ej: iPhone 16 Pro Max)">
+<input type="text" id="rcNewTip" class="rc-ex-in" placeholder="Pieza (ej: Pantalla)">
+<input type="text" id="rcNewPre" class="rc-ex-in" placeholder="Precio (ej: RD$4,500)">
+<button type="button" id="rcExBAddOk" class="rc-ex-b b-sv">✓ Añadir</button>
+<button type="button" id="rcExBAddNo" class="rc-ex-b b-tg">✕</button>
+</div>
+<div class="rc-ex-st"><span id="rcExMsg">Edita cualquier precio en la tabla y pulsa <b>💾 Guardar Cambios</b>.</span><span id="rcExFil"></span></div>
+<div class="rc-ex-wrap">
+<table class="rc-ex-tbl">
+<thead><tr><th style="width:130px">Marca</th><th>Modelo</th><th style="width:170px">Pieza / Servicio</th><th>Precio</th><th style="width:76px;text-align:center">Acción</th></tr></thead>
+<tbody id="rcExBody"></tbody>
+</table>
+</div>
+</section>
+<script>
+(function(){
+const isAdm=()=>{try{return sessionStorage.getItem("rc_admin")==="1"||(typeof adminLogueado!=="undefined"&&adminLogueado===true)}catch(e){return false}};
+function getCatalogoReal(){
+  try {
+    var saved = JSON.parse(localStorage.getItem("rc_cat_v2") || "null");
+    if (Array.isArray(saved) && saved.length > 0) {
+      if (Array.isArray(window.DEF) && window.DEF !== saved) {
+        window.DEF.length = 0;
+        saved.forEach(function(item){ window.DEF.push(item); });
+        return window.DEF;
+      }
+      return saved;
+    }
+  } catch(e) {}
+  if (Array.isArray(window.DEF) && window.DEF.length > 0) return window.DEF;
+  return [];
+}
+const esc=s=>String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+function getFields(it){
+  const cat=(it.categoria||"Varios").trim();
+  const mod=(it.modelo||it.nombre||"").trim();
+  const tip=(it.tipo||"Servicio").trim();
+  const pre=("precios" in it)?String(it.precios||""):String(it.precio||"");
+  return {cat,mod,tip,pre};
+}
+function syncCombos(list){
+  const selM=document.getElementById("rcExMarca"),selMod=document.getElementById("rcExModelo"),selP=document.getElementById("rcExPieza");
+  if(!selM||!selMod||!selP)return;
+  const curM=selM.value,curMod=selMod.value,curP=selP.value;
+  const marcas=[...new Set(list.map(x=>getFields(x).cat).filter(Boolean))].sort();
+  selM.innerHTML='<option value="">1. Todas las Marcas ('+marcas.length+')</option>'+marcas.map(m=>'<option value="'+esc(m)+'">'+esc(m)+'</option>').join("");
+  if(marcas.includes(curM))selM.value=curM;
+  const filM=selM.value;
+  const mods=[...new Set(list.filter(x=>!filM||getFields(x).cat===filM).map(x=>getFields(x).mod).filter(Boolean))];
+  selMod.innerHTML='<option value="">2. Todos los Modelos ('+mods.length+')</option>'+mods.map(m=>'<option value="'+esc(m)+'">'+esc(m)+'</option>').join("");
+  if(mods.includes(curMod))selMod.value=curMod;
+  const filMod=selMod.value;
+  const piezas=[...new Set(list.filter(x=>(!filM||getFields(x).cat===filM)&&(!filMod||getFields(x).mod===filMod)).map(x=>getFields(x).tip).filter(Boolean))].sort();
+  selP.innerHTML='<option value="">3. Todas las Piezas ('+piezas.length+')</option>'+piezas.map(p=>'<option value="'+esc(p)+'">'+esc(p)+'</option>').join("");
+  if(piezas.includes(curP))selP.value=curP;
+}
+window.drawExcel = drawExcel;
+function drawExcel(){
+  const p=document.getElementById("rcAdminProPanel"),tb=document.getElementById("rcExBody");
+  const cont=document.getElementById("contenedorCatalogo")||document.getElementById("gridCatalogo")||document.querySelector(".rc-cards-grid");
+  if(p&&cont&&cont.parentNode&&p.parentNode!==cont.parentNode)cont.parentNode.insertBefore(p,cont);
+  if(!p||!tb)return;
+  if(!isAdm()){document.body.classList.remove("rc-admin-on","rc-hide-pub");delete p.dataset.on;delete p.dataset.combosReady;return}
+  document.body.classList.add("rc-admin-on");
+  if(!p.dataset.on){document.body.classList.add("rc-hide-pub");p.dataset.on="1"}
+  const active = document.activeElement;
+  if (p.dataset.on === "1" && active && p.contains(active)) return;
+  const list=getCatalogoReal();
+  if (p.dataset.combosReady !== "1") { syncCombos(list); p.dataset.combosReady = "1"; }
+  const fM=document.getElementById("rcExMarca")?.value||"";
+  const fMod=document.getElementById("rcExModelo")?.value||"";
+  const fP=document.getElementById("rcExPieza")?.value||"";
+  const q=(document.getElementById("rcExBuscar")?.value||"").trim().toLowerCase();
+  const cnt=document.getElementById("rcExCnt");if(cnt)cnt.textContent="("+list.length+" registros totales)";
+  const rows=[];
+  list.forEach((it,idx)=>{
+    if(!it)return;
+    const {cat,mod,tip,pre}=getFields(it);
+    if(fM&&cat!==fM)return;
+    if(fMod&&mod!==fMod)return;
+    if(fP&&tip!==fP)return;
+    if(q&&!cat.toLowerCase().includes(q)&&!mod.toLowerCase().includes(q)&&!tip.toLowerCase().includes(q)&&!pre.toLowerCase().includes(q))return;
+    rows.push({idx,cat,mod,tip,pre});
+  });
+  const fil=document.getElementById("rcExFil");if(fil)fil.textContent="Mostrando "+rows.length+" de "+list.length;
+  tb.innerHTML=rows.map(r=>'<tr data-i="'+r.idx+'"><td class="rc-ex-cat">'+esc(r.cat)+'</td><td class="rc-ex-mod">'+esc(r.mod)+'</td><td class="rc-ex-tip">'+esc(r.tip)+'</td><td><input type="text" class="rc-ex-pi" data-i="'+r.idx+'" value="'+esc(r.pre)+'" placeholder="Cotizar precio"></td><td style="text-align:center;white-space:nowrap"><button type="button" class="rc-ex-ac b-s1" data-i="'+r.idx+'" title="Guardar">💾</button> <button type="button" class="rc-ex-ac b-d1" data-i="'+r.idx+'" title="Eliminar">🗑</button></td></tr>').join("");
+}
+function _rcSyncPublico(){ try{ localStorage.setItem("rc_cat_v2", JSON.stringify(getCatalogoReal())); if(typeof window.rcEjecutarBusqueda==="function") window.rcEjecutarBusqueda(); }catch(e){} }
+function saveExcel(al){
+  const list=getCatalogoReal();
+  document.querySelectorAll(".rc-ex-pi").forEach(inp=>{
+    const x=parseInt(inp.getAttribute("data-i"),10);
+    if(!isNaN(x)&&list[x]){if("precios" in list[x])list[x].precios=inp.value.trim();else list[x].precio=inp.value.trim()}
+  });
+  try{
+    localStorage.setItem("rc_cat_v2",JSON.stringify(list));
+    if(typeof guardarTodo==="function")guardarTodo();
+    if(typeof filtrarCatalogo==="function")filtrarCatalogo();
+  }catch(e){}
+  document.querySelectorAll("#rcExBody tr.dirty").forEach(tr=>tr.classList.remove("dirty"));
+  const m=document.getElementById("rcExMsg");if(m)m.innerHTML='<span style="color:#4ade80;font-weight:700">✅ Guardado ('+new Date().toLocaleTimeString()+').</span>';
+  if(al)alert("✅ Todos los precios fueron guardados correctamente.");
+}
+window.addEventListener("DOMContentLoaded",()=>{
+  ["rcExMarca","rcExModelo","rcExPieza"].forEach(id=>document.getElementById(id)?.addEventListener("change",drawExcel));
+  document.getElementById("rcExBuscar")?.addEventListener("input",drawExcel);
+  document.getElementById("rcExBLimpiar")?.addEventListener("click",()=>{
+    ["rcExMarca","rcExModelo","rcExPieza","rcExBuscar"].forEach(id=>{const e=document.getElementById(id);if(e)e.value=""});
+    _rcSyncPublico(); drawExcel();
+  });
+  const tb=document.getElementById("rcExBody");
+  if(tb){
+    tb.addEventListener("input",e=>{if(e.target.classList.contains("rc-ex-pi"))e.target.closest("tr")?.classList.add("dirty")});
+    tb.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.classList.contains("rc-ex-pi")){e.preventDefault();saveExcel(false)}});
+    tb.addEventListener("click",e=>{
+      if(e.target.closest(".b-s1")){saveExcel(false);return}
+      const d=e.target.closest(".b-d1");
+      if(d){const x=parseInt(d.getAttribute("data-i"),10),l=getCatalogoReal();if(!isNaN(x)&&l[x]&&confirm("¿Eliminar "+getFields(l[x]).mod+" - "+getFields(l[x]).tip+"?")){l.splice(x,1);saveExcel(false);drawExcel()}}
+    });
+  }
+  document.getElementById("rcExBSave")?.addEventListener("click",()=>saveExcel(true));
+  document.getElementById("rcExBOut")?.addEventListener("click",()=>{
+    try{sessionStorage.removeItem("rc_admin");if(typeof adminLogueado!=="undefined")adminLogueado=false;const top=document.getElementById("topAdminBar");if(top)top.style.display="none"}catch(e){}
+    document.body.classList.remove("rc-admin-on","rc-hide-pub");delete document.getElementById("rcAdminProPanel")?.dataset.on;
+    if(typeof filtrarCatalogo==="function")filtrarCatalogo();
+  });
+  const ab=document.getElementById("rcExAddBox");
+  document.getElementById("rcExBAdd")?.addEventListener("click",()=>{ab?.classList.toggle("open");document.getElementById("rcNewCat")?.focus()});
+  document.getElementById("rcExBAddNo")?.addEventListener("click",()=>ab?.classList.remove("open"));
+  document.getElementById("rcExBAddOk")?.addEventListener("click",()=>{
+    const categoria=(document.getElementById("rcNewCat")?.value||"iPhone").trim(),modelo=(document.getElementById("rcNewMod")?.value||"").trim(),tipo=(document.getElementById("rcNewTip")?.value||"").trim(),precios=(document.getElementById("rcNewPre")?.value||"").trim();
+    if(!modelo||!tipo){alert("Escribe Modelo y Pieza.");return}
+    getCatalogoReal().unshift({categoria,modelo,tipo,precios});
+    ["rcNewCat","rcNewMod","rcNewTip","rcNewPre"].forEach(i=>document.getElementById(i).value="");
+    ab?.classList.remove("open");saveExcel(false);_rcSyncPublico(); drawExcel();
+  });
+  document.getElementById("rcExBPub")?.addEventListener("click",e=>{
+    const oc=document.body.classList.toggle("rc-hide-pub");e.target.textContent=oc?"👁 Ver Público":"🙈 Ocultar Público";
+  });
+  document.getElementById("rcExBExp")?.addEventListener("click",()=>{
+    saveExcel(false);const l=getCatalogoReal();
+    let doc="<!DOCTYPE html>\n"+document.documentElement.outerHTML;
+    doc=doc.replace(/class="([^"]*)\brc-admin-on\b([^"]*)"/g,'class="$1$2"').replace(/class="([^"]*)\brc-hide-pub\b([^"]*)"/g,'class="$1$2"');
+    const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([doc],{type:"text/html;charset=utf-8"}));a.download="index.html";a.click();
+  });
+  _rcSyncPublico(); drawExcel();setInterval(drawExcel,800);
+});
+})();
+</script>
+<!-- RC-ADMIN-PRO-END -->
+
+<script id="rc-admin-combos-marca">
+(function() {
+  function sincronizarModelosPorMarca() {
+    var selMarca = document.getElementById("rcExMarca");
+    var selMod = document.getElementById("rcExModelo");
+    if (!selMarca || !selMod) return;
+
+    var marcaElegida = (selMarca.value || "").trim();
+    var lista = (typeof window.DEF !== "undefined" && Array.isArray(window.DEF)) ? window.DEF : [];
+    if (!lista.length) return;
+
+    // Reconstruir opciones de Marca poniendo "iPhone" primero si existe
+    var marcasSet = new Set();
+    var modelosSet = new Set();
+
+    lista.forEach(function(it) {
+      if (!it) return;
+      var mod = String(it.modelo || it.nombre || "").trim();
+      var ml = mod.toLowerCase();
+      var cat = String(it.categoria || "").trim();
+      if (!cat || cat.toLowerCase() === "varios") {
+        if (ml.indexOf("iphone") !== -1 || /^(?:6s|7|8|x|xr|xs|se|11|12|13|14|15|16|17|18)(?:\b|\s|\/|pro|plus|mini|max|air)/i.test(ml)) cat = "iPhone";
+        else if (ml.indexOf("samsung") !== -1 || ml.indexOf("galaxy") !== -1) cat = "Samsung";
+        else if (ml.indexOf("motorola") !== -1 || ml.indexOf("moto ") !== -1) cat = "Motorola";
+        else if (ml.indexOf("xiaomi") !== -1 || ml.indexOf("redmi") !== -1 || ml.indexOf("poco") !== -1) cat = "Xiaomi";
+        else if (ml.indexOf("huawei") !== -1) cat = "Huawei";
+        else if (ml.indexOf("pixel") !== -1 || ml.indexOf("google") !== -1) cat = "Google Pixel";
+        else if (ml.indexOf("macbook") !== -1) cat = "MacBook";
+        else if (ml.indexOf("ipad") !== -1 || ml.indexOf("tablet") !== -1) cat = "Tablet / iPad";
+        else if (ml.indexOf("playstation") !== -1 || ml.indexOf("ps4") !== -1 || ml.indexOf("ps5") !== -1) cat = "PlayStation";
+        else if (ml.indexOf("nintendo") !== -1 || ml.indexOf("switch") !== -1) cat = "Nintendo";
+        else if (ml.indexOf("honor") !== -1) cat = "Honor";
+        else if (ml.indexOf("oppo") !== -1) cat = "Oppo";
+        else if (ml.indexOf("realme") !== -1) cat = "Realme";
+        else if (ml.indexOf("oneplus") !== -1) cat = "OnePlus";
+        else if (ml.indexOf("zte") !== -1) cat = "ZTE";
+        else if (ml.indexOf("alcatel") !== -1) cat = "Alcatel";
+        else if (ml.indexOf("tcl") !== -1) cat = "TCL";
+        else if (ml.indexOf("lg") !== -1) cat = "LG";
+        else if (ml.indexOf("blackberry") !== -1) cat = "BlackBerry";
+        else if (ml.indexOf("patinete") !== -1 || ml.indexOf("pasola") !== -1) cat = "Patinetes y Pasolas";
+        else cat = "Varios";
+      }
+      if (cat) marcasSet.add(cat);
+      if (mod && (!marcaElegida || cat === marcaElegida)) {
+        modelosSet.add(mod);
+      }
+    });
+
+    // Asegurar que "iPhone" siempre esté en el desplegable de Marcas y de primero
+    var marcasOrdenadas = Array.from(marcasSet).sort();
+    if (marcasOrdenadas.indexOf("iPhone") !== -1) {
+      marcasOrdenadas = ["iPhone"].concat(marcasOrdenadas.filter(function(m) { return m !== "iPhone"; }));
+    }
+
+    if (document.activeElement !== selMarca) {
+      var valM = selMarca.value;
+      selMarca.innerHTML = '<option value="">1. Todas las Marcas (' + marcasOrdenadas.length + ')</option>';
+      marcasOrdenadas.forEach(function(m) {
+        var o = document.createElement("option");
+        o.value = m;
+        o.textContent = m;
+        selMarca.appendChild(o);
+      });
+      selMarca.value = valM;
+    }
+
+    if (document.activeElement !== selMod) {
+      var valMod = selMod.value;
+      var modsArr = Array.from(modelosSet);
+      selMod.innerHTML = '<option value="">2. Todos los Modelos (' + modsArr.length + ')</option>';
+      modsArr.forEach(function(md) {
+        var o = document.createElement("option");
+        o.value = md;
+        o.textContent = md;
+        selMod.appendChild(o);
+      });
+      if (modsArr.indexOf(valMod) !== -1) selMod.value = valMod;
+      else selMod.value = "";
+    }
+  }
+
+  function init() {
+    var selMarca = document.getElementById("rcExMarca");
+    if (!selMarca) return setTimeout(init, 250);
+    selMarca.addEventListener("change", function() {
+      var selMod = document.getElementById("rcExModelo");
+      if (selMod) selMod.value = "";
+      sincronizarModelosPorMarca();
+      if (typeof drawExcel === "function") drawExcel();
+    });
+    setInterval(sincronizarModelosPorMarca, 900);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+<script id="rc-excel-guardar-real">
+(function(){
+  function fmtRD(v){
+    v=String(v||"").trim();if(!v)return "";
+    var n=v.replace(/^rd\$?\s*/i,"").replace(/,/g,"").trim();
+    return /^\d+$/.test(n)?"RD$"+parseInt(n,10).toLocaleString("en-US"):v;
+  }
+  function syncCat(){
+    var L=(typeof window.DEF!=="undefined"&&Array.isArray(window.DEF))?window.DEF:[];
+    document.querySelectorAll("#rcExBody input.rc-ex-pi").forEach(function(inp){
+      var i=parseInt(inp.getAttribute("data-i"),10);
+      if(!isNaN(i)&&L[i]){var f=fmtRD(inp.value);inp.value=f;L[i].precios=f;}
+    });
+    if(L.length)try{localStorage.setItem("rc_cat_v2",JSON.stringify(L));}catch(e){}
+    if(typeof window.rcEjecutarBusqueda==="function")window.rcEjecutarBusqueda();
+    return L;
+  }
+  function init(){
+    var p=document.getElementById("rcAdminProPanel");if(!p)return setTimeout(init,200);
+    ["rcExMarca","rcExModelo","rcExPieza"].forEach(function(id){
+      var s=document.getElementById(id);
+      if(s&&!s.dataset.rcL){s.dataset.rcL="1";s.addEventListener("change",function(){if(typeof window.drawExcel==="function")window.drawExcel();});}
+    });
+    var b=document.getElementById("rcExBuscar");
+    if(b&&!b.dataset.rcL){b.dataset.rcL="1";b.addEventListener("input",function(){if(typeof window.drawExcel==="function")window.drawExcel();});}
+    p.addEventListener("input",function(e){
+      var inp=e.target;
+      if(inp&&inp.classList&&inp.classList.contains("rc-ex-pi")){
+        var n=inp.value.replace(/^rd\$?\s*/i,"").replace(/,/g,"").trim();
+        if(/^\d{4,}$/.test(n))inp.value="RD$"+parseInt(n,10).toLocaleString("en-US");
+      }
+    });
+    p.addEventListener("change",function(e){if(e.target&&e.target.classList.contains("rc-ex-pi")){e.target.value=fmtRD(e.target.value);syncCat();}});
+    p.addEventListener("keydown",function(e){if(e.key==="Enter"&&e.target&&e.target.classList.contains("rc-ex-pi")){e.preventDefault();e.target.value=fmtRD(e.target.value);syncCat();e.target.blur();}});
+    document.addEventListener("click",function(e){
+      var btn=e.target.closest("button");if(!btn)return;
+      var t=(btn.textContent||"").trim().toLowerCase();
+      if(t.indexOf("salir admin")!==-1||btn.id==="rcExBOut"){
+        e.stopImmediatePropagation();e.preventDefault();
+        try{sessionStorage.clear();Object.keys(localStorage).forEach(function(k){if(/admin|adm|auth|login|sess|token/i.test(k)&&k!=="rc_admin_usuario_guardado")localStorage.removeItem(k);});}catch(err){}
+        document.body.classList.remove("rc-admin-on","rc-admin-logueado","rc-hide-pub");
+        var tb=document.getElementById("topAdminBar");if(tb)tb.style.display="none";
+        p.style.display="none";location.reload();return;
+      }
+      if(!p.contains(btn))return;
+      if(t.indexOf("guardar")!==-1||btn.classList.contains("rc-ex-sv")||t==="💾"){
+        e.stopPropagation();syncCat();var prev=btn.textContent;btn.textContent=t==="💾"?"✅":"✅ ¡Guardado!";setTimeout(function(){btn.textContent=prev;},1300);return;
+      }
+      if(btn.id==="rcExBExp"||t.indexOf("descargar")!==-1||t.indexOf("exportar")!==-1){
+        e.stopImmediatePropagation();e.preventDefault();
+        var L=syncCat(),doc="<!DOCTYPE html>\n"+document.documentElement.outerHTML;
+        doc=doc.replace(/class="([^"]*)\b(?:rc-admin-on|rc-admin-logueado|rc-hide-pub)\b([^"]*)"/g,'class="$1$2"');
+        if(L.length)doc=doc.replace(/const DEF = window\.DEF = \[[\s\S]*?\];/,"const DEF = window.DEF = "+JSON.stringify(L)+";");
+        var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([doc],{type:"text/html;charset=utf-8"}));a.download="index.html";a.click();
+      }
+    },true);
+  }
+  document.readyState==="loading"?document.addEventListener("DOMContentLoaded",init):init();setTimeout(init,400);
+})();
+</script>
+<!-- RC-FIX-3-START -->
+<style>
+#topAdminBar, body:not(.rc-admin-on) #topAdminBar, body:not(.rc-admin-on) #btnHeaderAdmin, body:not(.rc-admin-on) button[onclick*="abrirAdmin"] {
+  display: inline-flex !important; visibility: visible !important; opacity: 1 !important;
+}
+</style>
+<script>
+(function(){
+  var blq=0;
+  function fmtRD(v){
+    var s=String(v||"").trim();
+    if(!s||/cotizar/i.test(s)) return s;
+    if(/^[0-9.,\s]+$/.test(s)){var d=s.replace(/[^0-9]/g,"");return d?"RD$"+Number(d).toLocaleString("en-US"):"";}
+    return s.replace(/RD\$\s*(\d{4,})(?!,\d)/g,function(_,n){return "RD$"+Number(n).toLocaleString("en-US");});
+  }
+  function fmtPub(){
+    var c=document.getElementById("resultadosGrid")||document.body,w=document.createTreeWalker(c,4,null,false),n;
+    while((n=w.nextNode())){
+      if(n.parentElement&&["SCRIPT","STYLE","INPUT","TEXTAREA"].indexOf(n.parentElement.tagName)!==-1) continue;
+      if(n.nodeValue&&/RD\$\s*\d{4,}/.test(n.nodeValue))
+        n.nodeValue=n.nodeValue.replace(/RD\$\s*(\d{4,})(?!,\d)/g,function(_,num){return "RD$"+Number(num).toLocaleString("en-US");});
+    }
+  }
+  function cVal(td){if(!td)return "";var e=td.querySelector("input,select");return(e?e.value:td.innerText).trim();}
+  function syncPub(){
+    var rows=document.querySelectorAll("#rcExBody tr");
+    if(rows.length&&Array.isArray(window.DEF)){
+      rows.forEach(function(tr){
+        var tds=tr.querySelectorAll("td");if(tds.length<4)return;
+        var m=cVal(tds[1]),t=cVal(tds[2]),pi=tds[3].querySelector("input,select");if(!pi||!m||!t)return;
+        var np=fmtRD(pi.value);pi.value=np;
+        for(var i=0;i<window.DEF.length;i++){
+          var it=window.DEF[i];
+          if((it.modelo||it.mod||"").trim()===m&&(it.tipo||it.tip||"").trim()===t){
+            if("precios" in it)it.precios=np;if("pre" in it)it.pre=np;break;
+          }
+        }
+      });
+      try{localStorage.setItem("rc_cat_v2",JSON.stringify(window.DEF));}catch(e){}
+    }
+    if(typeof window.rcEjecutarBusqueda==="function")try{window.rcEjecutarBusqueda();}catch(e){}
+    if(typeof window.filtrarCatalogo==="function")try{window.filtrarCatalogo();}catch(e){}
+    setTimeout(fmtPub,30);
+  }
+  function filAdm(){
+    if(typeof window.drawExcel==="function")try{window.drawExcel();}catch(e){}
+    var fM=(document.getElementById("rcExMarca")?.value||"").trim().toLowerCase();
+    var fMo=(document.getElementById("rcExModelo")?.value||"").trim().toLowerCase();
+    var fP=(document.getElementById("rcExPieza")?.value||"").trim().toLowerCase();
+    var fB=(document.getElementById("rcExBuscar")?.value||"").trim().toLowerCase();
+    document.querySelectorAll("#rcExBody tr").forEach(function(tr){
+      var full=(tr.innerText+" "+Array.from(tr.querySelectorAll("input,select")).map(function(i){return i.value||"";}).join(" ")).toLowerCase();
+      tr.style.display=((!fM||full.indexOf(fM)!==-1)&&(!fMo||full.indexOf(fMo)!==-1)&&(!fP||full.indexOf(fP)!==-1)&&(!fB||full.indexOf(fB)!==-1))?"":"none";
+    });
+  }
+  document.addEventListener("click",function(e){
+    var db=e.target&&e.target.closest("#rcExBody .b-d1,#rcExBody button[title*='Eliminar'],#rcExBody button[title*='Borrar']");
+    if(db){
+      e.preventDefault();e.stopPropagation();e.stopImmediatePropagation();
+      var tr=db.closest("tr");if(!tr)return;
+      var tds=tr.querySelectorAll("td"),m=cVal(tds),t=cVal(tds);
+      if(!confirm("¿Eliminar únicamente este producto?\n\nModelo: "+m+"\nPieza: "+t))return;
+      if(Array.isArray(window.DEF)){
+        var ix=window.DEF.findIndex(function(x){return(x.modelo||x.mod||"").trim()===m&&(x.tipo||x.tip||"").trim()===t;});
+        if(ix!==-1)window.DEF.splice(ix,1);
+        try{localStorage.setItem("rc_cat_v2",JSON.stringify(window.DEF));}catch(e){}
+      }
+      tr.remove();filAdm();syncPub();return;
+    }
+    var sb=e.target&&e.target.closest("#rcExBSave,button");
+    if(sb&&(sb.id==="rcExBSave"||/Guardar Cambios|Ver P[uú]blico/i.test(sb.textContent||""))) setTimeout(syncPub,30);
+  },true);
+  document.addEventListener("change",function(e){
+    var t=e.target;if(!t)return;
+    if(["rcExMarca","rcExModelo","rcExPieza"].indexOf(t.id)!==-1)setTimeout(filAdm,10);
+    if(t.classList&&t.classList.contains("rc-ex-pi"))syncPub();
+  },true);
+  document.addEventListener("input",function(e){
+    var t=e.target;if(!t)return;
+    if(t.id==="rcExBuscar")filAdm();
+    if(t.classList&&t.classList.contains("rc-ex-pi")){
+      var p=t.selectionStart,ol=t.value.length,f=fmtRD(t.value);
+      if(t.value!==f){t.value=f;try{t.setSelectionRange(Math.max(3,p+(f.length-ol)),Math.max(3,p+(f.length-ol)));}catch(er){}}
+      var tr=t.closest("tr");if(tr)tr.classList.add("dirty");
+    }
+  },true);
+  window.addEventListener("DOMContentLoaded",function(){
+    try{var sv=localStorage.getItem("rc_cat_v2");if(sv&&Array.isArray(window.DEF)){var pr=JSON.parse(sv);if(Array.isArray(pr)&&pr.length){window.DEF.length=0;pr.forEach(function(x){window.DEF.push(x);});}}}catch(e){}
+    fmtPub();
+    if(window.MutationObserver){
+      new MutationObserver(fmtPub).observe(document.body,{childList:true,subtree:true});
+      var md=document.getElementById("modalAdmin");
+      if(md)new MutationObserver(function(){if(Date.now()<blq&&md.classList.contains("open")){md.classList.remove("open");md.style.display="none";}}).observe(md,{attributes:true,attributeFilter:["class","style"]});
+    }
+  });
+  function showAdmBtn(){
+    var tb=document.getElementById("topAdminBar");if(tb){tb.style.display="inline-flex";tb.style.visibility="visible";tb.style.opacity="1";}
+    document.querySelectorAll("button").forEach(function(el){
+      if((el.id==="btnHeaderAdmin"||/abrirAdmin/.test(el.getAttribute("onclick")||"")||/Admin/i.test(el.textContent||""))&&el.id!=="rcExBOut"&&!el.closest("#rcAdminProPanel")&&!el.closest("#modalAdmin")){
+        el.style.display="inline-flex";el.style.visibility="visible";el.style.opacity="1";
+        if(el.id==="btnHeaderAdmin")el.innerHTML="🔒 Admin";
+      }
+    });
+  }
+  ["pointerdown","mousedown","click"].forEach(function(ev){
+    document.addEventListener(ev,function(e){
+      if(!e.target||!e.target.closest("#rcExBOut"))return;
+      e.preventDefault();e.stopPropagation();e.stopImmediatePropagation();
+      blq=Date.now()+2500;syncPub();
+      try{sessionStorage.removeItem("rc_admin");localStorage.removeItem("rc_admin");(0,eval)("if(typeof adminLogueado!=='undefined')adminLogueado=false;");}catch(er){}
+      document.body.classList.remove("rc-admin-on","rc-hide-pub");
+      var p=document.getElementById("rcAdminProPanel");if(p){delete p.dataset.on;p.style.display="none";}
+      var md=document.getElementById("modalAdmin");if(md){md.classList.remove("open");md.style.display="none";}
+      showAdmBtn();setTimeout(showAdmBtn,150);
+    },true);
+  });
+})();
+</script>
+<script>
+(function(){
+  function hAdd(){
+    var on=document.body.classList.contains("rc-admin-on");
+    document.querySelectorAll("button").forEach(function(b){
+      if(!b.closest("#rcAdminProPanel") && /Agregar Dispositivo/i.test(b.textContent||""))
+        b.style.setProperty("display", on?"inline-flex":"none", "important");
+    });
+  }
+  window.addEventListener("DOMContentLoaded",hAdd);
+  new MutationObserver(hAdd).observe(document.documentElement,{attributes:true,subtree:true,attributeFilter:["class","style"]});
+})();
+</script>
+<!-- RC-FIX-3-END -->
 </body>
 </html>
