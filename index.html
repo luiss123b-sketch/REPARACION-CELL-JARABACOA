@@ -32,6 +32,8 @@ footer{position:relative;padding:70px 18px 110px;text-align:center;color:#f4f4f5
 .bank-card{background:#0b0b0e;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;margin:10px 0}.bank-row{display:flex;justify-content:space-between;align-items:center;gap:8px}.copy-btn{background:rgba(245,185,21,0.16);color:var(--gold-light);border:1px solid var(--border);padding:5px 12px;border-radius:8px;font-size:0.8rem;font-weight:700;cursor:pointer}.adm-input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);background:#09090b;color:#fff;margin-bottom:8px;font-family:inherit}
 .mobile-bar{display:none}.wa-float{position:fixed;bottom:20px;right:20px;background:var(--green);color:#fff;padding:13px 20px;border-radius:99px;font-weight:700;text-decoration:none;z-index:200display:none !important; visibility:hidden !important; pointer-events:none !important;}
 @media(max-width:768px){nav,.wa-float{display:none}.workshop-bg-section{background-attachment:scroll}.filter-tabs{flex-wrap:nowrap;overflow-x:auto}.tab-btn{white-space:nowrap;flex-shrink:0}.mobile-bar{display:grid;grid-template-columns:1fr 1fr 1fr;position:fixed;bottom:0;left:0;right:0;background:rgba(12,12,15,0.96);border-top:1px solid var(--border);z-index:300;padding:8px;gap:8pxdisplay:none !important; visibility:hidden !important; pointer-events:none !important;}.mobile-bar a,.mobile-bar button{text-align:center;padding:10px 6px;border-radius:12px;font-size:0.82rem;font-weight:700;text-decoration:none;border:none;font-family:inherit}.mb-wa{background:var(--green);color:#fff}.mb-pay{background:var(--gold);color:#000}.mb-loc{background:#1d1d24;color:#fff;border:1px solid var(--border)!important}}
+
+.hero h1, .hero p { text-shadow: 0 2px 14px rgba(0,0,0,0.9); }
 </style>
 <style>
 .reviews-grid, .testimonials-grid { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)) !important; gap: 14px !important; }
@@ -435,6 +437,72 @@ footer{position:relative;padding:70px 18px 110px;text-align:center;color:#f4f4f5
     </div>
 
   </div>
+</section>
+
+
+<section id="sobre-nosotros" style="max-width: 960px; margin: 32px auto; padding: 22px 20px; background: rgba(255,255,255,0.025); border: 1px solid rgba(245, 185, 21, 0.22); border-radius: 20px; display: grid; grid-template-columns: 1.55fr 0.78fr; gap: 18px; align-items: center;">
+  
+  <!-- COLUMNA IZQUIERDA COMPACTA -->
+  <div style="display: flex; flex-direction: column; gap: 15px;">
+    
+    <!-- FILA SUPERIOR: LOCAL + VIÑETAS IZQ + FOTO IPHONE + VIÑETAS DER -->
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; width: 100%;">
+      
+      <!-- 1. FOTO DEL LOCAL -->
+      <div style="flex: 0 0 215px;">
+        <img src="IMG_0552.jpg" alt="Local Reparación Cell Jarabacoa" style="width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.12);">
+      </div>
+
+      <!-- 2. BLOQUE CENTRAL: VIÑETAS IZQUIERDA + IPHONE + VIÑETAS DERECHA -->
+      <div style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; min-width: 280px;">
+        
+        <!-- VIÑETAS LADO IZQUIERDO DEL IPHONE -->
+        <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; font-size: 0.65rem; line-height: 1.3; color: #d1d5db; text-align: right; max-width: 112px;">
+          <li><span style="color: #f5b915;">•</span> Especialistas en Apple</li>
+          <li><span style="color: #f5b915;">•</span> iPhone 18 Pro Max</li>
+          <li><span style="color: #f5b915;">•</span> Calidad certificada</li>
+        </ul>
+
+        <!-- FOTO DEL IPHONE SIN TEXTO ABAJO -->
+        <div style="flex: 0 0 105px;">
+          <img src="IMG_9048.jpg" alt="Especialistas en Apple iPhone 18 Pro Max" style="width: 100%; height: auto; display: block; border-radius: 9px; filter: brightness(1.12) contrast(1.12) saturate(1.1); box-shadow: 0 6px 18px rgba(245, 185, 21, 0.16);">
+        </div>
+
+        <!-- VIÑETAS LADO DERECHO DEL IPHONE -->
+        <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; font-size: 0.65rem; line-height: 1.3; color: #d1d5db; text-align: left; max-width: 112px;">
+          <li><span style="color: #f5b915;">•</span> Servicio a domicilio</li>
+          <li><span style="color: #f5b915;">•</span> Técnicos expertos</li>
+          <li><span style="color: #f5b915;">•</span> Entrega rápida</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+    <!-- TEXTO DESCRIPTIVO GENERAL DEBAJO -->
+    <div style="color: #f3f4f6;">
+      <span style="display: inline-block; font-size: 0.62rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: #f5b915; margin-bottom: 4px;">SOBRE NOSOTROS · JARABACOA</span>
+      <h2 style="font-size: 1.06rem; font-weight: 800; line-height: 1.25; margin: 0 0 7px 0; color: #ffffff;">¿Quiénes somos en <span style="color: #f5b915;">Reparación Cell?</span></h2>
+      <p style="font-size: 0.75rem; line-height: 1.5; color: #d1d5db; margin: 0 0 10px 0;">
+        Somos un centro técnico especializado en Jarabacoa dedicado a devolverle la vida a tus dispositivos con precisión, honestidad y repuestos de alta calidad en nuestras sucursales de <strong style="color: #ffffff;">Medina</strong> y <strong style="color: #ffffff;">Pinar Quemado</strong>.
+      </p>
+      <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; font-size: 0.72rem; line-height: 1.45; color: #e5e7eb;">
+        <li><span style="color: #f5b915; font-weight: bold;">✦</span> <strong style="color: #f5b915;">Especialistas multimarca:</strong> iPhone, Samsung, Xiaomi, PlayStation, PC y patinetes eléctricos.</li>
+        <li><span style="color: #f5b915; font-weight: bold;">✦</span> <strong style="color: #f5b915;">Microsoldadura y laboratorio propio:</strong> Reparaciones de placa base, pantallas y baterías.</li>
+        <li><span style="color: #f5b915; font-weight: bold;">✦</span> <strong style="color: #f5b915;">Transparencia total:</strong> Diagnóstico claro antes de intervenir tu equipo y garantía escrita.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- COLUMNA DERECHA: VIDEO PEGADO SIN HUECOS VACÍOS -->
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.35); border: 1px solid rgba(245, 185, 21, 0.25); border-radius: 16px; padding: 12px;">
+    <video controls playsinline muted loop preload="metadata" style="width: 100%; max-width: 215px; max-height: 365px; border-radius: 12px; background: #000; box-shadow: 0 8px 22px rgba(0,0,0,0.5); filter: brightness(1.12) contrast(1.12) saturate(1.08);">
+      <source src="video_taller.mp4" type="video/mp4">
+      Tu navegador no soporta la reproducción de video.
+    </video>
+    <span style="font-size: 0.66rem; color: #f5b915; font-weight: 600; margin-top: 8px; letter-spacing: 0.5px;">✦ Trabajo real en nuestro taller</span>
+  </div>
+
 </section>
 
 <section id="sucursales">
