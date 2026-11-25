@@ -440,46 +440,74 @@ footer{position:relative;padding:70px 18px 110px;text-align:center;color:#f4f4f5
 </section>
 
 
+<style>
+  @media (max-width: 768px) {
+    #sobre-nosotros {
+      grid-template-columns: 1fr !important;
+      margin: 20px 12px !important;
+      padding: 18px 14px !important;
+      gap: 20px !important;
+    }
+    #sobre-nosotros .sn-top-row {
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 16px !important;
+    }
+    #sobre-nosotros .sn-local-box {
+      flex: none !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    #sobre-nosotros .sn-iphone-row {
+      width: 100% !important;
+      min-width: 0 !important;
+      justify-content: center !important;
+      gap: 8px !important;
+    }
+    #sobre-nosotros .sn-iphone-row ul {
+      max-width: 105px !important;
+      font-size: 0.68rem !important;
+    }
+    #sobre-nosotros .sn-iphone-img {
+      flex: 0 0 96px !important;
+    }
+    #sobre-nosotros .sn-video-box {
+      width: 100% !important;
+      padding: 14px !important;
+    }
+    #sobre-nosotros .sn-video-box video {
+      max-width: 260px !important;
+      max-height: 440px !important;
+    }
+  }
+</style>
 <section id="sobre-nosotros" style="max-width: 960px; margin: 32px auto; padding: 22px 20px; background: rgba(255,255,255,0.025); border: 1px solid rgba(245, 185, 21, 0.22); border-radius: 20px; display: grid; grid-template-columns: 1.55fr 0.78fr; gap: 18px; align-items: center;">
   
-  <!-- COLUMNA IZQUIERDA COMPACTA -->
   <div style="display: flex; flex-direction: column; gap: 15px;">
-    
-    <!-- FILA SUPERIOR: LOCAL + VIÑETAS IZQ + FOTO IPHONE + VIÑETAS DER -->
-    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; width: 100%;">
-      
-      <!-- 1. FOTO DEL LOCAL -->
-      <div style="flex: 0 0 215px;">
+    <div class="sn-top-row" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; width: 100%;">
+      <div class="sn-local-box" style="flex: 0 0 215px;">
         <img src="IMG_0552.jpg" alt="Local Reparación Cell Jarabacoa" style="width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.12);">
       </div>
 
-      <!-- 2. BLOQUE CENTRAL: VIÑETAS IZQUIERDA + IPHONE + VIÑETAS DERECHA -->
-      <div style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; min-width: 280px;">
-        
-        <!-- VIÑETAS LADO IZQUIERDO DEL IPHONE -->
+      <div class="sn-iphone-row" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; min-width: 280px;">
         <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; font-size: 0.65rem; line-height: 1.3; color: #d1d5db; text-align: right; max-width: 112px;">
           <li><span style="color: #f5b915;">•</span> Especialistas en Apple</li>
           <li><span style="color: #f5b915;">•</span> iPhone 18 Pro Max</li>
           <li><span style="color: #f5b915;">•</span> Calidad certificada</li>
         </ul>
 
-        <!-- FOTO DEL IPHONE SIN TEXTO ABAJO -->
-        <div style="flex: 0 0 105px;">
+        <div class="sn-iphone-img" style="flex: 0 0 105px;">
           <img src="IMG_9048.jpg" alt="Especialistas en Apple iPhone 18 Pro Max" style="width: 100%; height: auto; display: block; border-radius: 9px; filter: brightness(1.12) contrast(1.12) saturate(1.1); box-shadow: 0 6px 18px rgba(245, 185, 21, 0.16);">
         </div>
 
-        <!-- VIÑETAS LADO DERECHO DEL IPHONE -->
         <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; font-size: 0.65rem; line-height: 1.3; color: #d1d5db; text-align: left; max-width: 112px;">
           <li><span style="color: #f5b915;">•</span> Servicio a domicilio</li>
           <li><span style="color: #f5b915;">•</span> Técnicos expertos</li>
           <li><span style="color: #f5b915;">•</span> Entrega rápida</li>
         </ul>
-
       </div>
-
     </div>
 
-    <!-- TEXTO DESCRIPTIVO GENERAL DEBAJO -->
     <div style="color: #f3f4f6;">
       <span style="display: inline-block; font-size: 0.62rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: #f5b915; margin-bottom: 4px;">SOBRE NOSOTROS · JARABACOA</span>
       <h2 style="font-size: 1.06rem; font-weight: 800; line-height: 1.25; margin: 0 0 7px 0; color: #ffffff;">¿Quiénes somos en <span style="color: #f5b915;">Reparación Cell?</span></h2>
@@ -494,17 +522,15 @@ footer{position:relative;padding:70px 18px 110px;text-align:center;color:#f4f4f5
     </div>
   </div>
 
-  <!-- COLUMNA DERECHA: VIDEO PEGADO SIN HUECOS VACÍOS -->
-  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.35); border: 1px solid rgba(245, 185, 21, 0.25); border-radius: 16px; padding: 12px;">
+  <div class="sn-video-box" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.35); border: 1px solid rgba(245, 185, 21, 0.25); border-radius: 16px; padding: 12px;">
     <video controls playsinline muted loop preload="metadata" style="width: 100%; max-width: 215px; max-height: 365px; border-radius: 12px; background: #000; box-shadow: 0 8px 22px rgba(0,0,0,0.5); filter: brightness(1.12) contrast(1.12) saturate(1.08);">
-      <source src="video_taller.mp4" type="video/mp4">
+      <source src="video_taller.mp4#t=0.1" type="video/mp4">
       Tu navegador no soporta la reproducción de video.
     </video>
     <span style="font-size: 0.66rem; color: #f5b915; font-weight: 600; margin-top: 8px; letter-spacing: 0.5px;">✦ Trabajo real en nuestro taller</span>
   </div>
 
 </section>
-
 <section id="sucursales">
     <div class="sec-head"><h3>Nuestras 2 Tiendas en Jarabacoa: Medina y Pinar Quemado</h3><p>Visítanos o pide recogida y entrega (Delivery) en todo Jarabacoa.</p></div>
     <div class="stores-grid">
